@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
 
 :root{
+    --background-color-main: white;
     --background-color: #f8f9f9;
     --secondary-background-color: #e5e7e9 ;
     --accent-color: #d055e7 ;
@@ -40,7 +41,7 @@ body{
         .nav-left{
             display:flex;
             align-items: center;
-            margin-left: 100px;
+            margin-left: 80px;
             font-family: Roboto;
             font-size: 22px;
 
@@ -67,11 +68,11 @@ body{
 
             input{
                 height: 50px;
-                width: 350px;
+                width: 300px;
                 border-radius: 30px;
                 border: none;
-                box-shadow: .5px .5px 6px var(--text-color-secondary);
-                background-color: var(--background-color);
+                box-shadow: .3px .3px 4px var(--text-color-secondary);
+                background-color: var(--background-color-main);
                 text-align: center;
                 font-family: Roboto;
                 font-size: 20px;
@@ -79,7 +80,7 @@ body{
             input:focus{
                 border: none;
                 outline: none;
-                background-color: white;
+                background-color: var(--background-color-main);
             }
             input::placeholder{
                 margin-left: 10px;
@@ -101,16 +102,16 @@ body{
                     height: 50px;
                     width: 50px;
                     border-radius: 50%;
-                    background-color: var(--background-color);
+                    background-color: var(--background-color-main);
                     border: none;
-                    box-shadow: .5px .5px 6px var(--text-color-secondary);
+                    box-shadow: .5px .5px 5px var(--text-color-secondary);
 
 
-                     svg{
+                    svg{
                         fill: var(--text-color-secondary);
                         width: 30px;
                         height: 30px;
-                     }
+                    }
                 }
             }
 
@@ -127,20 +128,20 @@ body{
                 font-size: 20px;
                 color: var(--background-color);
                 border: none;
-                box-shadow: .5px .5px 6px var(--text-color-secondary);
+                box-shadow: .5px .5px 6px black;
                 background-color: var(--accent-color);
             }
 
             .contact-us{
                 margin-left: 40px;
-                padding: 7px 20px;
+                padding: 2px 10px;
                 border-radius: 10px;
                 font-family: Roboto;
                 font-size: 20px;
                 color: var(--text-color-main);
                 border: 2px solid var(--accent-color);
-                box-shadow: .5px .5px 6px var(--text-color-secondary);
-                background-color: var(--background-color);
+                box-shadow: .5px .5px 5px black;
+                background-color: var(--background-color-main);
             }
         }
     }
