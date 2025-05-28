@@ -27,7 +27,7 @@ body{
 }
 .desktop{
     width: 100vw;
-    height: 80px;
+    height: 60px;
     z-index: 100;
    
 
@@ -35,18 +35,18 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 80px;
+        height: 60px;
         width: 100vw;
 
         .nav-left{
             display:flex;
             align-items: center;
-            margin-left: 80px;
+            margin-left: 30px;
             font-family: Roboto;
-            font-size: 22px;
+            font-size: 16px;
 
             .home-link, .productsPge-link{
-                margin-left: 100px;
+                margin-left: 50px;
 
                 a{
                     color: var(--text-color-main);
@@ -62,20 +62,20 @@ body{
         .nav-middle{
             display:flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
             font-family: Roboto;
             font-size: 22px;
 
             input{
-                height: 50px;
-                width: 300px;
+                height: 31px;
+                width: 200px;
                 border-radius: 30px;
                 border: none;
                 box-shadow: .3px .3px 4px var(--text-color-secondary);
                 background-color: var(--background-color-main);
                 text-align: center;
                 font-family: Roboto;
-                font-size: 20px;
+                font-size: 17px;
             }
             input:focus{
                 border: none;
@@ -99,8 +99,8 @@ body{
 
             .search-button{
                 button{
-                    height: 50px;
-                    width: 50px;
+                    height: 32px;
+                    width: 32px;
                     border-radius: 50%;
                     background-color: var(--background-color-main);
                     border: none;
@@ -109,8 +109,8 @@ body{
 
                     svg{
                         fill: var(--text-color-secondary);
-                        width: 30px;
-                        height: 30px;
+                        width: 21px;
+                        height: 21px;
                     }
                 }
             }
@@ -119,28 +119,28 @@ body{
 
         .nav-right{
             display:flex;
-            margin-right: 100px;
+            margin-right: 50px;
 
             .Sign-in{
-                padding: 10px 20px;
-                border-radius: 10px;
+                padding: 5px 20px;
+                border-radius: 7px;
                 font-family: Roboto;
-                font-size: 20px;
+                font-size: 14px;
                 color: var(--background-color);
                 border: none;
-                box-shadow: .5px .5px 6px black;
+                box-shadow: .1px .1px 3px black;
                 background-color: var(--accent-color);
             }
 
             .contact-us{
-                margin-left: 40px;
-                padding: 2px 10px;
-                border-radius: 10px;
+                margin-left: 30px;
+                padding: 0px 5px;
+                border-radius: 7px;
                 font-family: Roboto;
-                font-size: 20px;
+                font-size: 14px;
                 color: var(--text-color-main);
                 border: 2px solid var(--accent-color);
-                box-shadow: .5px .5px 5px black;
+                box-shadow: .1px .1px 3px black;
                 background-color: var(--background-color-main);
             }
         }
