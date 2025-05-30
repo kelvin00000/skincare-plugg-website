@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --accent-color: #d055e7 ;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+    interpolate-size: allow-keywords;
+}
+
+main{
+    .body-container{
+        .section-4{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            height: fit-content;
+            min-height: 80%;
+            margin-top: 300px;
+            margin-bottom: 100px;
+
+            .section-4-top{
+                width: 100%;
+                height: 10%;
+                text-align: center;
+                font-family: Roboto;
+                font-size: 30px;
+            }
+
+            .section-4-middle{
+                width: 500px;
+                height: fit-content;
+                min-height: 80%;
+                margin-top: 50px;
+                font-family: Open Sans;
+
+                .faq{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    width: 100%;
+                    height: fit-content;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+
+                    details{
+                        width: 100%;
+                        height: fit-content;
+                        border-radius: 15px;
+                        font-size: 17px;
+                        box-shadow: .1px 0px 5px #dadfdf;
+                        overflow: hidden;
+                        z-index: 5;
+                        transition: height 1s ease-in-out;
+                        
+                        .question{
+                            min-height: 35px;
+                            margin-top: 12px;
+                            margin-left: 30px;
+                            margin-bottom: 0px;
+                            list-style-position: outside;
+                            z-index: 5;
+                        }
+                        summary::marker{
+                            font-size: 14px;
+                            color: var(--text-color-main);
+                        }
+                        .answer{
+                            width: 94%;
+                            padding: 7px 10px;
+                            border-radius: 15px;
+                            margin-left: 7px;
+                            margin-bottom: 8px;
+                            background: var(--background-color);
+                            font-size: 15px;
+                            text-wrap: wrap;
+                            transition: height 1s ease-in-out;
+                            z-index: 1;
+                        }
+                    }
+                    details::details-content{
+                        block-size: 0;
+                        transition: 
+                            block-size .7s,
+                            content-visibility .7s;
+                        transition-behavior: allow-discrete;
+                    }
+                    details[open]::details-content{
+                        block-size: auto;
+                    }
+                }
+            }
+
+            .section-4-bottom{
+                position: relative;
+                width: 50%;
+                height: 10%;
+                margin-top: 80px;
+                text-align: center;
+                font-family: Open Sans;
+                font-size: 17px;
+
+                input{
+                    height: 31px;
+                    width: 250px;
+                    border-radius: 30px;
+                    border: none;
+                    box-shadow: .3px .3px 4px var(--text-color-secondary);
+                    background-color: var(--background-color-main);
+                    text-align: center;
+                    font-family: Roboto;
+                    font-size: 17px;
+                }
+                input:focus{
+                    border: none;
+                    outline: none;
+                    background-color: var(--background-color-main);
+                }
+                input::placeholder{
+                    margin-left: 10px;
+                    color: var(--text-color-secondary);
+                    font-style: italic;
+                }
+                input:focus::placeholder {
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                }
+                input:-webkit-autofill {
+                    -webkit-text-fill-color: #000 !important;
+                    transition: background-color 5000s ease-in-out 0s;
+                }
+
+                button{
+                    position: absolute;
+                    height: 20px;
+                    width: 20px;
+                    top: 5px;
+                    left: 71%;
+                    background: none;
+                    border: none;
+                    border-left: .3px solid var(--secondary-background-color);
+                    cursor: pointer;
+
+                    svg{
+                        width: 21px;
+                        height: 21px;
+                        margin-left: 8px;
+                        fill: var(--text-color-secondary);
+                    }
+                }
+            }
+        }
+    }
+}
