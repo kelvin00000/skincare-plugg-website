@@ -50,8 +50,11 @@ main{
                     border-radius: 20px;
                     font-family: Open Sans;
                     box-shadow:inset .3px .3px 4px var(--text-color-secondary);
+                    
                     overflow-y: hidden;
-            
+                    scrollbar-width: none; 
+                    -ms-overflow-style: none; 
+                
                     display: grid;
                     grid-template-columns: 1fr 1fr;
 
@@ -93,6 +96,9 @@ main{
                         }
                     }
                 }
+                .review-cards-container::-webkit-scrollbar {
+                    display: none;
+                    }
 
                 .see-more{
                     display: flex;
