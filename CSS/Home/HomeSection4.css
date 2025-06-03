@@ -9,6 +9,12 @@
     --text-color-secondary: #7d7d7d;
     --text-color-third: #d7dbdd;
     interpolate-size: allow-keywords;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
 }
 
 main{
@@ -27,7 +33,7 @@ main{
                 width: 100%;
                 height: 10%;
                 text-align: center;
-                font-family: Roboto;
+                font-family: var(--text-regular1);
                 font-size: 30px;
             }
 
@@ -36,7 +42,7 @@ main{
                 height: fit-content;
                 min-height: 80%;
                 margin-top: 50px;
-                font-family: Open Sans;
+                font-family: var(--text-regular2);
 
                 .faq{
                     display: flex;
@@ -102,7 +108,7 @@ main{
                 height: 10%;
                 margin-top: 80px;
                 text-align: center;
-                font-family: Open Sans;
+                font-family: var(--text-regular2);
                 font-size: 17px;
 
                 input{
@@ -113,7 +119,7 @@ main{
                     box-shadow: .3px .3px 4px var(--text-color-secondary);
                     background-color: var(--background-color-main);
                     text-align: center;
-                    font-family: Roboto;
+                    font-family: var(--text-regular1);
                     font-size: 17px;
                 }
                 input:focus{

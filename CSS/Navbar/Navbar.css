@@ -8,6 +8,12 @@
     --text-color-main: #212121;
     --text-color-secondary: #7d7d7d;
     --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
 }
 
 *{
@@ -42,7 +48,7 @@ body{
             display:flex;
             align-items: center;
             margin-left: 30px;
-            font-family: Roboto;
+            font-family: var(--text-regular1);
             font-size: 16px;
 
             .home-link, .productsPge-link{
@@ -63,7 +69,7 @@ body{
             display:flex;
             align-items: center;
             gap: 10px;
-            font-family: Roboto;
+            font-family: var(--text-regular1);
             font-size: 22px;
 
             input{
@@ -74,7 +80,7 @@ body{
                 box-shadow: .3px .3px 4px var(--text-color-secondary);
                 background-color: var(--background-color-main);
                 text-align: center;
-                font-family: Roboto;
+                font-family: var(--text-regular1);
                 font-size: 17px;
             }
             input:focus{
@@ -124,7 +130,7 @@ body{
             .Sign-in{
                 padding: 5px 20px;
                 border-radius: 7px;
-                font-family: Roboto;
+                font-family: var(--text-regular1);
                 font-size: 14px;
                 color: var(--background-color);
                 border: none;
@@ -136,7 +142,7 @@ body{
                 margin-left: 30px;
                 padding: 0px 5px;
                 border-radius: 7px;
-                font-family: Roboto;
+                font-family: var(--text-regular1);
                 font-size: 14px;
                 color: var(--text-color-main);
                 border: 2px solid var(--accent-color);

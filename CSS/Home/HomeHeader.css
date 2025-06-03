@@ -4,10 +4,17 @@
     --background-color-main: white;
     --background-color: #f8f9f9;
     --secondary-background-color: #e5e7e9 ;
+    --hearder-bg-clr-: #eab662;
     --accent-color: #d055e7 ;
     --text-color-main: #212121;
     --text-color-secondary: #7d7d7d;
     --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
 }
 
 main{
@@ -40,7 +47,7 @@ main{
             .static{
                 position: absolute;
                 top: 4%;
-                font-family: Leckerli One;
+                font-family: var(--text-stylish1);
                 text-align: center;
                 font-size: 90px;
                 font-style: italic;
@@ -55,7 +62,7 @@ main{
                 top: 71%;
                 left: 30%;
                 width: 450px;
-                font-family: Send Flowers;
+                font-family: var(--text-stylish2);
                 font-weight: bold;
                 font-size: 70px;
                 font-style: italic;

@@ -9,6 +9,12 @@
     --text-color-secondary: #7d7d7d;
     --text-color-third: #d7dbdd;
     interpolate-size: allow-keywords;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
 }
 
 main{
@@ -27,7 +33,7 @@ main{
                 height: 100%;
 
                 p{
-                    font-family: Leckerli One;
+                    font-family: var(--text-stylish1);
                     text-align: center;
                     font-size: 60px;
                     font-style: italic;
@@ -48,7 +54,7 @@ main{
                     width: 95%;
                     height: 90%;
                     border-radius: 20px;
-                    font-family: Open Sans;
+                    font-family: var(--text-regular2);
                     box-shadow:inset .3px .3px 4px var(--text-color-secondary);
                     
                     overflow-y: hidden;
@@ -63,7 +69,7 @@ main{
                         margin: 10px 10px;
                         border-radius: 20px;
                         box-shadow: .3px .3px 4px var(--text-color-secondary);
-                        font-family: Roboto;
+                        font-family: var(--text-regular1);
                         cursor: pointer;
 
                         .review-card-padding{
@@ -104,7 +110,7 @@ main{
                     display: flex;
                     justify-content: center;
                     margin-top: 10px;
-                    font-family: Roboto;
+                    font-family: var(--text-regular1);
                     color: var(--text-color-secondary);
                     cursor: pointer;
                 }
