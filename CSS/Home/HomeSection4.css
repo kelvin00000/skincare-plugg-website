@@ -26,7 +26,7 @@ main{
             width: 100%;
             height: fit-content;
             min-height: 80%;
-            margin-top: 300px;
+            margin-top: 150px;
             margin-bottom: 100px;
        
             .section-4-top{
@@ -35,6 +35,11 @@ main{
                 text-align: center;
                 font-family: var(--text-regular1);
                 font-size: 30px;
+
+                span{
+                    font-family: var(--text-stylish1);
+                    color: var(--accent-color);
+                }
             }
 
             .section-4-middle{
@@ -59,30 +64,42 @@ main{
                         height: fit-content;
                         border-radius: 15px;
                         font-size: 17px;
-                        box-shadow: .1px 0px 5px #dadfdf;
+                        box-shadow: .5px .5px 4px rgba(0, 0, 0, 0.2);
                         overflow: hidden;
                         z-index: 5;
                         transition: height 1s ease-in-out;
                         
                         .question{
+                            display: flex;
                             min-height: 35px;
+                            max-height: 35px;
                             margin-top: 12px;
-                            margin-left: 30px;
-                            margin-bottom: 0px;
+                            margin-left: 20px;
                             list-style-position: outside;
                             z-index: 5;
+
+                            svg{
+                                margin-left: 61%;
+                                padding: 2px 2px;
+                                background: inherit;
+                                border-radius: 50%;
+                                transition: all .3s ease-in-out;
+                            }
+                            svg:hover{
+                                fill: var(--text-color-secondary);
+                                background: var(--secondary-background-color);
+                            }
                         }
                         summary::marker{
-                            font-size: 14px;
-                            color: var(--text-color-main);
+                           color: white;
                         }
                         .answer{
                             width: 94%;
                             padding: 7px 10px;
                             border-radius: 15px;
-                            margin-left: 7px;
-                            margin-bottom: 8px;
-                            background: var(--background-color);
+                            margin-left: 4.9px;
+                            margin-bottom: 5px;
+                            background: #f3f7f7;
                             font-size: 15px;
                             text-wrap: wrap;
                             transition: height 1s ease-in-out;
@@ -113,10 +130,10 @@ main{
 
                 input{
                     height: 31px;
-                    width: 250px;
+                    width: 260px;
                     border-radius: 30px;
                     border: none;
-                    box-shadow: .3px .3px 4px var(--text-color-secondary);
+                    box-shadow: .5px 1px 4px rgba(0, 0, 0, 0.29);
                     background-color: var(--background-color-main);
                     text-align: center;
                     font-family: var(--text-regular1);
