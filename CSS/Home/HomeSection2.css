@@ -28,7 +28,6 @@ main{
             flex-direction: column;
             width: 100%;
             margin-top: 5%;
-            margin-bottom: 100px;
 
             .product-showcase1, .product-showcase2, .product-showcase3{
                 display: flex;
@@ -75,6 +74,7 @@ main{
 
                         svg{
                             fill: var(--background-color-main);
+                            transition: .3s ease-in-out;
                         }
                     }
                 }
