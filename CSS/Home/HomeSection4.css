@@ -87,7 +87,7 @@ main{
                             }
                             svg:hover{
                                 fill: var(--text-color-secondary);
-                                background: var(--secondary-background-color);
+                                background: #f3f7f7;
                             }
                         }
                         summary::marker{
