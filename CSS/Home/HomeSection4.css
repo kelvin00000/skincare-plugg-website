@@ -64,7 +64,7 @@ main{
                         height: fit-content;
                         border-radius: 15px;
                         font-size: 17px;
-                        box-shadow: .5px .5px 4px rgba(0, 0, 0, 0.2);
+                        box-shadow: .5px .5px 4px rgba(0, 0, 0, 0.15);
                         overflow: hidden;
                         z-index: 5;
                         transition: height 1s ease-in-out;
@@ -121,7 +121,7 @@ main{
 
             .section-4-bottom{
                 position: relative;
-                width: 50%;
+                width: 32%;
                 height: 10%;
                 margin-top: 80px;
                 text-align: center;
@@ -133,7 +133,7 @@ main{
                     width: 260px;
                     border-radius: 30px;
                     border: none;
-                    box-shadow: .5px 1px 4px rgba(0, 0, 0, 0.29);
+                    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.07), -.05px -.05px 3px rgba(0, 0, 0, 0.1);
                     background-color: var(--background-color-main);
                     text-align: center;
                     font-family: var(--text-regular1);
@@ -147,7 +147,6 @@ main{
                 input::placeholder{
                     margin-left: 10px;
                     color: var(--text-color-secondary);
-                    font-style: italic;
                 }
                 input:focus::placeholder {
                     opacity: 0;
@@ -162,8 +161,9 @@ main{
                     position: absolute;
                     height: 20px;
                     width: 20px;
-                    top: 5px;
-                    left: 71%;
+                    margin-left: 3%;
+                    top: 20%;
+                    right: 7%;
                     background: none;
                     border: none;
                     border-left: .3px solid var(--secondary-background-color);
@@ -172,7 +172,7 @@ main{
                     svg{
                         width: 21px;
                         height: 21px;
-                        margin-left: 8px;
+                        margin-left: 30%;
                         fill: var(--text-color-secondary);
                     }
                 }

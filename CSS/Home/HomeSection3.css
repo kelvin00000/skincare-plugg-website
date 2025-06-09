@@ -166,7 +166,7 @@ main{
 
                                 animation: appear .3s linear;
                                 animation-timeline: view();
-                                animation-range: entry 0% cover 30%;
+                                animation-range: entry 0% cover 35%;
                             }
                             .stat-card2{
                                 top: 30%;
@@ -177,7 +177,7 @@ main{
 
                                 animation: appear .3s linear;
                                 animation-timeline: view();
-                                animation-range: entry 0% cover 20%;
+                                animation-range: entry 0% cover 30%;
                             }
                             .stat-card3{
                                 top: 60%;
@@ -188,7 +188,7 @@ main{
 
                                 animation: appear 0.3s linear;
                                 animation-timeline: view();
-                                animation-range: entry 0% cover 10%;
+                                animation-range: entry 0% cover 30%;
                             }
                         }
                     }

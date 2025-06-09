@@ -33,60 +33,52 @@ main{
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
             margin-top: 0;
             width: 100%;
-            height: 95%;
-
+            height: 98%;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
             box-shadow: 220px 0px 1px var(--hearder-bg-clr-),
-                        -220px -0px 1px var(--hearder-bg-clr-);
+                        -235px -0px 1px var(--hearder-bg-clr-);
             background: var(--hearder-bg-clr-);
+
+            div{
+                margin-left: -11%;
+                .static{
+                    font-family: var(--text-stylish1);
+                    text-align: center;
+                    font-size: 90px;
+                    text-wrap: nowrap;
+                    line-height: 1.1;
+                }
+                
+                .animate{
+                    position: relative;
+                    width: 320px;
+                    margin-left: 20%;
+                    font-family: var(--text-stylish2);
+                    font-weight: bold;
+                    font-size: 70px;
+                    font-style: italic;
+                    text-wrap: nowrap;
+                }
+                .animate::before{
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background-color: var(--hearder-bg-clr-);
+                    animation: typewriter 4s ease forwards;
+                    animation-iteration-count: infinite;
+                }
+            }
 
             img{
                 position: absolute;
-                width: 62%;
-                transform: translate(45%, 10.5%);
-                z-index: 5;
+                right: -17%;
+                bottom: 0;
+                width: 75%;
+                height: 97%;
             }
-
-            .static{
-                position: absolute;
-                top: 15%;
-                left: -2%;
-                font-family: var(--text-stylish1);
-                text-align: center;
-                font-size: 90px;
-                font-style: italic;
-                text-wrap: nowrap;
-                line-height: 1.1;
-                transform: rotate(-11deg);
-                z-index: 5;
-            }
-            
-            .animate{
-                position: relative;
-                position: absolute;
-                top: 65%;
-                left: 12%;
-                width: 320px;
-                font-family: var(--text-stylish2);
-                font-weight: bold;
-                font-size: 70px;
-                font-style: italic;
-                text-wrap: nowrap;
-                z-index: 5;
-            }
-            .animate::before{
-                content: '';
-                position: absolute;
-                inset: 0;
-                background-color: var(--hearder-bg-clr-);
-                animation: typewriter 4s ease forwards;
-                animation-iteration-count: infinite;
-            }
-    
         }
     }
 }

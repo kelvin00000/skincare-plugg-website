@@ -27,12 +27,14 @@ main{
             justify-content: center;
             flex-direction: column;
             width: 100%;
+            height: 300vh;
             margin-top: 5%;
 
             .product-showcase1, .product-showcase2, .product-showcase3{
                 display: flex;
                 height: 100vh;
                 width: 100%;
+                scroll-snap-align: start;
                 font-family: var(--text-regular2);
 
                 .product-image{
@@ -42,7 +44,7 @@ main{
                     width: 50%;
                     img{
                         width: 80%;
-                        filter: drop-shadow(10px 40px 15px rgba(0, 0, 0, 0.3));
+                        filter: drop-shadow(15px 45px 15px rgba(0, 0, 0, 0.3));
                     }
                 }
                 .product-info{
@@ -66,7 +68,7 @@ main{
                         background: var(--background-color-main);
                         border-radius: 30px;
                         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
-                        transition: .3s ease-in-out;
+                        transition: .5s ease-in-out;
 
                         animation: appear .3s linear;
                         animation-timeline: view();
@@ -77,11 +79,15 @@ main{
                             transition: .3s ease-in-out;
                         }
                     }
+                    a:hover{
+                        box-shadow: 1px 10px 14px rgba(0, 0, 0, 0.15), -.05px -.05px 3px rgba(0, 0, 0, 0.1);
+                    }
                 }
             }
             .product-showcase1{
                 .product-image{
                     background-color: var(--showcase-clr-1);
+                    box-shadow: -220px -0px 0px var(--showcase-clr-1);
                 }
                 .product-info{
                     a{
@@ -100,6 +106,7 @@ main{
             .product-showcase2{
                 .product-image{
                     background-color: var(--showcase-clr-2);
+                    box-shadow: 220px 0px 0px var(--showcase-clr-2);
                 }
                 .product-info{
                     a{
@@ -118,6 +125,7 @@ main{
             .product-showcase3{
                 .product-image{
                     background-color: var(--showcase-clr-3);
+                    box-shadow: -220px -0px 0px var(--showcase-clr-3);
                 }
                 .product-info{
                     a{

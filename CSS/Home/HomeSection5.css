@@ -22,16 +22,16 @@ main{
         .section-5{
             position: relative;
             height: 100vh;
-            background: #ffcda7;
-            box-shadow:  200px 0px 1px #ffcda7,
-                        -200px -0px 1px #ffcda7;
+            background: #f9bcd7;
+            box-shadow:  200px 0px 1px #f9bcd7,
+                        -200px -0px 1px #f9bcd7;
 
             .section-5-header{
                 display: flex;
                 align-items: flex-end;
                 justify-content: center;
                 height: 10%;
-                font-family: var(--text-regular1);
+                font-family: var(--text-regular2);
                 font-size: 30px
             }
             .section-5-content{
@@ -58,6 +58,7 @@ main{
                         margin-bottom: 9px;
                         padding: 15px 10px;
                         border-radius: 20px;
+                        color: var(--text-color-main);
                         font-family: var(--text-regular2);
                         cursor: pointer;
 
