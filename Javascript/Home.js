@@ -6,22 +6,18 @@ carousels.forEach(carousel => {
     carousel.innerHTML += clone;
 })
 
+///////////////////////////BACK TO TOP LINK FUNCTION//////////////////////////
+const backToTopButton = document.querySelector(".js-back-to-top-btn");
 
-/////////////////////REVIEW SECTION SEE MORE TOGGLE/////////////////////
-const reviewSection = document.querySelector(".js-review-cards-container");
-const seeMoreToggle = document.querySelector(".js-see-more");
-const seeMoreText = document.querySelector(".js-see-more-text");
+window.addEventListener("scroll", ()=> {
+    const scrollY = window.scrollY;
+    const midway = document.body.scrollHeight / 3;
 
-
-if(seeMoreText.innerHTML = `See more`){
-    seeMoreToggle.addEventListener("click", ()=>{
-    reviewSection.style.overflow = ('auto');
-    seeMoreText.innerHTML = `See less`;
+    if(backToTopButton){
+        if (scrollY > midway) {
+            backToTopButton.style.display = "flex";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
 })
-}
-else if(seeMoreText.innerHTML = `See less`){
-    seeMoreToggle.addEventListener("click", ()=>{
-        reviewSection.style.overflow = ('hidden');
-        seeMoreText.innerHTML = `See more`;
-    })
-}

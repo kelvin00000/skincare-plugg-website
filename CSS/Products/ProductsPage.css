@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --accent-color: #d055e7 ;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
+}
+
+*{  
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+main{
+    .product-section{
+        margin-bottom: 60px;
+        padding-top: 80px;
+        padding-left: 30px;
+        padding-right: 30px;
+        font-family: var(--text-regular1);
+        .title{
+            padding-bottom: 20px;
+            text-align: left;
+            text-wrap: nowrap;
+            font-size: 40px;
+            font-family: var(--text-stylish1);
+        }
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 5%;
+
+            .product-card{
+                position: relative;
+                height: 300px;
+                border-radius: 18px;
+                box-shadow: 0px 1.5px 5px rgba(0, 0, 0, .4);
+    
+                img{
+                    height: inherit;
+                    width: 100%;
+                    border-radius: inherit;
+                    object-fit: cover;
+                }
+
+                .name{
+                    position: absolute;
+                    top: 5%;
+                    right: 19%;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    border-radius: inherit;
+                    background: rgba(255, 255, 255, 0.15); 
+                    backdrop-filter: blur(10px); 
+                    -webkit-backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    cursor: pointer;    
+                }
+
+                .wishlist-container{
+                    .add-to-wishlist{
+                        position: absolute;
+                        top: 4%;
+                        right: 5%;
+                        font-size: 14px;
+                        border-radius: 500%;
+                        background: rgba(255, 255, 255, 0.15); 
+                        backdrop-filter: blur(10px); 
+                        -webkit-backdrop-filter: blur(10px);
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        transition: all .4s ease-in-out;
+                        cursor: pointer;  
+
+                        svg{
+                            width: 20px;
+                            margin-top: 10%;
+                            padding: 0px 5px;
+                            fill: var(--text-color-secondary)
+                        }
+                    }
+
+                    .wishlist-tooltip{
+                        visibility: hidden;
+                        position: absolute;
+                        top: 17%;
+                        right: -15%;
+                        padding: 5px 10px;
+                        font-size: 12px;
+                        color: var(--text-color-main);
+                        opacity: 0;
+                        border-radius: 20px;
+                        background: var(--background-color-main);
+                        box-shadow: 0px 1.5px 5px rgba(0, 0, 0, .4);
+                        transition: all .5s ease-in-out;
+                        z-index: 50;
+                    }
+                }
+                .wishlist-container:hover{
+                        .wishlist-tooltip{
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+
+                .open-popup{
+                    position: absolute;
+                    bottom: 5%;
+                    width: 80%;
+                    left: 10%;
+
+                    padding: 8px 13px;
+                    font-size: 15px;
+                    border-radius: inherit;
+                    background: rgba(255, 255, 255, 0.25); 
+                    backdrop-filter: blur(10px); 
+                    -webkit-backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    cursor: pointer;    
+                    transition: all .4s ease-in-out;
+                }
+                button:hover, button:active{
+                    background: rgba(255, 255, 255, 0.35);
+                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                    -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+                }
+            }
+        }
+    }
+
+    .back-to-top{
+        position: fixed;
+        display: none;
+        bottom: 25%;
+        right: 3%;
+        width: 20px;
+        padding: 5px 7px;
+        border-radius:  500%;
+        background: var(--accent-color);
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                    -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+
+        svg{
+            fill: var(--text-color-main);
+            transform: rotate(-90deg);
+        }
+    }
+}
