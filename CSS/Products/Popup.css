@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --accent-color: #d055e7 ;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
+}
+
+main{
+    .popup{
+        position: fixed;
+        width: 60%;
+        height: 70%;
+        top: 15%;
+        left: 20%;
+        font-family: var(--text-regular1);
+        transform: scale(0.9);
+        border-radius: 18px;
+        border: none;
+        overflow-x: hidden;
+        background: rgba(255, 255, 255, 0.85); 
+        backdrop-filter: blur(10px); 
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.35), 
+                    -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+        
+        animation: fadeIn 0.3s ease forwards;
+        opacity: 0;
+        
+        -webkit-backdrop-filter: blur(10px);
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.877); 
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(20, 0, 0, 0.4); 
+        }
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+
+
+        .popup-padding{
+            padding: 15px 15px;
+            height: 100%;
+            width: 100%;
+
+            .product-info{
+                display: flex;
+                height: 70%;
+
+                .image{
+                    width: 60%;
+                    height: 100%;
+                    border-radius: 18px;
+
+                    img{
+                        width: 100%;
+                        height: inherit;
+                        object-fit: cover;
+                        border-radius: inherit;
+                    }
+                }
+
+                .basic-info{
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    width: 40%;
+                    padding-left: 5%;
+                    padding-top: 2.5%;
+                    font-size: 20px;
+                    
+                    .name{
+                        display: flex;
+                        align-items: center;
+                        
+                        p{
+                            margin-right: 18%;
+                        }
+
+                        button{
+                            display: flex;
+                            align-items: center;
+                            padding: 5px 12px;
+                            border-radius: 20px;
+                            border: 1px solid var(--text-color-main);
+                            background: none;
+                            color: var(--text-color-main);
+                            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                            -0px -.1px 3px rgba(0, 0, 0, 0.15);
+                            cursor: pointer;
+                            transition: all .4s ease-in-out;
+
+                            svg{
+                                margin-right: 2px;
+                                fill: var(--text-color-main);
+                                transform: rotate(45deg);
+                            }
+                        }
+                        button:hover{
+                            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.35), 
+                            -0px -.1px 2px rgba(0, 0, 0, 0.15);
+                        }
+                    }
+
+                    .category{
+                        padding-top: 10%;
+                        padding-bottom: 3%;
+                        font-family: var(--text-stylish1);
+
+                        .category-content{
+                            font-family: var(--text-regular1);
+                        }
+                    }
+
+                    .price-container{
+                        .price{
+                            font-family: var(--text-stylish1);
+                        }
+                    }
+                }
+            }
+
+            .product-details{
+                display: flex;
+                width: 99%;
+                padding: 7% 0;
+                
+                .left, .right{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 17px;
+                    border-right: 2px solid rgba(0, 0, 0, 0.1);
+
+                    .header{
+                        font-size: 18px;
+                        margin-bottom: 3px
+                    }
+                }
+                .left{
+                    width: 48%;
+                    padding-right: 10px;
+                }
+                .right{
+                    width: 50%;
+                    padding-left: 4%;
+                    padding-right: 3%;
+                }
+            }
+
+            .product-review{
+                padding-bottom: 3%;
+                .review-header{
+                    margin-bottom: 3px;
+                    font-size: 18px;
+                }
+
+                .review-content{
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    .input{
+                        padding-top: 2%;
+                        input{
+                            height: 52px;
+                            width: 220px;
+                            padding-left: 5%;
+                            padding-right: 45%;
+                            border-radius: 15px;
+                            border: none;
+                            font-family: var(--text-regular1);
+                            font-size: 16px;
+                            background: rgba(0, 0, 0, 0.2);
+                        }
+                        input:focus{
+                            border: none;
+                            outline: none;
+                            background: rgba(0, 0, 0, 0.15); 
+                            backdrop-filter: blur(10px); 
+                            -webkit-backdrop-filter: blur(10px);
+                        }
+                        input::placeholder{
+                            padding-left: 2%;
+                            color: var(--text-color-main);
+                            font-style: italic;
+                        }
+                        input:focus::placeholder {
+                            opacity: 0;
+                            transition: opacity 0.3s;
+                        }
+                        input:-webkit-autofill {
+                            -webkit-text-fill-color: #000 !important;
+                            transition: background-color 5000s ease-in-out 0s;
+                        }
+
+                        .submit-review{
+                            position: absolute;
+                            transform: translate(340%, -115%);
+                            padding: 12px 17px;
+                            color: var(--background-color-main);
+                            border: none;
+                            border-radius: 15px;
+                            background: var(--text-color-main);
+                            cursor: pointer;
+                        }
+                    }
+
+                    .reaction-buttons{
+                        display: flex;
+                        margin-top: 1.2%;
+                        margin-left: 15%;
+                        gap: 25%;
+
+                        .liked, .disliked{
+                            display: flex;
+                            flex-direction: column;
+                            font-size: 14px;
+                            color: #bebbbb;
+
+                            button{
+                                width: 35px;
+                                padding: 5px 5px;
+                                background: #e9e7e7;
+                                border-radius: 100%;
+                                border: none;
+                                transition: all .3s ease-in-out;
+                                cursor: pointer;
+                                svg{
+                                    fill: var(--text-color-secondary)
+                                }
+                            }
+                            button:hover{
+                                background: #dad7d7;
+                            }
+                        }
+                        .disliked{
+                            align-items: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .popup::backdrop{
+        background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .show {
+        animation: fadeIn 0.3s ease forwards;
+    }
+
+    .closing {
+        animation: fadeOut 0.2s ease forwards;
+    }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
