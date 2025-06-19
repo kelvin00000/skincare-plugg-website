@@ -37,10 +37,10 @@ body{
 }
 .desktop{
     position: absolute;
-    width: 80%;
+    width: 85%;
     height: 35px;
     border-radius: 30px;
-    transform: translate(12%, 70%);
+    transform: translate(9%, 70%);
     z-index: 100;
 
     background: rgba(255, 255, 255, 0.15); 
@@ -145,7 +145,8 @@ body{
 
          .nav-right{
             display:flex;
-            margin-right: 20px;
+            align-items: center;
+            margin-right: 5%;
 
             .Sign-in{
                 padding: 5px 18px;
@@ -153,6 +154,7 @@ body{
                 font-family: var(--text-regular1);
                 font-size: 14px;
                 color: var(--text-color-main);
+                text-wrap: nowrap;
                 border: none;
                 box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.29);
                 background:linear-gradient(to right, var(--accent-color) 20%, #d693e4);
@@ -161,20 +163,51 @@ body{
             }
 
             .contact-us{
-                margin-left: 25px;
-                padding: 3px 5px;
+                margin-left: 10%;
+                padding: 5px 5px;
                 border-radius: 7px;
                 font-family: var(--text-regular1);
                 font-size: 14px;
                 color: var(--text-color-main);
+                text-wrap: nowrap;
                 border: none;
-                box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.29);
+                box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.13);
                 background-color: var(--background-color-main);
                 cursor: pointer;
-                transition: .3s ease-in-out;
+                transition: all .3s ease-in-out;
             }
             .Sign-in:hover, .contact-us:hover{
-                transform: scale(1.05);
+                transform: scale(1.01);
+            }
+
+            .wishlist-section{
+                font-family: var(--text-regular1);
+
+                button{
+                    margin-left: 50%;
+                    padding: 3px 5px;
+                    border-radius: 100%;
+                    border: none;
+                    cursor: pointer;
+                    background: none;
+                    border: 1px solid rgba(255, 255, 255, 0.3);
+                    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.13);
+                }
+
+                p{
+                    position: absolute;
+                    bottom: -80%;
+                    text-wrap: nowrap;
+                    font-size: 13px;
+                    opacity: 0;
+                    transition: all .05s ease-in-out;
+                    transition-delay: 1.1s;
+                }
+            }
+            .wishlist-section:hover{
+                p{
+                    opacity: 1;
+                }
             }
         }
     }

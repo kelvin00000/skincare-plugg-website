@@ -93,6 +93,7 @@ main{
         background: var(--accent-color);
         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
                     -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+        z-index: 60;
 
         svg{
             fill: var(--background-color-main);

@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --accent-color: #d055e7 ;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
+}
+
+main{
+    aside{
+        .wishlist-poup{
+            position: fixed;
+            left: 30%;
+            bottom: -100%;
+            width: 40%;
+            height: 87%;
+            font-family: var(--text-regular1);
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            background: rgba(255, 255, 255, 0.65); 
+            backdrop-filter: blur(10px); 
+            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.35), 
+                        -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+            z-index: 120;
+
+            overflow-y: auto;
+            ::-webkit-scrollbar {
+                width: 6px;
+            }
+            ::-webkit-scrollbar-track {
+                background: none; 
+            }
+            ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.877);
+                border-radius: 10px;
+                transition: all 0.3s ease-in-out;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+                background: rgba(0, 0, 0, 0.1); 
+            }
+            scrollbar-width: thin;
+            scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+
+
+            h2{
+                margin-top: 3%;
+                font-family: var(--text-stylish1);
+                color: var(--accent-color);
+                text-align: center;
+            }
+
+            .wishlist-results-screen{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: fit-content;
+                padding-top: 5%;
+                border: none;
+                overflow-y: auto;
+                
+
+                .w-product-card{
+                    display: flex;
+                    width: 70%;
+                    margin-bottom: 3%;
+                    border-radius: 20px;
+                    background: rgba(255, 255, 255, 0.45);
+                    border: 1px solid rgba(255, 255, 255, 0.45);
+                    
+
+                    .left{
+                        width: 45%;
+                        border-bottom-left-radius: 20px;
+                        border-top-left-radius: 20px;
+                        
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            box-sizing: border-box;
+                            border-bottom-left-radius: 20px;
+                            border-top-left-radius: 20px;
+                        }
+                    }
+
+                    .right{
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        padding-left: 3%;
+                        padding-right: 2%;
+                        width: 55%;
+                        gap: 10%;
+                        text-align: left;
+                        .w-product-name{
+                            font-family: var(--text-stylish1);
+                            font-size: 20px;
+                            color: var(--text-color-main);
+                            text-align: left;
+                        }
+
+                        .buttons{
+                            .remove-from-wishlist{
+                                margin-right: 3%;
+                                padding: 7px 9px;
+                                color: var(--text-color-main);
+                                background: none;
+                                border-radius: 20px;
+                                border: 1px solid var(--text-color-main);
+                                cursor: pointer;
+                            }
+                            .open-popup{
+                                padding: 7px 9px;
+                                color: var(--background-color-main);
+                                background: var(--text-color-main);
+                                border-radius: 20px;
+                                border: none;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .wishlist-noresults-screen{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+                line-height: 25px;
+                font-size: 18px;
+                text-wrap: nowrap;
+                text-align: center;
+                opacity: 0;
+
+                a{
+                    display: flex;
+                    align-items: center;
+                    margin-top: 2%;
+                    gap: 6px;
+                    padding: 5px 10px;
+                    color: var(--text-color-main);
+                    text-decoration: none;
+                    font-size: 14px;
+                    background: var(--background-color-main);
+                    border-radius: 30px;
+                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+                    transition: .5s ease-in-out;
+
+                    svg{
+                        fill: var(--text-color-main);
+                        transition: .3s ease-in-out;
+                    }
+                }
+                a:hover{
+                    box-shadow: 1px 10px 14px rgba(0, 0, 0, 0.15), -.05px -.05px 3px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+        .wishlist-show{
+            animation: show-wishlist 1s ease-in-out forwards;
+        }
+        .wishlist-hide{
+            animation: hide-wishlist 1s ease-in-out ;
+        }
+        
+
+
+        .wishlist-popup-overlay{
+            visibility: hidden;
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 110;
+        }
+        .overlay-show{
+            animation: show-overlay 1s ease-in-out forwards;
+        }
+        .overlay-hide{
+            animation: hide-overlay 1s ease-in-out forwards;
+        }
+
+
+        .saved-popup{
+            position: fixed;
+            display: flex;
+            align-items: center;
+            padding: 10px 45px;
+            font-family: var(--text-regular1);
+            border-radius: 12px;
+            background: var(--background-color-main);
+            box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15), 
+                        -1px -1px 4px rgba(0, 0, 0, 0.15);
+
+            svg{
+                width: 30px;
+                height: 20px;
+                margin-right: 4%;
+                border-radius: 100%;
+                background: none;
+                fill: rgb(80, 190, 80);
+            }
+
+            button{
+                margin-left: 5%;
+                color: var(--text-color-main);
+                font-style: italic;
+                font-size: 17px;
+                text-decoration: underline;
+                text-wrap: nowrap;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+        }
+        .show-popup{
+            animation: slide-up 1.2s ease forwards;
+        }
+        .hide-popup{
+            animation: slide-down 1.3s ease forwards;
+        }
+    }
+}
+
+
+@keyframes show-wishlist{
+    to{
+        bottom: 0%;
+    }
+}
+@keyframes hide-wishlist{
+    to{
+        bottom: -100%;
+    }
+}
+
+
+@keyframes show-overlay{
+    to{
+        visibility: visible;
+    }
+}
+@keyframes hide-overlay{
+    to{
+        visibility: hidden;
+    }
+}
+
+
+@keyframes slide-up {
+    to{
+        left: 45%;
+        bottom: 6%;
+    }
+} 
+@keyframes slide-down {
+    to{
+        left: 45%;
+        bottom: -100%;
+    }
+}
