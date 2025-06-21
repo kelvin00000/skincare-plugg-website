@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --accent-color: #d055e7 ;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
+}

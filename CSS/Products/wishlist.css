@@ -199,6 +199,7 @@ main{
             position: fixed;
             display: flex;
             align-items: center;
+            bottom: -100%;
             padding: 10px 45px;
             font-family: var(--text-regular1);
             border-radius: 12px;
