@@ -229,7 +229,7 @@ main{
             }
         }
         .show-popup{
-            animation: slide-up 1.2s ease forwards;
+            animation: slide-up .6s ease forwards;
         }
         .hide-popup{
             animation: slide-down 1.3s ease forwards;

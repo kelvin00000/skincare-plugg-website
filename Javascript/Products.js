@@ -31,7 +31,7 @@ window.addEventListener('scroll', ()=>{
 
 /////////////////////////////////////WHISHLIST///////////////////////////////////////
 
-////////////WISHLIST POPUP/////////
+////////////WISHLIST POPUP /////////////////////
 const wishlistPopup = document.querySelector(".wishlist-poup");
 const openWishlistBtn = document.querySelectorAll(".js-open-wishlist");
 const overlay = document.querySelector(".wishlist-popup-overlay");

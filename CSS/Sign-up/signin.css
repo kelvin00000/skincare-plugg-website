@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --accent-color: #d055e7 ;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
+}
+
+.signin-popup-container{
+    position: relative;
+    .signin-popup{
+        position: relative;
+        position: fixed;
+        display: flex;
+        transform: translate(35%, 20%);
+        width: 60%;
+        height: 70%;
+        font-family: var(--text-regular1);
+        overflow: hidden;
+        border: none;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.75); 
+        backdrop-filter: blur(10px); 
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.35), 
+                    -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+        z-index: 120;
+
+        visibility: hidden;
+        scale: 0.85;
+        
+        
+
+        .contactus-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            padding: 3% 0%;
+            font-size: 17px;
+            border-bottom-left-radius: inherit;
+            border-top-left-radius: inherit;
+
+            .title{
+                text-align: center;
+                font-size: 18px;
+                span{
+                    font-family: var(--text-stylish1);
+                    color: var(--accent-color);
+                }
+            }
+
+            .contactus-section-padding{
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                margin-top: 7%;
+                margin-bottom: 7%;
+                padding: 10% 5%;
+                border-radius: 10px;
+                border: .3px solid rgba(255, 255, 255, 0.85);
+
+                a{
+                    display: flex;
+                    text-decoration: none;
+                    color: var(--text-color-main);
+                    svg{
+                        margin-right: 10px;
+                    }
+                }
+                p{
+                    display: flex;
+                    svg{
+                        margin-right: 4px;
+                    }
+                }
+            }
+
+            button{
+                display: flex;
+                align-items: center;
+                margin-bottom: 12%;
+                padding: 4px 15px;
+                font-family: var(--text-regular1);
+                background: inherit;
+                border-radius: 20px;
+                border: 1px solid var(--text-color-main);
+                cursor: pointer;
+                svg{
+                    margin-left: 3px;
+                    fill: var(--text-color-main);
+                }
+            }
+        }
+
+        .sigup-section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            
+            border-bottom-right-radius: inherit;
+            border-top-right-radius: inherit;
+
+            .form{
+                margin-bottom: 3%;
+                padding: 3% 7%;
+                border-radius: 15px;
+                border: .3px solid rgba(255, 255, 255, 0.85);
+                form{
+                    font-size: 15px;
+
+                    label{
+                        font-size: 13px;
+                    }
+
+                    input{
+                        height: 30px;
+                        width: 200px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        border-radius: 7px;
+                        border: none;
+                        background: rgba(255, 255, 255, 0.05); 
+                        backdrop-filter: blur(10px); 
+                        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+                    }
+                    #email{
+                        margin-bottom: 10%;
+                    }
+                    input:focus{
+                        border: none;
+                        outline: none;
+                        background: rgba(255, 255, 255, 0.05); 
+                        backdrop-filter: blur(10px); 
+                        -webkit-backdrop-filter: blur(10px);
+                        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
+                    }
+                    input::placeholder{
+                        opacity: 0;
+                        transition: opacity 0.3s;
+                    }
+                    input:-webkit-autofill {
+                        -webkit-text-fill-color: #000 !important;
+                        transition: background-color 5000s ease-in-out 0s;
+                    }
+
+                }
+
+                .options{
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 15%;
+
+                    .google-signin{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 4px;
+                        padding: 7px 15px;
+                        background: inherit;
+                        border-radius: 20px;
+                        border: .3px solid rgba(255, 255, 255, 0.85);
+                        cursor: pointer;
+                        svg{
+                            margin-right: 5px;
+                        }
+                    }
+
+                    .send-details{
+                        margin-bottom: auto;
+                        padding: 9px 15px;
+                        color: var(--background-color-main);
+                        background: var(--text-color-main);
+                        border: none;
+                        border-radius: 20px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .contactus-toggle{
+                display: flex;
+                align-items: center;
+                margin-top: 10%;
+                padding: 4px 15px;
+                font-family: var(--text-regular1);
+                background: inherit;
+                border-radius: 20px;
+                border: 1px solid var(--text-color-main);
+                cursor: pointer;
+                svg{
+                    margin-right: 3px;
+                    fill: var(--text-color-main);
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        .image-section{
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            width: 50%;
+            border-radius: 15px;
+            background: #ecc991;
+
+            img{
+                position: absolute;
+                width: 60%;
+                right: 0%;
+                bottom: 0;
+            }
+
+            p{
+                padding: 6%;
+                
+                .tip{
+                    font-size: 26px;
+                    font-weight: bold;
+                    color: var(--background-color-main)
+                }
+                .info{
+                    color: var(--text-color-secondary);
+                    font-size: 14px;
+                }
+            }
+        }
+        .slide-left{
+            animation: slide-left .5s ease-in-out forwards
+        }
+        .slide-right{
+            animation: slide-right .5s ease-in-out forwards
+        }
+
+         .close-signin{
+            display: grid;
+            place-items: center;
+            position: absolute;
+            top: 1%;
+            right: 1%;
+            padding: 2px 2px;
+            border: none;
+            border-radius: 100%;
+            background: rgba(255, 255, 255, 0.75); 
+            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            z-index: 130;
+            svg{
+                margin-left: 1px;
+                margin-bottom: .3px;
+                width: 70%;
+                fill: var(--text-color-main)
+            }
+        }
+    }
+    .signin-popup::backdrop{
+        width: 100vw;
+        height: 100vh;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 110;
+    }
+    .signin-show{
+        animation: fadein .2s ease-in-out forwards
+    }
+    .signin-hide{
+        animation: fadeout 1s ease-in forwards
+    }
+}
+
+
+@keyframes fadein {
+    to{
+        visibility: visible;
+        opacity: 1;
+        scale: 1
+    }
+}
+@keyframes fadeout {
+    to{
+        visibility: hidden;
+        opacity: 0;
+        scale: 0.5
+    }
+}
+
+@keyframes slide-left {
+    to{
+        transform: translate(0%, 0%)
+    }
+}
+@keyframes slide-right {
+    to{
+        transform: translate(100%, 0%)
+    }
+}

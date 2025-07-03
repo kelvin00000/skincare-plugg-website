@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./CSS/Products/ProductsPage.css">
     <link rel="stylesheet" href="./CSS/Products/Popup.css">
     <link rel="stylesheet" href="./CSS/Products/wishlist.css">
+    <link rel="stylesheet" href="./CSS/Sign-up/signin.css">
 </head>
 <body>
     
@@ -27,8 +28,23 @@
                     <button class="search-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button>
             </div>
             <div class="nav-right">
-                <button class="Sign-in" id="sign-in-btn">Sign-in</button>
-                <button class="contact-us" id="contact-us-btn">Contact Us</button>
+                <button class="g-profile GnavbarProfileBtn">
+                    <img src="" alt="profile-photo" class="g-profile-photo">
+                </button>
+                <button class="e-profile EnavbarProfileBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="none">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="10%" stop-color="#4f5bd5" />
+                            <stop offset="20%" stop-color="#962fbf" />
+                            <stop offset="70%" stop-color="#d055e7" />
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#gradient)" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
+                    </svg>
+                </button>
+                <button class="Sign-in signup-toggle navbar-signinBtn">Sign-in</button>
+                <button class="contact-us signup-toggle">Contact Us</button>
                 <div class="wishlist-section">
                     <button class="js-open-wishlist">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
@@ -46,9 +62,160 @@
                     </button>
                     <p class="wishlist-tooltip">Open Wishlist</p>
                 </div>
+
+                <div class="g-profile-popup">
+                   <p class="title">You're Signed in as</p>
+                    <div class="info">
+                        <div class="left"><img src="" alt="profile-photo" class="g-profile-photo"></div>
+                        <div class="right">
+                            <p class="g-profile-name"></p>
+                            <p class="g-profile-email"></p>
+                            <button class="logout-btn">log out</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="e-profile-popup">
+                    <p class="title">You're Signed in as</p>
+                    <div class="info">
+                        <div class="profile-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="none">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="10%" stop-color="#4f5bd5" />
+                                    <stop offset="20%" stop-color="#962fbf" />
+                                    <stop offset="70%" stop-color="#d055e7" />
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#gradient)" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
+                            </svg>
+                        </div>
+                        <div class="right">
+                            <p class="e-profile-email"></p>
+                            <button class="logout-btn">log out</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
+
+    <div class="signin-popup-container">
+        <dialog class="signin-popup">
+            <div class="contactus-section">
+                <p class="title">Visit any of my social handles to reach out</br> <span>or send me an email</span></p>
+                <div class="contactus-section-padding">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7a7575"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
+                    0505869086
+                    </p>
+
+                    <a href="https://wa.me/message/PUCDSLELQ6BTD1">
+                    <svg width="21px" height="21px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.50002 12C3.50002 7.30558 7.3056 3.5 12 3.5C16.6944 3.5 20.5 7.30558 20.5 12C20.5 16.6944 16.6944 20.5 12 20.5C10.3278 20.5 8.77127 20.0182 7.45798 19.1861C7.21357 19.0313 6.91408 18.9899 6.63684 19.0726L3.75769 19.9319L4.84173 17.3953C4.96986 17.0955 4.94379 16.7521 4.77187 16.4751C3.9657 15.176 3.50002 13.6439 3.50002 12ZM12 1.5C6.20103 1.5 1.50002 6.20101 1.50002 12C1.50002 13.8381 1.97316 15.5683 2.80465 17.0727L1.08047 21.107C0.928048 21.4637 0.99561 21.8763 1.25382 22.1657C1.51203 22.4552 1.91432 22.5692 2.28599 22.4582L6.78541 21.1155C8.32245 21.9965 10.1037 22.5 12 22.5C17.799 22.5 22.5 17.799 22.5 12C22.5 6.20101 17.799 1.5 12 1.5ZM14.2925 14.1824L12.9783 15.1081C12.3628 14.7575 11.6823 14.2681 10.9997 13.5855C10.2901 12.8759 9.76402 12.1433 9.37612 11.4713L10.2113 10.7624C10.5697 10.4582 10.6678 9.94533 10.447 9.53028L9.38284 7.53028C9.23954 7.26097 8.98116 7.0718 8.68115 7.01654C8.38113 6.96129 8.07231 7.046 7.84247 7.24659L7.52696 7.52195C6.76823 8.18414 6.3195 9.2723 6.69141 10.3741C7.07698 11.5163 7.89983 13.314 9.58552 14.9997C11.3991 16.8133 13.2413 17.5275 14.3186 17.8049C15.1866 18.0283 16.008 17.7288 16.5868 17.2572L17.1783 16.7752C17.4313 16.5691 17.5678 16.2524 17.544 15.9269C17.5201 15.6014 17.3389 15.308 17.0585 15.1409L15.3802 14.1409C15.0412 13.939 14.6152 13.9552 14.2925 14.1824Z" fill="#25D366"/>
+                    </svg>
+                    <span class="socials-name">WhatsApp</span>
+                    </a>
+
+                    <a href="https://www.instagram.com/xoxoskincareplug?igsh=MXZ5OGx4dnFneTRtYQ==">
+                    <svg width="21px" height="21px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="instagramGradient" cx="50%" cy="50%" r="75%">
+                            <stop offset="0%" stop-color="#FCAF45" />
+                            <stop offset="40%" stop-color="#F77737" />
+                            <stop offset="70%" stop-color="#E1306C" />
+                            <stop offset="100%" stop-color="#833AB4" />
+                            </radialGradient>
+                        </defs>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18ZM12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" fill="url(#instagramGradient)"/>
+                        <path d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z" fill="url(#instagramGradient)"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.65396 4.27606C1 5.55953 1 7.23969 1 10.6V13.4C1 16.7603 1 18.4405 1.65396 19.7239C2.2292 20.8529 3.14708 21.7708 4.27606 22.346C5.55953 23 7.23969 23 10.6 23H13.4C16.7603 23 18.4405 23 19.7239 22.346C20.8529 21.7708 21.7708 20.8529 22.346 19.7239C23 18.4405 23 16.7603 23 13.4V10.6C23 7.23969 23 5.55953 22.346 4.27606C21.7708 3.14708 20.8529 2.2292 19.7239 1.65396C18.4405 1 16.7603 1 13.4 1H10.6C7.23969 1 5.55953 1 4.27606 1.65396C3.14708 2.2292 2.2292 3.14708 1.65396 4.27606ZM13.4 3H10.6C8.88684 3 7.72225 3.00156 6.82208 3.0751C5.94524 3.14674 5.49684 3.27659 5.18404 3.43597C4.43139 3.81947 3.81947 4.43139 3.43597 5.18404C3.27659 5.49684 3.14674 5.94524 3.0751 6.82208C3.00156 7.72225 3 8.88684 3 10.6V13.4C3 15.1132 3.00156 16.2777 3.0751 17.1779C3.14674 18.0548 3.27659 18.5032 3.43597 18.816C3.81947 19.5686 4.43139 20.1805 5.18404 20.564C5.49684 20.7234 5.94524 20.8533 6.82208 20.9249C7.72225 20.9984 8.88684 21 10.6 21H13.4C15.1132 21 16.2777 20.9984 17.1779 20.9249C18.0548 20.8533 18.5032 20.7234 18.816 20.564C19.5686 20.1805 20.1805 19.5686 20.564 18.816C20.7234 18.5032 20.8533 18.0548 20.9249 17.1779C20.9984 16.2777 21 15.1132 21 13.4V10.6C21 8.88684 20.9984 7.72225 20.9249 6.82208C20.8533 5.94524 20.7234 5.49684 20.564 5.18404C20.1805 4.43139 19.5686 3.81947 18.816 3.43597C18.5032 3.27659 18.0548 3.14674 17.1779 3.0751C16.2777 3.00156 15.1132 3 13.4 3Z" fill="url(#instagramGradient)"/>
+                    </svg>
+                    <span class="socials-name">Instagram</span>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@skincarepluginghana?_r=1&_d=e4bkl664bjifdf&sec_uid=MS4wLjABAAAAqYtsRLLPRAG7zXDlErKsLbPhyHXdf72OUu1bQGIJLncCAY6uVhcgQAk7Thyqqwqq&share_author_id=7297952571170374662&sharer_language=en&source=h5_m&u_code=eb095a26l1hg9l&timestamp=1749337744&user_id=7297952571170374662&sec_user_id=MS4wLjABAAAAqYtsRLLPRAG7zXDlErKsLbPhyHXdf72OUu1bQGIJLncCAY6uVhcgQAk7Thyqqwqq&utm_source=whatsapp_business&utm_campaign=client_share&utm_medium=android&share_iid=7507492395157292806&share_link_id=052dacdd-3d2c-4357-b3b1-402c62076352&share_app_id=1233&ugbiz_name=ACCOUNT&ug_btm=b8727%2Cb7360&social_share_type=5&enable_checksum=1">
+                    <svg class="tiktok-svg" width="21px" height="21px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.8217 5.1344C16.0886 4.29394 15.6479 3.19805 15.6479 2H14.7293M16.8217 5.1344C17.4898 5.90063 18.3944 6.45788 19.4245 6.67608C19.7446 6.74574 20.0786 6.78293 20.4266 6.78293V10.2191C18.645 10.2191 16.9932 9.64801 15.6477 8.68211V15.6707C15.6477 19.1627 12.8082 22 9.32386 22C7.50043 22 5.85334 21.2198 4.69806 19.98C3.64486 18.847 2.99994 17.3331 2.99994 15.6707C2.99994 12.2298 5.75592 9.42509 9.17073 9.35079M16.8217 5.1344C16.8039 5.12276 16.7861 5.11101 16.7684 5.09914M6.9855 17.3517C6.64217 16.8781 6.43802 16.2977 6.43802 15.6661C6.43802 14.0734 7.73249 12.7778 9.32394 12.7778C9.62087 12.7778 9.9085 12.8288 10.1776 12.9124V9.40192C9.89921 9.36473 9.61622 9.34149 9.32394 9.34149C9.27287 9.34149 8.86177 9.36884 8.81073 9.36884M14.7244 2H12.2097L12.2051 15.7775C12.1494 17.3192 10.8781 18.5591 9.32386 18.5591C8.35878 18.5591 7.50971 18.0808 6.98079 17.3564" stroke="#000000" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="socials-name">Tiktok</span>
+                    </a>
+
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                        <defs>
+                            <linearGradient id="gmailGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#EA4335" />  
+                            <stop offset="60%" stop-color="#FBBC05" />  
+                            <stop offset="100%" stop-color="#4285F4" /> 
+                            </linearGradient>
+                        </defs>
+                        <path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" fill="url(#gmailGradient)"/>
+                        </svg>
+                        adjeilaureen90@gmail.com
+                    </p>
+                </div>
+                <button class="sign-in signup-toggle">
+                    Sign in
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg>
+                </button>
+            </div>
+            <div class="sigup-section">
+                <div class="form">
+                    <form action="submit" method="post">
+                        <label for="email">Email</label></br>
+                        <input type="email" id="email" placeholder="Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required></br>
+                        <label for="passkey">Password</label></br>
+                        <input type="password" id="passkey" placeholder="Password" required>
+                    </form>
+                <div class="options">
+                    <button class="send-details" id="email-signin-btn">log in</button>
+                    <button class="google-signin" id="google-login-btn">
+                        <svg width="20px" height="20px" viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        
+                                <title>Google-color</title>
+                                <desc>Created with Sketch.</desc>
+                                <defs>
+
+                            </defs>
+                                <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Color-" transform="translate(-401.000000, -860.000000)">
+                                        <g id="Google" transform="translate(401.000000, 860.000000)">
+                                            <path d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24" id="Fill-1" fill="#FBBC05">
+
+                            </path>
+                                            <path d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333" id="Fill-2" fill="#EB4335">
+
+                            </path>
+                                            <path d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667" id="Fill-3" fill="#34A853">
+
+                            </path>
+                                            <path d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24" id="Fill-4" fill="#4285F4">
+
+                            </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        or sign in with google
+                    </button>
+                </div>
+                </div>
+                <button class="contact-us contactus-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg>
+                    contact us
+                </button>
+            </div>
+            <div class="image-section"> 
+                <p><span class="tip">Did you know that without</br> a good sunscreen </br>your whole routine </br>is useless?</span>
+                    </br><span class="info">Get weekly tips like this </br>when you sign.</span>
+                </p>
+                <img src="./Images/showcase-image-5.png" alt="sckincare-product-image">
+            </div>
+            <button class="close-signin">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </button>
+        </dialog>
+    </div>
 
     <main>
         <section class="serum-section product-section" id="serum">
@@ -832,7 +999,7 @@
     </main>
 
     <script src="./Javascript/Home.js"></script>
-    <script src="./Javascript/Forms.js"></script>
+    <script src="./Javascript/Forms.js" defer type="module"></script>
     <script src="./Javascript/Products.js"></script>
 </body>
 </html>
