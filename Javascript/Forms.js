@@ -1,5 +1,7 @@
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-functions.js";
+
   
 const firebaseConfig = {
     apiKey: "AIzaSyBVWbqdYPh7O3EhuXCdb3F0MLC4banlJt0",
@@ -27,6 +29,10 @@ const GnavProfileButton = document.querySelector(".GnavbarProfileBtn");
 //EMAIL
 const EprofilePopup = document.querySelector('.e-profile-popup');
 const EnavProfileButton = document.querySelector(".EnavbarProfileBtn");
+
+//CLOUD FUNCTIONS INITIALIZATION
+const functions = getFunctions(app);
+const sendToZapier = httpsCallable(functions, "sendToZapier");
 
 
 
@@ -84,8 +90,6 @@ document.querySelectorAll(".logout-btn")
 })
 
 
-
-
 function updateNavbarForGoogle(){
     GprofilePopup.classList.toggle('profile-hide')
     siginPopup.classList.remove('signin-show');
@@ -124,12 +128,24 @@ function updateUserProfile(user){
     })
 }
 
+//ZAPPIER FUNCTION
+const sendEmailToZapier = async (email) => {
+  const result = await sendToZapier({ email });
+  try {
+    const result = await sendToZapier({ email });
+    console.log("Success:", result.data);
+  } catch (error) {
+    console.error("Failed to send to Zapier:", error.message);
+  }
+};
+
 
 onAuthStateChanged(auth, (user)=>{
     if(user){
+        sendEmailToZapier(user.email);
         user.providerData.forEach((profile) => {
             //console.log("Signed in with:", profile.providerId);
-
+            
             if (profile.providerId === "google.com") {
                 updateNavbarForGoogle();
                 updateUserProfile(user);
@@ -145,3 +161,5 @@ onAuthStateChanged(auth, (user)=>{
         EnavProfileButton.style.display = 'none';
     }
 })
+
+
