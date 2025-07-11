@@ -1,3 +1,5 @@
+
+
 /////////////////////////////////CAROUSEL///////////////////////////////////
 const carousels = document.querySelectorAll('.carousel');
 carousels.forEach(carousel => {
@@ -107,3 +109,34 @@ const EprofilePopup = document.querySelector('.e-profile-popup');
 Eprofile.addEventListener('click', ()=>{
     EprofilePopup.classList.toggle('profile-hide')
 });
+
+
+
+
+
+
+//////////////////////////////FAQS FUNCTIONS/////////////////////////////////////
+
+fetch("/Javascript/FAQs.json")
+.then(response => response.json())
+.then(faqs => {
+    const shuffledFaqs = shuffleArray(faqs);
+    const selectedFaqs = shuffledFaqs.slice(0, 5);
+
+    selectedFaqs.forEach((faq, index) => {
+        const q = document.getElementById(`q${index + 1}`);
+        const a = document.getElementById(`a${index + 1}`);
+
+        if (q && a) {
+            q.innerHTML = `${faq.question} <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>` ;
+            a.textContent = faq.answer;
+        }
+    });
+})
+
+function shuffleArray(array){
+    return array
+    .map(value => ({value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({value}) => value)
+}

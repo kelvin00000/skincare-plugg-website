@@ -1,0 +1,82 @@
+[
+    {
+        "question": "What is the best way to cleanse my skin?",
+        "answer": "Use a gentle cleanser suitable for your skin type, massaging it onto damp skin before rinsing with lukewarm water."
+    },
+    {
+        "question": "How often should I exfoliate?",
+        "answer": "Exfoliate 1-3 times a week, depending on your skin type and concerns, to remove dead skin cells and improve texture."
+    },
+    {
+        "question": "What is the difference between a toner and a serum?",
+        "answer": "Toners balance skin pH and remove residual impurities, while serums contain concentrated active ingredients targeting specific skin concerns."
+    },
+    {
+        "question": "Can I use the same skincare products for my face and body?",
+        "answer": "No, facial skin is more delicate, so use products formulated specifically for the face, while body products can be richer and more moisturizing."
+    },
+    {
+        "question": "How long does it take to see results from a new skincare product?",
+        "answer": "Allow 2-6 weeks for your skin to adjust and respond to new products, as skin cell turnover and collagen production take time."
+    },
+    {
+        "question": "Should I wear sunscreen every day, even on cloudy days?",
+        "answer": "Yes, UV rays penetrate clouds, causing damage, so apply a broad-spectrum sunscreen with at least SPF 30 daily, even on cloudy days."
+    },
+    {
+        "question": "What is the best way to apply moisturizer?",
+        "answer": "Apply moisturizer immediately after bathing or showering, while skin is still damp, to lock in hydration."
+    },
+    {
+        "question": "Can I use expired skincare products?",
+        "answer": "No, expired products may lose potency, become contaminated, or irritate skin, so discard them after the expiration date."
+    },
+    {
+        "question": "How do I choose the right skincare products for my skin type?",
+        "answer": "Select products labeled for your skin type (normal, dry, oily, combination) and look for ingredients addressing specific concerns (acne, aging, hyperpigmentation)."
+    },
+    {
+        "question": "What is the difference between physical and chemical exfoliants?",
+        "answer": "Physical exfoliants (scrubs, brushes) remove dead skin cells mechanically, while chemical exfoliants (alpha-hydroxy acids, beta-hydroxy acids) dissolve dead skin cells."
+    },
+    {
+        "question": "Can I use skincare products containing fragrances if I have sensitive skin?",
+        "answer": "Fragrances can irritate sensitive skin, so opt for fragrance-free products or those labeled as hypoallergenic."
+    },
+    {
+        "question": "How often should I replace my skincare products?",
+        "answer": "Replace products every 6-12 months or sooner if you notice a decrease in effectiveness, change in texture, or unusual odor."
+    },
+    {
+        "question": "What is the best way to store skincare products?",
+        "answer": "Store products in a cool, dry place, away from direct sunlight and heat sources, to maintain potency and shelf life."
+    },
+    {
+        "question": "Can I share skincare products with friends or family members?",
+        "answer": "No, sharing products can spread bacteria, cause irritation, or lead to allergic reactions, so use your own products and avoid sharing."
+    },
+    {
+        "question": "How do I know if a skincare product is causing irritation or an allergic reaction?",
+        "answer": "Watch for signs like redness, itching, stinging, or burning, and discontinue use if you experience any of these symptoms."
+    },
+    {
+        "question": "Can I use skincare products on broken or irritated skin?",
+        "answer": "Avoid using products on broken or irritated skin, as this can further irritate or infect the skin; instead, apply a gentle, fragrance-free moisturizer or consult a dermatologist."
+    },
+    {
+        "question": "What is the difference between a skincare routine and a skincare regimen?",
+        "answer": "A skincare routine refers to the daily or weekly steps you take to care for your skin, while a skincare regimen is a more comprehensive, long-term plan addressing specific skin concerns."
+    },
+    {
+        "question": "How do I prevent acne when wearing makeup?",
+        "answer": "Choose non-comedogenic, oil-free products, remove makeup thoroughly, and maintain good hygiene practices to prevent acne."
+    },
+    {
+        "question": "Can I use skincare products containing retinol during the day?",
+        "answer": "Retinol products are typically recommended for nighttime use, as they can make skin more sensitive to the sun; apply sunscreen with at least SPF 30 during the day."
+    },
+    {
+        "question": "What is the best way to remove blackheads?",
+        "answer": "Use a gentle exfoliating scrub or a chemical exfoliant containing salicylic acid or glycolic acid to help dissolve and remove blackheads."
+    }
+]

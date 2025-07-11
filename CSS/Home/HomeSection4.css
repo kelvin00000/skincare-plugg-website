@@ -70,19 +70,23 @@ main{
                         transition: height 1s ease-in-out;
                         
                         .question{
+                            position: relative;
                             display: flex;
-                            min-height: 35px;
-                            max-height: 35px;
-                            margin-top: 12px;
-                            margin-left: 20px;
+                            align-items: center;
+                            min-height: 44px;
+                            max-height: 44px;
+                            padding: 5px 15px;
+                            margin-right: 35px;
+                            font-size: 16px;
                             list-style-position: outside;
                             z-index: 5;
 
                             svg{
-                                margin-left: 61%;
+                                position: absolute;
+                                right: -15px;
                                 padding: 2px 2px;
                                 background: inherit;
-                                border-radius: 50%;
+                                border-radius: 100%;
                                 transition: all .3s ease-in-out;
                             }
                             svg:hover{
@@ -95,7 +99,7 @@ main{
                         }
                         .answer{
                             width: 94%;
-                            padding: 7px 10px;
+                            padding: 15px 10px;
                             border-radius: 15px;
                             margin-left: 4.9px;
                             margin-bottom: 5px;
