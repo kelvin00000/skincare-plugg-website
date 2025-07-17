@@ -21,6 +21,7 @@ auth.languageCode = 'en';
 const provider = new GoogleAuthProvider();
 const siginPopup = document.querySelector(".signin-popup");
 const navSigninButton = document.querySelector(".navbar-signinBtn");
+const navDockSigninButton = document.querySelector(".navdock-signinBtn");
 
 //GOOGLE
 const GprofilePopup = document.querySelector('.g-profile-popup');
@@ -94,7 +95,6 @@ function updateNavbarForGoogle(){
     GprofilePopup.classList.toggle('profile-hide')
     siginPopup.classList.remove('signin-show');
     siginPopup.classList.add('signin-hide');
-    siginPopup.close();
 
     navSigninButton.style.display = 'none';
     GnavProfileButton.style.display = 'flex';
@@ -103,7 +103,6 @@ function updateNavbarForGoogle(){
 function updateNavbarForEmail(){
     siginPopup.classList.remove('signin-show');
     siginPopup.classList.add('signin-hide');
-    siginPopup.close();
 
     navSigninButton.style.display = 'none';
     EnavProfileButton.style.display = 'flex';
@@ -156,10 +155,14 @@ onAuthStateChanged(auth, (user)=>{
         });
     }
     else if(!user){
-        navSigninButton.style.display = 'flex';
+        if(window.innerWidth < 900){
+            navSigninButton.style.display = 'none';
+            navDockSigninButton.style.display = 'flex';
+        }
+        else{
+            navSigninButton.style.display = 'flex';
+        }
         GnavProfileButton.style.display = 'none';
         EnavProfileButton.style.display = 'none';
     }
 })
-
-

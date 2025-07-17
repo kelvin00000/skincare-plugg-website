@@ -99,8 +99,61 @@
         </div>
     </nav>
 
+    <nav class="dock">
+        <div class="nav-dock">
+            <div class="padding">
+                <div class="divider one">
+                    <a href="index.html">Home...</a>
+                </div>
+                <div class="divider two">
+                    <a href="Products.html" class="current-page">Products...</a>
+                </div>
+                <div class="divider">
+                    <button class="js-open-wishlist">
+                   <div class="svg-div">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                        <defs>
+                            <linearGradient id="igGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#d055e7" />
+                            <stop offset="25%" stop-color="#d055e7" />
+                            <stop offset="50%" stop-color="#d055e7" />
+                            <stop offset="75%" stop-color="#962fbf" />
+                            <stop offset="100%" stop-color="#4f5bd5" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z" fill="url(#igGradient)"/>
+                        </svg>
+                   </div>
+                    Open Wishlist
+                </button>
+                </div>
+                <div class="divider">
+                    <div class="buttons">
+                        <button class="Sign-in signup-toggle navdock-signinBtn">Sign-in</button>
+                        <button class="contact-us signup-toggle">Contact Us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dock-overlay"></div>
+
+        <button class="open-navdock">
+            <svg fill="#000000" width="35px" height="35px" viewBox="0 0 24 24" id="menu" xmlns="http://www.w3.org/2000/svg" class="icon multi-color">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+            <g id="SVGRepo_iconCarrier">
+            <line id="primary-stroke" x1="3" y1="12" x2="21" y2="12" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
+            <path id="primary-stroke-2" data-name="primary-stroke" d="M9,18H21M3,6H15" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
+            </g>
+            </svg>
+        </button>
+        <button class="close-navdock">
+            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#00000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </button>
+    </nav>
+
     <div class="signin-popup-container">
-        <dialog class="signin-popup">
+        <div class="signin-popup">
             <div class="contactus-section">
                 <p class="title">Visit any of my social handles to reach out</br> <span>or send me an email</span></p>
                 <div class="contactus-section-padding">
@@ -160,6 +213,9 @@
                 </button>
             </div>
             <div class="sigup-section">
+                <p class="welcome-message">
+                    <span>We're glad you're here</span></br> go ahead to log-in into your account or sign up if your new here.
+                </p>
                 <div class="form">
                     <form action="submit" method="post">
                         <label for="email">Email</label></br>
@@ -196,7 +252,7 @@
                                     </g>
                                 </g>
                             </svg>
-                        or sign in with google
+                        or sign up with google
                     </button>
                 </div>
                 </div>
@@ -214,7 +270,7 @@
             <button class="close-signin">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
             </button>
-        </dialog>
+        </div>
     </div>
 
     <main>
@@ -853,7 +909,7 @@
         </section>
 
 
-        <dialog class="popup">
+        <div class="popup">
             <div class="popup-padding">
                 <div class="product-info">
                     <div class="image"><img src="./Images/product-serum-caffeinserum.webp" alt="caffeinserum-image"></div>
@@ -925,10 +981,10 @@
                     </div>
                 </div>
             </div>
-        </dialog>
+        </div>
 
         <aside class="wishlist-popup-container">
-            <div class="wishlist-poup">
+            <div class="wishlist-popup">
                 <h2>Your Wishlist</h2>
                 <div class="wishlist-results-screen">
                    <div class="w-product-card">
@@ -998,8 +1054,8 @@
         </a>
     </main>
 
-    <script src="./Javascript/Home.js"></script>
+    <script src="./Javascript/Home.js" defer></script>
     <script src="./Javascript/Forms.js" defer type="module"></script>
-    <script src="./Javascript/Products.js"></script>
+    <script src="./Javascript/Products.js" defer></script>
 </body>
 </html>

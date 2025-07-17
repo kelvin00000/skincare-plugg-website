@@ -32,15 +32,12 @@ body{
     scroll-behavior: smooth;
 }
 
-.mobile{
-    display: none;
-}
 .desktop{
     position: absolute;
     width: 85%;
     height: 35px;
     border-radius: 30px;
-    transform: translate(9%, 70%);
+    transform: translate(8.5%, 70%);
     z-index: 100;
     background: rgba(255, 255, 255, 0.15); 
     backdrop-filter: blur(10px); 
@@ -89,7 +86,9 @@ body{
 
             input{
                 height: 29px;
-                width: 250px;
+                width: 170px;
+                padding-left: 10px;
+                padding-right: 51px;
                 border-radius: 30px;
                 border: none;
                 text-align: center;
@@ -343,4 +342,67 @@ body{
             }
         }
     }
+}
+
+@media (max-width: 900px){
+    .desktop{
+        .nav-container{
+            .nav-left{
+                .home-link, .productsPge-link{
+                    display: none;
+                }
+            }
+            .nav-middle{
+                input{
+                    height: 30px;
+                    width: 140px;
+                }
+                button{
+                    top: 3px;
+                }
+            }
+            .nav-right{
+                .Sign-in{
+                    display: none;
+                }
+                .contact-us{
+                    display: none;
+                }
+                .wishlist-section{
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+
+@media (max-width: 500px){
+    .desktop{
+        .nav-container{
+            .nav-middle{
+                input{
+                    height: 30px;
+                    width: 100px;
+                    font-size: 12px;
+                }
+                input::placeholder{
+                    font-size: 13px;
+                }
+                button{
+                    top: 3px;
+                    left: 75%;
+                }
+            }
+            .nav-right{
+                .g-profile-popup{
+                    transform: translateX(6%);
+                }
+                .e-profile-popup{
+                    transform: translateX(6%);
+                }
+            }
+        }
+    }
+
 }

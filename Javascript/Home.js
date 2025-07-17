@@ -1,3 +1,28 @@
+////////////////////////////////NAVDOCK TOGGLE FUNCTIONS/////////////////////////
+const navDockOpenBtn = document.querySelector(".open-navdock");
+const navDockCloseBtn = document.querySelector(".close-navdock");
+const navDock = document.querySelector(".nav-dock");
+const navDockOverlay = document.querySelector(".dock-overlay");
+
+
+navDockOpenBtn.addEventListener('click', ()=>{
+    navDock.classList.remove('navdock-hide');
+    navDock.classList.add('navdock-show');
+    navDockOverlay.style.visibility = "visible";
+    navDockCloseBtn.style.visibility = "visible";
+    navDockOpenBtn.style.visibility = "hidden";
+});
+navDockCloseBtn.addEventListener('click', ()=>{
+    navDock.classList.remove('navdock-show');
+    navDock.classList.add('navdock-hide');
+    navDockOverlay.style.visibility = "hidden";
+    navDockCloseBtn.style.visibility = "hidden";
+    navDockOpenBtn.style.visibility = "visible";
+})
+
+
+
+
 
 
 /////////////////////////////////CAROUSEL///////////////////////////////////
@@ -33,15 +58,16 @@ const closeBtn = document.querySelector(".close-signin");
 signinPopupOpenBtn.forEach(button => {
     button.addEventListener('click', ()=>{
         siginPopup.classList.remove('signin-hide');
-        siginPopup.showModal();
         siginPopup.classList.add('signin-show');
+        navDockOverlay.style.visibility = "visible";
+        document.body.style.overflow = "hidden";
     })
 });
 closeBtn.addEventListener('click', ()=>{
     siginPopup.classList.remove('signin-show');
     siginPopup.classList.add('signin-hide');
-    siginPopup.close();
-    
+    navDockOverlay.style.visibility = "hidden";
+    document.body.style.overflow = "auto";
 })
 
 
@@ -50,17 +76,31 @@ closeBtn.addEventListener('click', ()=>{
 const leftToggle = document.querySelectorAll(".sign-in");
 const rightToggle = document.querySelectorAll(".contact-us");
 const imageSection = document.querySelector(".image-section");
+const signUpSection = document.querySelector(".sigup-section");
+const contactUsSection = document.querySelector(".contactus-section");
 
 leftToggle.forEach(button =>{
     button.addEventListener('click', ()=>{
-        imageSection.classList.remove('slide-right');
-        imageSection.classList.add('slide-left');
+        if(window.innerWidth < 1001){
+            contactUsSection.classList.add('hide-left');
+            signUpSection.classList.remove('hide-right');
+        }
+        else{
+            imageSection.classList.remove('slide-right');
+            imageSection.classList.add('slide-left');
+        }
     })
 })
 rightToggle.forEach(button =>{
     button.addEventListener('click', ()=>{
-        imageSection.classList.remove('slide-left');
-        imageSection.classList.add('slide-right');
+        if(window.innerWidth < 1001){
+            contactUsSection.classList.remove('hide-left');
+            signUpSection.classList.add('hide-right');
+        }
+        else{
+            imageSection.classList.remove('slide-left');
+            imageSection.classList.add('slide-right');
+        }
     })
 })
 
