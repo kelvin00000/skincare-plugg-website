@@ -265,9 +265,7 @@
             cursor: pointer;
             z-index: 130;
             svg{
-                margin-left: 1px;
-                margin-bottom: .3px;
-                width: 70%;
+                width: 85%;
                 fill: var(--text-color-main)
             }
         }
@@ -299,6 +297,15 @@
                 padding: 10% 0%;
                 z-index: 125;
             }
+            .contactus-section{
+                font-size: 19px;
+                .contactus-section-padding{
+                    height: 25%;
+                    width: 75%;
+                    margin-bottom: 15%;
+                    gap: 10px
+                }
+            }
             .sigup-section{
                 .welcome-message{
                     display: block;
@@ -312,7 +319,22 @@
                     }
                 }
                 .form{
-                    margin-top: 5%
+                    margin-top: 5%;
+                    width: 70%;
+                    form{
+                        input{
+                            width: 94%;
+                            height: 40px;
+                        }
+                    }
+                    .options{
+                        .send-details{
+                            padding: 12px 15px;
+                        }
+                        .google-signin{
+                            padding: 9px 15px;
+                        }
+                    }
                 }
                 .contactus-toggle{
                     margin-bottom: 22%;

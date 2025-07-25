@@ -127,7 +127,7 @@ body{
                 left: 82%;
                 background: none;
                 border: none;
-                border-left: 1px solid rgba(255, 255, 255, 0.3);
+                border-left: 1px solid rgba(0, 0, 0, 0.12);
                 cursor: pointer;
                 z-index: 150;
 
@@ -135,7 +135,7 @@ body{
                     width: 21px;
                     height: 21px;
                     margin-left: 8px;
-                    fill: var(--text-color-secondary);
+                    fill: var(--text-color-main);
                 }
 
             }
@@ -346,6 +346,8 @@ body{
 
 @media (max-width: 900px){
     .desktop{
+        width: 95%;
+        transform: translate(2.5%, 70%);
         .nav-container{
             .nav-left{
                 .home-link, .productsPge-link{
@@ -358,10 +360,13 @@ body{
                     width: 140px;
                 }
                 button{
-                    top: 3px;
+                    top: 5px;
                 }
             }
             .nav-right{
+                .e-profile, .g-profile{
+                    margin-left: 5px;
+                }
                 .Sign-in{
                     display: none;
                 }
@@ -382,16 +387,11 @@ body{
         .nav-container{
             .nav-middle{
                 input{
-                    height: 30px;
-                    width: 100px;
-                    font-size: 12px;
-                }
-                input::placeholder{
-                    font-size: 13px;
+                    height: 30px; 
                 }
                 button{
-                    top: 3px;
-                    left: 75%;
+                    top: 5px;
+                    left: 80%;
                 }
             }
             .nav-right{

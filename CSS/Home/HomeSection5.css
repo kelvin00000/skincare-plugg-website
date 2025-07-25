@@ -32,7 +32,8 @@ main{
                 justify-content: center;
                 height: 10%;
                 font-family: var(--text-regular2);
-                font-size: 30px
+                font-size: 30px;
+                text-wrap: nowrap;
             }
             .section-5-content{
                 display: flex;
@@ -97,5 +98,58 @@ main{
     to{
         scale: 1;
         opacity: 1;
+    }
+}
+
+@media (max-width: 900px){
+    main{
+        .body-container{
+            .section-5{
+                box-shadow:  150px 0px 1px #f9bcd7,
+                            -160px -0px 1px #f9bcd7;
+                .section-5-header{
+                    font-size: 25px;
+                }
+                .section-5-content{
+                    .review-cards-container{
+                        grid-template-columns: 1fr 1fr;
+                        gap: 10px;
+                        .review-card{
+                            width: 90%;
+                            font-size: 17px;
+                            .info{
+                                font-size: 17px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px){
+    main{
+        .body-container{
+            .section-5{
+                box-shadow:  0px 0px 1px #f9bcd7,
+                            -0px -0px 1px #f9bcd7;
+                .section-5-header{
+                    font-size: 20px;
+                }
+                .section-5-content{
+                    .review-cards-container{
+                        .review-card{
+                            height: 200px;
+                            width: 85%;
+                            margin-bottom: 5px;
+                            font-size: 14px;
+                            .info{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -100,19 +100,19 @@ main{
                         button{
                             display: flex;
                             align-items: center;
+                            justify-content: center;
                             padding: 5px 12px;
                             border-radius: 20px;
-                            border: 1px solid var(--text-color-main);
-                            background: none;
-                            color: var(--text-color-main);
+                            border: none;
+                            background: var(--text-color-main);
+                            color: var(--background-color-main);
                             box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
                             -0px -.1px 3px rgba(0, 0, 0, 0.15);
                             cursor: pointer;
                             transition: all .4s ease-in-out;
 
                             svg{
-                                margin-right: 2px;
-                                fill: var(--text-color-main);
+                                fill:  var(--background-color-main);;
                                 transform: rotate(45deg);
                             }
                         }
@@ -295,7 +295,8 @@ main{
                     .image{
                         height: 95%;
                         img{
-                            width: 95%
+                            width: 95%;
+                            margin-right: 10%
                         }
                     }
                     .basic-info{
@@ -323,6 +324,7 @@ main{
                     }
                     .left{
                         border-right: none;
+                        margin-bottom: 10px;
                     }
                     .right{
                         padding-top: 2%;
@@ -380,6 +382,12 @@ main{
             .popup-padding{
                 .product-info{
                     margin-bottom: 25%;
+                    .image{
+                        img{
+                            width: 93%;
+                            margin-right: 20%;
+                        }
+                    }
                     .basic-info{
                         .name{
                             p{

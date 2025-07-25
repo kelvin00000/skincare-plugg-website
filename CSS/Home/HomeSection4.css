@@ -22,6 +22,7 @@ main{
         .section-4{
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-direction: column;
             width: 100%;
             height: fit-content;
@@ -36,9 +37,12 @@ main{
                 font-family: var(--text-regular1);
                 font-size: 30px;
 
-                span{
-                    font-family: var(--text-stylish1);
-                    color: var(--accent-color);
+                h3{
+                    text-wrap: nowrap;
+                    span{
+                        font-family: var(--text-stylish1);
+                        color: var(--accent-color);
+                    }
                 }
             }
 
@@ -112,32 +116,40 @@ main{
                     }
                     details::details-content{
                         block-size: 0;
-                        transition: 
-                            block-size .7s,
-                            content-visibility .7s;
+                        transition: all .5s ease-in-out;
                         transition-behavior: allow-discrete;
                     }
                     details[open]::details-content{
                         block-size: auto;
                     }
+                    details[open]{
+                        .question{
+                            svg{
+                                rotate: 45deg;
+                            }
+                        }
+                    }
                 }
             }
 
             .section-4-bottom{
+                display: flex;
+                align-items: center;
                 position: relative;
-                width: 32%;
+                width: 34%;
                 height: 10%;
                 margin-top: 80px;
+                border-radius: 30px;
                 text-align: center;
                 font-family: var(--text-regular2);
                 font-size: 17px;
+                box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.07), -.05px -.05px 3px rgba(0, 0, 0, 0.1);
 
                 input{
                     height: 31px;
-                    width: 260px;
+                    width: 85%;
                     border-radius: 30px;
                     border: none;
-                    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.07), -.05px -.05px 3px rgba(0, 0, 0, 0.1);
                     background-color: var(--background-color-main);
                     text-align: center;
                     font-family: var(--text-regular1);
@@ -149,6 +161,7 @@ main{
                     background-color: var(--background-color-main);
                 }
                 input::placeholder{
+                    font-style: italic;
                     margin-left: 10px;
                     color: var(--text-color-secondary);
                 }
@@ -162,12 +175,8 @@ main{
                 }
 
                 button{
-                    position: absolute;
                     height: 20px;
                     width: 20px;
-                    margin-left: 3%;
-                    top: 20%;
-                    right: 7%;
                     background: none;
                     border: none;
                     border-left: .3px solid var(--secondary-background-color);
@@ -178,6 +187,80 @@ main{
                         height: 21px;
                         margin-left: 30%;
                         fill: var(--text-color-secondary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 1100px){
+    main{
+        .body-container{
+            .section-4{
+                .section-4-bottom{
+                    input::placeholder{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 900px){
+    main{
+        .body-container{
+            .section-4{
+                .section-4-top{
+                    h3{
+                        font-size: 30px;
+                    }
+                }
+                .section-4-middle{
+                    width: 480px;
+                    .faq{
+                        details{
+                            .question{
+                                font-size: 15px;
+                                svg{
+                                    fill: #cecbcb;
+                                }
+                            }
+                            .answer{
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                .section-4-bottom{
+                   display: none;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 500px){
+    main{
+        .body-container{
+            .section-4{
+                .section-4-top{
+                    h3{
+                        font-size: 25px;
+                    }
+                }
+                .section-4-middle{
+                    width: 90%;
+                    .faq{
+                        details{
+                            .question{
+                                font-size: 13px;
+                            }
+                            .answer{
+                                margin-left: 3px;
+                                padding: 15px 7px;
+                                font-size: 13px;
+                            }
+                        }
                     }
                 }
             }

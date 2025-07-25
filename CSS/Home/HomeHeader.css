@@ -19,7 +19,7 @@
 
 main{
     display: flex;
-    align-items: center;
+    justify-content: center;
     width: 100dvw;
     min-width: 100vw;
     
@@ -38,12 +38,15 @@ main{
             height: 98%;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
-            box-shadow: 220px 0px 1px var(--hearder-bg-clr-),
-                        -235px -0px 1px var(--hearder-bg-clr-);
+            box-shadow: 256px 0px 1px var(--hearder-bg-clr-),
+                        -270px -0px 1px var(--hearder-bg-clr-);
             background: var(--hearder-bg-clr-);
 
             div{
                 margin-left: -11%;
+                .static-mobile{
+                    display: none
+                }
                 .static{
                     font-family: var(--text-stylish1);
                     text-align: center;
@@ -105,5 +108,162 @@ main{
 @keyframes typewriter{
     to{
         left: 100%;
+    }
+}
+
+@media (max-width: 1280px){
+    main{
+        .body-container{
+            .section-1{
+                img{
+                    right: -30%;
+                    width: 75%;
+                    height: 95%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1160px){
+    main{
+        .body-container{
+            .section-1{
+                div{
+                    .static{
+                        font-size: 80px
+                    }
+                    .animate{
+                        font-size: 60px
+                    }
+                }
+                img{
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 1000px){
+    main{
+        .body-container{
+            .section-1{
+                div{
+                    .static{
+                        transform: translate(-15%, -20%);
+                        font-size: 70px
+                    }
+                    .animate{
+                        transform: translate(-2%, -60%);
+                        margin-left: 0;
+                        font-size: 60px
+                    }
+                }
+                img{
+                    right: -40%;
+                    height: 80%;
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 750px){
+    main{
+        .body-container{
+            .section-1{
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                div{
+                    .static{
+                        font-size: 60px
+                    }
+                    .animate{
+                        font-size: 50px
+                    }
+                }
+                img{
+                    right: -40%;
+                    height: 70%;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 650px){
+    main{
+        .body-container{
+            .section-1{
+                div{
+                    .static{
+                        transform: translate(-15%, -30%);
+                        font-size: 50px
+                    }
+                    .animate{
+                        transform: translate(4%, -70%);
+                        font-size: 40px
+                    }
+                }
+                img{
+                    right: -50%;
+                    height: 70%;
+                    width: 110%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 500px){
+    main{
+        .body-container{
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            .section-1{
+                box-shadow: 0px 0px 0px var(--hearder-bg-clr-),
+                            -0px -0px 0px var(--hearder-bg-clr-);
+                div{
+                    .static{
+                        display: none
+                    }
+                    .static-mobile{
+                        display: flex;
+                        transform: translate(18%, -50%);
+                        font-family: var(--text-stylish1);
+                        font-size: 55px;
+                        text-wrap: nowrap;
+                        line-height: 1;
+                    }
+                    .animate{
+                        transform: translate(15%, -190%);
+                        font-size: 45px
+                    }
+                }
+                img{
+                    right: -2%;
+                    height: 50%;
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 365px){
+    main{
+        .body-container{
+            .section-1{
+                div{
+                    .static-mobile{
+                        transform: translate(18%, -40%);
+                        font-family: var(--text-stylish1);
+                        font-size: 50px;
+                    }
+                    .animate{
+                        transform: translate(15%, -163%);
+                        font-size: 40px
+                    }
+                }
+            }
+        }
     }
 }

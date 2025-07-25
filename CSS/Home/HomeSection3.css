@@ -84,14 +84,13 @@ main{
             }
 
 
-
             .section3-middle{
                 position: relative;
                 height: 80%;
-                isolation: isolate;
 
                 .sec-3-mid-top{
                     display: flex;
+                    justify-content: center;
                     align-items: center;
                     height: 20%;
                     text-align: left;
@@ -99,16 +98,23 @@ main{
                         text-wrap: nowrap;
                         padding: 5px 20px;
                         font-family: var(--text-regular2);
-                        font-size: 155%;
+                        font-size: 30px;
                         span{
                             color: var(--text-color-secondary);
                             font-style: italic;
                         }
                     }
+                    .mobile-p{
+                        display: none
+                    }
                     svg{
-                        fill: var(--text-color-secondary)
+                        flex-shrink: 0;
+                        fill: var(--text-color-secondary);
                     }
                     .Sign-in{
+                        position: relative;
+                        --_start: #d055e7;
+                        --_end: #d693e4;
                         margin-right: 20px;
                         height: 40px;
                         padding: 5px 18px;
@@ -116,14 +122,25 @@ main{
                         font-family: var(--text-regular1);
                         font-size: 14px;
                         color: var(--text-color-main);
+                        text-wrap: nowrap;
                         border: none;
                         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.29);
-                        background:linear-gradient(to right, var(--accent-color) 20%, #d693e4);
+                        background:linear-gradient(to right, var(--_start) 20%, var(--_end));
                         cursor: pointer;
-                        transition: all .3s ease-in-out;
+                        z-index: 1;
                     }
-                    .Sign-in:hover{
-                        transform: scale(1.05);
+                    .Sign-in::before{
+                        content: '';
+                        position: absolute;
+                        inset: 0;
+                        background:linear-gradient(to right, var(--_end) 10%, var(--_start));
+                        border-radius: 7px;
+                        transition: all .3s ease-in-out;
+                        opacity: 0;
+                        z-index: -1;
+                    }
+                    .Sign-in:hover::before{
+                        opacity: 1
                     }
                 }
 
@@ -162,7 +179,7 @@ main{
                                 left: 15%;
                                 transform: rotate(15deg);
                                 background:linear-gradient(to left, var(--accent-color), #d693e4);
-                                z-index: 5;
+                                z-index: 15;
 
                                 animation: appear .3s linear;
                                 animation-timeline: view();
@@ -173,7 +190,7 @@ main{
                                 left: 15%;
                                 background:linear-gradient(to right, white 60%, #f2e4f5);
                                 transform: rotate(-15deg);
-                                z-index: 10;
+                                z-index: 15;
 
                                 animation: appear .3s linear;
                                 animation-timeline: view();
@@ -182,9 +199,9 @@ main{
                             .stat-card3{
                                 top: 60%;
                                 left: 25%;
-                                 background: var(--hearder-bg-clr-);
+                                background: var(--hearder-bg-clr-);
                                 transform: rotate(15deg);
-                                z-index: 15;
+                                z-index: 5;
 
                                 animation: appear 0.3s linear;
                                 animation-timeline: view();
@@ -238,5 +255,92 @@ main{
     to{
         opacity: 1;
         transform: translateY(-1%) scale(1);
+    }
+}
+
+@media(max-width: 1100px){
+    main{
+        .body-container{
+            .section-3{
+                .carousel-top-wrapper, .carousel-bottom-wrapper{
+                    box-shadow: 210px 0px 1px var(--hearder-bg-clr-),
+                        -230px -0px 1px var(--hearder-bg-clr-);
+                }
+            }
+        }
+    }
+}
+@media(max-width: 900px){
+    main{
+        .body-container{
+            .section-3{
+                margin-top: 100px;
+                .carousel-top-wrapper, .carousel-bottom-wrapper{
+                    box-shadow: 165px 0px 1px var(--hearder-bg-clr-),
+                        -180px -0px 1px var(--hearder-bg-clr-);
+                }
+                .section3-middle{
+                    .sec-3-mid-top{
+                        p{
+                            font-size: 20px;
+                            padding: 5px 10px;
+                        }
+                        .Sign-in{
+                            margin-right: 10px;
+                        }
+                    }
+                    .sec-3-mid-bottom{
+                        .sec-3-mid-bottom-left{
+                            .stat-cards-container{
+                                .cards{
+                                    width: 80%
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 500px){
+    main{
+        .body-container{
+            .section-3{
+                .carousel-top-wrapper, .carousel-bottom-wrapper{
+                    box-shadow: 0px 0px 0px var(--hearder-bg-clr-),
+                        -0px -0px 0px var(--hearder-bg-clr-);
+                }
+                .section3-middle{
+                    .sec-3-mid-top{
+                        .mobile-p{
+                            display: block;
+                            padding-left: 0px;
+                            font-size: 15px;
+                        }
+                        .desktop-p{
+                            display: none
+                        }
+                        .Sign-in{
+                            margin-right: 0px;
+                            padding: 0px 5px;
+                        }
+                        svg{
+                            width: 15px;
+                        }
+                    }
+                    .sec-3-mid-bottom{
+                        .sec-3-mid-bottom-left{
+                            .stat-cards-container{
+                                .cards{
+                                    width: 75%;
+                                    height: 25%;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

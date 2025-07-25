@@ -23,8 +23,6 @@ navDockCloseBtn.addEventListener('click', ()=>{
 
 
 
-
-
 /////////////////////////////////CAROUSEL///////////////////////////////////
 const carousels = document.querySelectorAll('.carousel');
 carousels.forEach(carousel => {
@@ -94,8 +92,8 @@ leftToggle.forEach(button =>{
 rightToggle.forEach(button =>{
     button.addEventListener('click', ()=>{
         if(window.innerWidth < 1001){
-            contactUsSection.classList.remove('hide-left');
             signUpSection.classList.add('hide-right');
+            contactUsSection.classList.remove('hide-left');
         }
         else{
             imageSection.classList.remove('slide-left');
