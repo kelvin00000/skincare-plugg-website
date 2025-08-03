@@ -27,6 +27,7 @@ body{
 
 main{
     .product-section{
+        height: fit-content;
         margin-bottom: 60px;
         padding-top: 80px;
         padding-left: 30px;
@@ -42,7 +43,7 @@ main{
         .grid-container{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 5%;
+            gap: 50px;
 
             .product-card{
                 position: relative;
@@ -158,6 +159,35 @@ main{
         svg{
             fill: var(--background-color-main);
             transform: rotate(-90deg);
+        }
+    }
+}
+
+@media(max-width: 841px){
+    main{
+        .sunscreen-section{
+            margin-bottom: 250px;
+        }
+    }
+}
+@media(max-width: 560px) and (hover: hover) and (pointer: fine){
+    main{
+        .serum-section, .bodylotion-section, .bodywash-section, .treatmentcream-section{
+            margin-bottom: 150px;
+        }
+    }
+}
+@media(max-width: 559px){
+    main{
+        .product-section{
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .serum-section{
+            margin-top: 80px;
+        }
+        .serum-section, .bodylotion-section, .bodywash-section, .treatmentcream-section, .sunscreen-section, .facewash-section, .bodyoil-section,.facecream-section, .bodylotion-section{
+            margin-bottom: 50px;
         }
     }
 }

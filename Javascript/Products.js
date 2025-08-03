@@ -25,6 +25,7 @@ closePopup.addEventListener("click", ()=>{
 const wishlistPopup = document.querySelector(".wishlist-popup");
 const openWishlistBtn = document.querySelectorAll(".js-open-wishlist");
 const overlay = document.querySelector(".wishlist-popup-overlay");
+const expandBtn = document.querySelector(".expand");
 
 openWishlistBtn.forEach(button => {
     button.addEventListener('click', ()=>{
@@ -48,6 +49,9 @@ overlay.addEventListener('click', ()=>{
     overlay.classList.add('overlay-hide')
 
     document.body.style.overflow = "auto";
+})
+expandBtn.addEventListener('click', ()=>{
+    wishlistPopup.classList.toggle('wishlist-expand');
 })
 
 

@@ -23,8 +23,10 @@ main{
             position: relative;
             height: 100vh;
             background: #f9bcd7;
-            box-shadow:  200px 0px 1px #f9bcd7,
-                        -200px -0px 1px #f9bcd7;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow:  260px 0px 1px #f9bcd7,
+                        -275px -0px 1px #f9bcd7;
 
             .section-5-header{
                 display: flex;

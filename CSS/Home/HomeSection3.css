@@ -107,6 +107,9 @@ main{
                     .mobile-p{
                         display: none
                     }
+                    .post-signup{
+                        display: none
+                    }
                     svg{
                         flex-shrink: 0;
                         fill: var(--text-color-secondary);
@@ -274,8 +277,10 @@ main{
     main{
         .body-container{
             .section-3{
+                height: 80%;
                 margin-top: 100px;
                 .carousel-top-wrapper, .carousel-bottom-wrapper{
+                    height: 14%;
                     box-shadow: 165px 0px 1px var(--hearder-bg-clr-),
                         -180px -0px 1px var(--hearder-bg-clr-);
                 }

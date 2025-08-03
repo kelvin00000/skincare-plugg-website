@@ -31,14 +31,37 @@ const GnavProfileButton = document.querySelector(".GnavbarProfileBtn");
 const EprofilePopup = document.querySelector('.e-profile-popup');
 const EnavProfileButton = document.querySelector(".EnavbarProfileBtn");
 
+//PAGE
+const desktopMessage = document.querySelector('.desktop-p');
+const mobileMessage = document.querySelector('.mobile-p');
+const pageSignupBtn = document.querySelectorAll('.page-signup-btn');
+const postSignupMessage = document.querySelector('.post-signup');
+
+
 //CLOUD FUNCTIONS INITIALIZATION
 const functions = getFunctions(app);
 const sendToZapier = httpsCallable(functions, "sendToZapier");
 
 
-
+/////////////GOOGLE SIGIN FUNCTION
 const googleLoginBtn = document.getElementById("google-login-btn");
 googleLoginBtn.addEventListener('click', ()=>{
+    const googleBtnText = document.querySelector('.formBtnText-2');
+    const googleBtnSvg = document.querySelector('.googleBtnsvg');
+    const googleLoader = document.getElementById('loader-2');
+
+    googleBtnText.style.display = 'none';
+    googleBtnSvg.style.display = 'none';
+    googleLoader.style.display = 'flex';
+
+    setTimeout(()=>{
+        signInWithGoogle();
+        googleBtnText.style.display = 'flex';
+        googleBtnSvg.style.display = 'flex';
+        googleLoader.style.display = 'none';
+    }, 3000);
+})
+function signInWithGoogle(){
     signInWithPopup(auth, provider).then(
         (result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -50,10 +73,25 @@ googleLoginBtn.addEventListener('click', ()=>{
             alert('Please check your internet connection')
         }
     );
-})
+}
 
+
+////////////EMAIL SIGNIN FUNCTION
 const emailLoginBtn = document.getElementById("email-signin-btn");
 emailLoginBtn.addEventListener('click', ()=>{
+    const googleBtnText = document.querySelector('.formBtnText-1');
+    const googleLoader = document.getElementById('loader-1');
+
+    googleBtnText.style.display = 'none';
+    googleLoader.style.display = 'flex';
+
+    setTimeout(()=>{
+        signInWithEmail();
+        googleBtnText.style.display = 'flex';
+        googleLoader.style.display = 'none';
+    }, 3000);
+})
+function signInWithEmail(){
     const email = document.getElementById("email").value;
     const password = document.getElementById("passkey").value;
 
@@ -66,31 +104,56 @@ emailLoginBtn.addEventListener('click', ()=>{
         const errorMessage = error.message;
         alert('Email or Passsword is incorrect or User is already signed in with google')
     })
-})
+}
 
+
+///////////////LOG OUT FUNCTION
 document.querySelectorAll(".logout-btn")
 .forEach(button =>{
     button.addEventListener('click', ()=>{
-        signOut(auth).then(()=>{
-            GprofilePopup.style.display = 'none';
-            EprofilePopup.style.display = 'none';
-        })
-        .catch((error)=>{
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
+        const logOutBtnText = document.querySelectorAll('.logOutBtnText');
+        const logOutLoader = document.querySelectorAll('.loader-3');
 
-        deleteUser(user).then(()=>{
-            console.log(user)
+        logOutBtnText.forEach(text=>{
+            text.style.display = 'none';
         })
-        .catch((error)=>{
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
+        logOutLoader.forEach(loader=>{
+            loader.style.display = 'flex';
+        })
+
+        setTimeout(()=>{
+            signUserOut();
+            logOutLoader.forEach(loader=>{
+                loader.style.display = 'none';
+            })
+            logOutBtnText.forEach(text=>{
+                text.style.display = 'flex';
+            })
+        }, 3000);
     })
 })
+function signUserOut(){
+    signOut(auth).then(()=>{
+        GprofilePopup.style.display = 'none';
+        EprofilePopup.style.display = 'none';
+    })
+    .catch((error)=>{
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    });
+
+    deleteUser(user).then(()=>{
+        console.log(user)
+    })
+    .catch((error)=>{
+        const errorCode = error.code;
+        const errorMessage = error.message;
+    });
+}
 
 
+
+////////////////////////////////PAGE UPDATES
 function updateNavbarForGoogle(){
     GprofilePopup.classList.toggle('profile-hide')
     siginPopup.classList.remove('signin-show');
@@ -98,6 +161,11 @@ function updateNavbarForGoogle(){
 
     navSigninButton.style.display = 'none';
     GnavProfileButton.style.display = 'flex';
+
+    if (!sessionStorage.getItem('reloaded')) {
+        sessionStorage.setItem('reloaded', 'true');
+        window.location.reload();
+    }
 }
 
 function updateNavbarForEmail(){
@@ -107,6 +175,21 @@ function updateNavbarForEmail(){
     navSigninButton.style.display = 'none';
     EnavProfileButton.style.display = 'flex';
     EprofilePopup.classList.toggle('profile-hide')
+
+    if (!sessionStorage.getItem('reloaded')) {
+        sessionStorage.setItem('reloaded', 'true');
+        window.location.reload();
+    }
+}
+function postSigupPageUpdate(){
+    if(desktopMessage && mobileMessage && pageSignupBtn && postSignupMessage){
+        desktopMessage.style.display = 'none';
+        mobileMessage.style.display = 'none';
+        pageSignupBtn.forEach(button => {
+            button.style.display = 'none';
+        })
+        postSignupMessage.style.display = 'flex';
+    }
 }
 
 function updateUserProfile(user){
@@ -127,7 +210,7 @@ function updateUserProfile(user){
     })
 }
 
-//ZAPPIER FUNCTION
+///////////////////////////////ZAPPIER FUNCTION
 const sendEmailToZapier = async (email) => {
   const result = await sendToZapier({ email });
   try {
@@ -139,9 +222,11 @@ const sendEmailToZapier = async (email) => {
 };
 
 
+//////////////////////USER LOG
 onAuthStateChanged(auth, (user)=>{
     if(user){
         sendEmailToZapier(user.email);
+        postSigupPageUpdate();
         user.providerData.forEach((profile) => {
             //console.log("Signed in with:", profile.providerId);
             

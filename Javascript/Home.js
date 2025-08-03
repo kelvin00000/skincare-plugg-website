@@ -51,7 +51,7 @@ window.addEventListener("scroll", ()=> {
 ///////////////////////////SIGNIN POPUP TOGGLE////////////////////////////////////
 const siginPopup = document.querySelector(".signin-popup");
 const signinPopupOpenBtn = document.querySelectorAll(".signup-toggle");
-const closeBtn = document.querySelector(".close-signin");
+const signinPopupcloseBtn = document.querySelector(".close-signin");
 
 signinPopupOpenBtn.forEach(button => {
     button.addEventListener('click', ()=>{
@@ -61,7 +61,7 @@ signinPopupOpenBtn.forEach(button => {
         document.body.style.overflow = "hidden";
     })
 });
-closeBtn.addEventListener('click', ()=>{
+signinPopupcloseBtn.addEventListener('click', ()=>{
     siginPopup.classList.remove('signin-show');
     siginPopup.classList.add('signin-hide');
     navDockOverlay.style.visibility = "hidden";

@@ -64,18 +64,23 @@
                 </div>
 
                 <div class="g-profile-popup">
-                   <p class="title">You're Signed in as</p>
                     <div class="info">
                         <div class="left"><img src="" alt="profile-photo" class="g-profile-photo"></div>
-                        <div class="right">
-                            <p class="g-profile-name"></p>
-                            <p class="g-profile-email"></p>
-                            <button class="logout-btn">log out</button>
-                        </div>
+                        <p class="g-profile-name"></p>
+                        <p class="g-profile-email"></p>
+                    </div>
+                    <div class="CTAs">
+                        <button class="logout-btn">
+                            <p class="logOutBtnText">Log Out</p>
+                            <div class="loader loader-3"></div>
+                        </button>
+                        <button class="delete-btn">
+                            <p class="deleteOutBtnText">Delete Account</p>
+                            <div class="loader loader-4"></div>
+                        </button>
                     </div>
                 </div>
                 <div class="e-profile-popup">
-                    <p class="title">You're Signed in as</p>
                     <div class="info">
                         <div class="profile-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="none">
@@ -89,10 +94,17 @@
                                 <path fill="url(#gradient)" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
                             </svg>
                         </div>
-                        <div class="right">
-                            <p class="e-profile-email"></p>
-                            <button class="logout-btn">log out</button>
-                        </div>
+                        <p class="e-profile-email"></p>
+                    </div>
+                    <div class="CTAs">
+                        <button class="logout-btn">
+                            <p class="logOutBtnText">Log Out</p>
+                            <div class="loader loader-3"></div>
+                        </button>
+                        <button class="delete-btn">
+                            <p class="deleteOutBtnText">Delete Account</p>
+                            <div class="loader loader-4"></div>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -102,6 +114,10 @@
     <nav class="dock">
         <div class="nav-dock">
             <div class="padding">
+                <div class="divider five">
+                    <input type="text" class="search" placeholder="looking for something?">
+                    <button class="search-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button>
+                </div>
                 <div class="divider one">
                     <a href="index.html">Home...</a>
                 </div>
@@ -133,10 +149,6 @@
                         <button class="contact-us signup-toggle">Contact Us</button>
                     </div>
                 </div>
-                <div class="divider five">
-                    <input type="text" class="search" placeholder="find something...">
-                    <button class="search-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button>
-                </div>
             </div>
         </div>
         <div class="dock-overlay"></div>
@@ -157,7 +169,7 @@
     </nav>
 
     <div class="signin-popup-container">
-        <div class="signin-popup">
+        <dialog class="signin-popup">
             <div class="contactus-section">
                 <p class="title">Visit any of my social handles to reach out</br> <span>or send me an email</span></p>
                 <div class="contactus-section-padding">
@@ -228,9 +240,12 @@
                         <input type="password" id="passkey" placeholder="Password" required>
                     </form>
                 <div class="options">
-                    <button class="send-details" id="email-signin-btn">log in</button>
+                    <button class="send-details" id="email-signin-btn">
+                        <p class="formBtnText-1">Sign in</p>
+                        <div id="loader-1" class="loader"></div>
+                    </button>
                     <button class="google-signin" id="google-login-btn">
-                        <svg width="20px" height="20px" viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <svg class="googleBtnsvg" width="20px" height="20px" viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         
                                 <title>Google-color</title>
                                 <desc>Created with Sketch.</desc>
@@ -255,8 +270,9 @@
                                         </g>
                                     </g>
                                 </g>
-                            </svg>
-                        or sign up with google
+                        </svg>
+                        <p class="formBtnText-2">or sign in with google</p>
+                        <div id="loader-2" class="loader"></div>
                     </button>
                 </div>
                 </div>
@@ -274,7 +290,7 @@
             <button class="close-signin">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
             </button>
-        </div>
+        </dialog>
     </div>
 
     <main>
@@ -911,7 +927,7 @@
                 </div>
             </div>
         </section>
-
+        
 
         <div class="popup">
             <div class="popup-padding">
@@ -990,6 +1006,9 @@
         <aside class="wishlist-popup-container">
             <div class="wishlist-popup">
                 <h2>Your Wishlist</h2>
+                <button class="expand">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#212121"><path d="M200-200v-240h80v160h160v80H200Zm480-320v-160H520v-80h240v240h-80Z"/></svg>
+                </button>
                 <div class="wishlist-results-screen">
                    <div class="w-product-card">
                         <div class="left">

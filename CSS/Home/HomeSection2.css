@@ -87,7 +87,7 @@ main{
             .product-showcase1{
                 .product-image{
                     background-color: var(--showcase-clr-1);
-                    box-shadow: -220px -0px 0px var(--showcase-clr-1);
+                    box-shadow: -275px -0px 0px var(--showcase-clr-1);
                 }
                 .product-info{
                     a{
@@ -106,7 +106,7 @@ main{
             .product-showcase2{
                 .product-image{
                     background-color: var(--showcase-clr-2);
-                    box-shadow: 220px 0px 0px var(--showcase-clr-2);
+                    box-shadow: 260px 0px 0px var(--showcase-clr-2);
                 }
                 .product-info{
                     a{
@@ -125,7 +125,7 @@ main{
             .product-showcase3{
                 .product-image{
                     background-color: var(--showcase-clr-3);
-                    box-shadow: -220px -0px 0px var(--showcase-clr-3);
+                    box-shadow: -275px -0px 0px var(--showcase-clr-3);
                 }
                 .product-info{
                     a{

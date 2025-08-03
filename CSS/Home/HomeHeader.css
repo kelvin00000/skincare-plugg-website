@@ -5,7 +5,7 @@
     --background-color: #f8f9f9;
     --secondary-background-color: #e5e7e9 ;
     --hearder-bg-clr-: #f8b5d3;
-    --accent-color: #d055e7 ;
+    --accent-color: #d055e7;
     --text-color-main: #212121;
     --text-color-secondary: #7d7d7d;
     --text-color-third: #d7dbdd;
@@ -38,8 +38,8 @@ main{
             height: 98%;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
-            box-shadow: 256px 0px 1px var(--hearder-bg-clr-),
-                        -270px -0px 1px var(--hearder-bg-clr-);
+            box-shadow: 260px 0px 1px var(--hearder-bg-clr-),
+                        -275px -0px 1px var(--hearder-bg-clr-);
             background: var(--hearder-bg-clr-);
 
             div{
@@ -70,8 +70,7 @@ main{
                     position: absolute;
                     inset: 0;
                     background-color: var(--hearder-bg-clr-);
-                    animation: typewriter 4s ease forwards;
-                    animation-iteration-count: infinite;
+                    animation: typewriter 4s ease forwards infinite;
                 }
             }
 
@@ -237,6 +236,9 @@ main{
                     .animate{
                         transform: translate(15%, -190%);
                         font-size: 45px
+                    }
+                    .animate::before{
+                        animation: typewriter 6s ease forwards infinite;
                     }
                 }
                 img{
