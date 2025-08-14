@@ -89,7 +89,7 @@ emailLoginBtn.addEventListener('click', ()=>{
         signInWithEmail();
         googleBtnText.style.display = 'flex';
         googleLoader.style.display = 'none';
-    }, 3000);
+    }, 2500);
 })
 function signInWithEmail(){
     const email = document.getElementById("email").value;
@@ -129,7 +129,7 @@ document.querySelectorAll(".logout-btn")
             logOutBtnText.forEach(text=>{
                 text.style.display = 'flex';
             })
-        }, 3000);
+        }, 2500);
     })
 })
 function signUserOut(){

@@ -1,0 +1,823 @@
+{
+    "serumsSection": [{
+        "product": [{
+                "id": "09QCFCDEIM",
+                "image": "./../Images/product-serum-retinolserum.webp",
+                "name": "Retinol Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "A derivative of vitamin A, designed to promote cell turnover, colagen production and skin renewal.",
+                "usage": "It's for anti-aging, skin texture, hyperpigmentation and acne. Only use at night.",
+                "disclaimer": "May cause redness .Do not use without sun protection (sunscreen).",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["retinol","retinol serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "0YQ21S1596",
+                "image": "./../Images/product-serum-caffeinserum.webp",
+                "name": "Caffein Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "Known for ability to constrict blood vessels, reduce inflammation and improve circulation.",
+                "usage": "Reduces puffiness under the eye, diminishes dark circles around the eye.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["caffein","caffein serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "1OWZLMMXQ8",
+                "image": "./../Images/product-serum-ceremideSerum.webp",
+                "name": "Ceremide Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "A product that contains ceramides, a type of lipid that helps to restore and repair the skin's barrier.",
+                "usage": "Inproves skin elasticity, resuces inflammation and enhances skin hydration.",
+                "disclaimer": "Skin sensitivity. May cauuse irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["ceremide","ceremide serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "1VUOJ3VJN9",
+                "image": "./../Images/product-serum-drRashelWhiteSkinserum.webp",
+                "name": "White Skin Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "A seerum that contains niacinimide and arbutin which works together to even out skin tone, reduce redness and irritation.",
+                "usage": "Fades dark spots, brightens skin and hydrates skin.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["white skin", "skin", "dr rashel", "drrashel","white skin serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "1ZC7HGUSUW",
+                "image": "./../Images/product-serum-estalin.webp",
+                "name": "Estaline Serums",
+                "price": 80,
+                "category": "Serums",
+                "description": "A range of skincare products designed to address various skin concerns.",
+                "usage": "Generally for brightening and hydration.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["estaline","estaline serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "2LF85KACD3",
+                "image": "./../Images/product-serum-estalineNiacinamide.webp",
+                "name": "Niacinamide Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "Formulated with niacinimide also known vitamin B3, which helps to improve skin texture and colagen production.",
+                "usage": "Reduce wrinkle formation. Brightens and smoothens skin.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["niacinamide","niacinamide serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "2QNIW7DVF1",
+                "image": "./../Images/product-serum-facFactsSerums.webp",
+                "name": "Facefacts Serums",
+                "price": 80,
+                "category": "Serums",
+                "description": "A range of serums that cater for various skin concerns.",
+                "usage": "Generally for brightening and hydration.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["facefacts","facefacts serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "3U1BFJ4K05",
+                "image": "./../Images/product-serum-gojiberrySerum.webp",
+                "name": "Goji Berry Serum",
+                "price": 60,
+                "category": "Serums",
+                "description": "A serum that harnesses the antioxidants-rich properties of goji berries.",
+                "usage": "For hydrating and provides antioxidant protection and helps with fine lines and wrinkles.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["goji berry", "goji" ,"berry" ,"gojiberry serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "4ZEW1YGFU7",
+                "image": "./../Images/product-serum-seoul1988.webp",
+                "name": "Seoul 1988 Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "A South Korean botanical serum for next level skin renewal.",
+                "usage": "Reduces fine lines and wrinkles, improves skin elasticity.",
+                "disclaimer": "Skin sensitivity. May cuuse irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["seoul 1988","seoul 1988 serum", "1988", "seoul", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "5GUZS4TJMI",
+                "image": "./../Images/product-serum-snailCollagenserum.webp",
+                "name": "Snail Colagen Serum",
+                "price": 60,
+                "category": "Serums",
+                "description": "A product that harnesses the regenerative properties of snail mucin to promotes healthy skin.",
+                "usage": "Hydrates, repairs and improves skin texture.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["snail colagen", "colagen", "snail" ,"snail colagen serum", "serum", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "6Q2JGBGZTQ",
+                "image": "./../Images/product-serum-vitaminCserum.webp",
+                "name": "Vitamin C Serum",
+                "price": 80,
+                "category": "Serums",
+                "description": "A product that harnesses the antioxidant power of vitamin C to promote healthy radient skin.",
+                "usage": "Brightens and evens skin tone, boosts colagen production and hydrates the skin.",
+                "disclaimer": "Skin sensitivity. May cause irritation on dry and sensitive skin and be cautious when applying with other products.",
+                "prescription": "Apply few drops to clean dry skin. Follow up with a moisturiser.",
+                "keywords": ["vitamin c", "vitamin", "vitaminc serum", "serum", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "facecreamSection":[{
+        "product": [{
+                "id": "7CY2L9T1X3",
+                "image": "./../Images/product-face_Cream-drRashelwhiteskinFacecream.webp",
+                "name": "White Skin",
+                "price": 80,
+                "category": "Face Creams",
+                "description": "Whitening cream designed to even out skin tone.",
+                "usage": " Whitens, brightens, and evens skin tone, reducing the appearance of dark spots and hyperpigmentation. Helps to inhibit melanin production, resulting in a brighter and more even-toned complexion.",
+                "disclaimer": "Check skin allergies before use and also check combination with other actives in your routine. Check skin sensitivity to particular ingredients in the product",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed. Use sunscreen with at least SPF 30 during the day.",
+                "keywords": ["whiteskin facecream", "whiteskin","drRashel whiteskin facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "7CZY3JEGJI",
+                "image": "./../Images/product-faceCream-acneFaceCream.webp",
+                "name": "Acne Face Cream",
+                "price": 90,
+                "category": "Face Creams",
+                "description": "Anti-acne cream that reduces inflammation.",
+                "usage": "Treats acne, reduces inflammation, and prevents scarring. Helps to unclog pores and prevent future breakouts.",
+                "disclaimer": "May dry out skin, not suitable for sensitive skin. Use moisturizer to avoid dryness. Avoid using with other acne products.",
+                "prescription":  " Apply as directed by a dermatologist. Typically, apply a thin layer to affected areas 1-2 times a day.",
+                "keywords": ["acne", "acne facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "7HIWAKM0A1",
+                "image": "./../Images/product-faceCream-brightClearFacecream.webp",
+                "name": "Bright & Clear",
+                "price": 150,
+                "category": "Face Creams",
+                "description": "Brightening cream that evens out skin tone.",
+                "usage": "Brightens, clarifies, and evens skin tone, reducing the appearance of dark spots and hyperpigmentation. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed. Use sunscreen with at least SPF 30 during the day.",
+                "keywords": ["bright and clear", "bright and clear facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "7MIGWYW7PA",
+                "image": "./../Images/product-faceCream-ceremideRepaircream.webp",
+                "name": "Ceramide Repair",
+                "price": 90,
+                "category": "Face Creams",
+                "description": "Moisturizing cream that repairs skin.",
+                "usage": " Moisturizes, repairs, and protects skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["ceramide repair", "ceramide repair facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "8WLI5KRJMX",
+                "image": "./../Images/product-faceCream-gojiBerryFacecream.webp",
+                "name": "Goji Berry",
+                "price": 80,
+                "category": "Face Creams",
+                "description": "Anti-aging cream that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-aging products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["goji berry", "goji berry facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "99ZRRDCGXD",
+                "image": "./../Images/product-faceCream-halfcastFacecream.webp",
+                "name": "Half Cast",
+                "price": 90,
+                "category": "Face Creams",
+                "description": " Whitening cream that evens out skin tone.",
+                "usage": "Whitens, brightens, and evens skin tone, reducing the appearance of dark spots and hyperpigmentation. Helps to inhibit melanin production, resulting in a brighter and more even-toned complexion.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other whitening products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed. Use sunscreen with at least SPF 30 during the day.",
+                "keywords": ["half cast", "half cast facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "BH1H8OH2KP",
+                "image": "./../Images/product-faceCream-halfCastVitaminC.webp",
+                "name": "Half Cast Vitamin C",
+                "price": 90,
+                "category": "Face Creams",
+                "description": "Brightening cream that promotes collagen production.",
+                "usage": "Brightens, clarifies, and evens skin tone, reducing the appearance of dark spots and hyperpigmentation. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed. Use sunscreen with at least SPF 30 during the day.",
+                "keywords": ["vitamin c", "vitamin", "half cast", "half cast vitamin c facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "BSRNS5GBUK",
+                "image": "./../Images/product-faceCream-hylauronicFacecream.webp",
+                "name": "Hylauronic Facecream",
+                "price": 80,
+                "category": "Face Creams",
+                "description": "Moisturizing cream that hydrates skin.",
+                "usage": "Moisturizes, hydrates, and plumps skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["hylauronic", "hylauronic facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "C7A5RNPQB1",
+                "image": "./../Images/product-faceCream-kojisanFacecream.webp",
+                "name": "Kojisan",
+                "price": 70,
+                "category": "Face Creams",
+                "description": "Brightening cream that evens out skin tone.",
+                "usage": "Brightens, clarifies, and evens skin tone, reducing the appearance of dark spots and hyperpigmentation. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed. Use sunscreen with at least SPF 30 during the day.",
+                "keywords": ["kojisan", "kojisan facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "C7OOMUNPVW",
+                "image": "./../Images/product-faceCream-newSkinFacecream.webp",
+                "name": "New Skin",
+                "price": 90,
+                "category": "Face Creams",
+                "description": "Anti-aging cream that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-aging products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["new skin", "new", "skin", "new skin facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "C9548JJNA1",
+                "image": "./../Images/product-faceCream-simpleMoisturiser.webp",
+                "name": "Simple Moisturiser",
+                "price": 90,
+                "category": "Face Creams",
+                "description": "Moisturizing cream that hydrates skin.",
+                "usage": "Moisturizes, hydrates, and plumps skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": " May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["simple moisturiser", "moisturiser", "simple moisturiser facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "CLTQAE79TF",
+                "image": "./../Images/product-faceCream-snailCollagenFacecream.webp",
+                "name": "Snail Colagen",
+                "price": 80,
+                "category": "Face Creams",
+                "description": " Anti-aging cream that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-aging products.",
+                "prescription":  "Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["snail colagen", "colagen", "snail colagen facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "CPF0EU5R2R",
+                "image": "./../Images/product-faceCreams-faceFactsCeramideGelCream.webp",
+                "name": "Ceramide Gel Cream",
+                "price": 80,
+                "category": "Face Creams",
+                "description": "Moisturizing gel that hydrates skin.",
+                "usage": "Moisturizes, hydrates, and plumps skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  " Apply morning and night, gently massaging into skin until fully absorbed.",
+                "keywords": ["gel", "ceramide", "ceramide gel facecream", "facecream", "facecreams", "cream", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+    
+
+    "bodyoilSection": [{
+        "product": [{
+                "id": "D0NM59DV3Q",
+                "image": "./../Images/product-bodyOil-alphaArbutin.webp",
+                "name": "Alpha Arbutin",
+                "price": 120,
+                "category": "Body Oils",
+                "description": "Skin-lightening oil that reduces melanin production.",
+                "usage": " Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other skin-lightening products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["alpha albutin", "alpha albutin body oil", "bodyoil", "oil", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "ECLDR9X5NB",
+                "image": "./../Images/product-bodyOil-easytoneBodyoil.webp",
+                "name": "Easy Tone",
+                "price": 80,
+                "category": "Body Oils",
+                "description": "Skin-toning oil that improves skin texture.",
+                "usage": "Improves skin texture, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin elasticity.",
+                "disclaimer": " May not be suitable for sensitive skin. Patch test before using. Avoid using with other skin-toning products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["tone", "easy tone body oil", "bodyoil", "oil", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "F2M0C1OW0L",
+                "image": "./../Images/product-bodyOil-morrocanArganBodyoil.webp",
+                "name": "Morrocan Argan",
+                "price": 85,
+                "category": "Body Oils",
+                "description": " Moisturizing oil that hydrates skin.",
+                "usage": "Moisturizes, hydrates, and plumps skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["argan", "morrocan argan body oil", "bodyoil", "oil", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "FAEV4HITPY",
+                "image": "./../Images/product-bodyOil-morrocanEssentialArganBodyoil.webp",
+                "name": "Morrocan Essential",
+                "price": 120,
+                "category": "Body Oils",
+                "description": "Aromatic oil that promotes relaxation.",
+                "usage": "Promotes relaxation, reduces stress and anxiety. Helps to improve mood and reduce inflammation.",
+                "disclaimer": "May cause skin irritation, patch test before using. Avoid using with other aromatic oils.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed. Use in aromatherapy or mix with other oils for massage.",
+                "keywords": ["essential", "morrocan essential body oil", "bodyoil", "oil", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "sunscreenSection": [{
+        "product": [{
+                "id": "G1KQL9JFAI",
+                "image": "./../Images/product-suncreen-hyperbeautySuncreen.webp",
+                "name": "Hyperbeauty",
+                "price": 80,
+                "category": "Sunscreens",
+                "description": "Broad-spectrum sunscreen that protects against UVA and UVB rays.",
+                "usage": "Protects against sunburn, premature aging, and skin cancer. Helps to prevent hyperpigmentation and dark spots.",
+                "disclaimer": "May cause skin irritation, patch test before using. Avoid using with other sunscreens.",
+                "prescription":  "Apply 15-30 minutes before sun exposure, reapply every 2 hours or immediately after swimming or sweating.",
+                "keywords": ["hyperbeauty", "hyperbeauty suncreen", "sunscreen", "screen", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "H7G2KNJ5U6",
+                "image": "./../Images/product-sunscreen-bioreUV.webp",
+                "name": "BioreUV Sunscreen",
+                "price": 180,
+                "category": "Sunscreens",
+                "description": "Broad-spectrum sunscreen that protects against UVA and UVB rays.",
+                "usage": "Protects against sunburn, premature aging, and skin cancer. Helps to prevent hyperpigmentation and dark spots.",
+                "disclaimer": "May cause skin irritation, patch test before using. Avoid using with other sunscreens.",
+                "prescription":  " Apply 15-30 minutes before sun exposure, reapply every 2 hours or immediately after swimming or sweating.",
+                "keywords": ["bioreuv", "uv", "bioreuv suncreen", "sunscreen", "screen", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "facewashSection": [{
+            "product": [{
+                "id": "ILTAWAM3QQ",
+                "image": "./../Images/product-faceWash-ceremideFacewash.webp",
+                "name": "Ceramide Facewash",
+                "price": 90,
+                "category": "Face Wash",
+                "description": " Gentle face wash that cleans and moisturizes skin.",
+                "usage": "Cleans and moisturizes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": " May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  " Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["ceramide", "face wash", "wash", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "IPOFE5GBY9",
+                "image": "./../Images/product-faceWash-disaarBrightening.webp",
+                "name": "Disaar Brightening",
+                "price": 60,
+                "category": "Face Wash",
+                "description": "Brightening face wash that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  " Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["brightening", "disaar", "face wash", "wash", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "J96ZMQOIW6",
+                "image": "./../Images/product-faceWash-salicylicAcidFacewash.webp",
+                "name": "Salicylic Facewash",
+                "price": 60,
+                "category": "Face Wash",
+                "description": "Exfoliating face wash that reduces acne and blackheads.",
+                "usage": "Exfoliates skin, reducing acne and blackheads. Helps to unclog pores and prevent future breakouts.",
+                "disclaimer": "May dry out skin, not suitable for sensitive skin. Use moisturizer to avoid dryness. Avoid using with other exfoliating products.",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["salisylic", "acid", "face wash", "wash", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "tonerSection": [{
+        "product": [{
+            "id": "JBIXSSIR0P",
+            "image": "./../Images/product-toner-glycolicacidtoner.webp",
+            "name": "Glycolic Toner",
+            "price": 320,
+            "category": "Toners",
+            "description": "Exfoliating toner that reduces acne and blackheads.",
+            "usage": "Exfoliates skin, reducing acne and blackheads. Helps to unclog pores and prevent future breakouts.",
+            "disclaimer": "May dry out skin, not suitable for sensitive skin. Use moisturizer to avoid dryness. Avoid using with other exfoliating products.",
+            "prescription":  "Apply to skin with a cotton pad, sweeping upwards and outwards.",
+            "keywords": ["acid", "glycolic", "toner", "product", "beauty", "face", "facial"]
+        }]
+    }],
+
+
+
+    "bodylotionSection": [{
+        "product": [{
+                "id": "JQAG2HXRS3",
+                "image": "./../Images/product-bodyLotion-carrotExclusive.webp",
+                "name": "Carrot Exclusive",
+                "price": 130,
+                "category": "Body Lotions",
+                "description": "Moisturizing lotion that hydrates and nourishes skin.",
+                "usage": "Moisturizes, hydrates, and nourishes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  " Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["carrot exclusive", "exclusive", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "KWS0YTUIO3",
+                "image": "./../Images/product-bodyLotion-doveBodyLotion.webp",
+                "name": "Dove Bodylotion",
+                "price": 65,
+                "category": "Body Lotions",
+                "description": "Moisturizing lotion that hydrates and nourishes skin.",
+                "usage": "Moisturizes, hydrates, and nourishes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": " May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["dove", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "LBY0MYGAP2",
+                "image": "./../Images/product-bodyLotion-drDarvy.webp",
+                "name": "drDavey Bodylotion",
+                "price": 120,
+                "category": "Body Lotions",
+                "description": "Brightening lotion that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["davey", "dr", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "LDGWVBLNS6",
+                "image": "./../Images/product-bodyLotion-faceFactsVitaminC.webp",
+                "name": "Vitamin C Bodylotion",
+                "price": 130,
+                "category": "Body Lotions",
+                "description": "Antioxidant lotion that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other antioxidant products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["face facts", "c", "facts", "vitamin c", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "MF0T6G6CZD",
+                "image": "./../Images/product-bodyLotion-fairnessSkinGold.webp",
+                "name": "Fairness Skin Gold",
+                "price": 130,
+                "category": "Body Lotions",
+                "description": "Brightening lotion that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["skin", "fairness", "gold", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "NBZF6XKQ0R",
+                "image": "./../Images/product-bodyLotion-kojicAcidBodyLotion.webp",
+                "name": "Kojic Acid",
+                "price": 100,
+                "category": "Body Lotions",
+                "description": "Brightening lotion that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription": "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["acid", "kojic", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "O7UV0Y3W0K",
+                "image": "./../Images/product-bodyLotion-niuSkinBodyLotion.webp",
+                "name": "Niu Skin",
+                "price": 110,  
+                "category": "Body Lotions",
+                "description": "Moisturizing lotion that hydrates and nourishes skin.",
+                "usage": "Moisturizes, hydrates, and nourishes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["niu", "skin", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "OP8RLYVIBN",
+                "image": "./../Images/product-bodyLotion-radientAndBeauty.webp",
+                "name": "Radient and Beauty",
+                "price": 130,
+                "category": "Body Lotions",
+                "description": "Brightening lotion that reduces melanin production.",
+                "usage": "Brightens skin, and reducing the appearance of uneven skin tone.",
+                "disclaimer": " May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["beauty", "radient", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "OQDSX5FZS0",
+                "image": "./../Images/product-bodyLotion-retinolLotion.webp",
+                "name": "Retinol Bodylotion",
+                "price": 130,
+                "category": "Body Lotions",
+                "description": "Anti-aging lotion that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-aging products.",
+                "prescription": "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["retinol", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "OVN0A8PZKE",
+                "image": "./../Images/product-bodyLotion-vaselineBrightening.webp",
+                "name": "Vaseline Brightening",
+                "price": 145,
+                "category": "Body Lotions",
+                "description": "Brightening lotion that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "",
+                "prescription":  "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["vaseline", "brightening", "lotion", "body", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "P5CENG7JZ7",
+                "image": "./../Images/product-bodyLotions-drTealsVitaminC.webp",
+                "name": "drTeals Vitamin C",
+                "price": 130,
+                "category": "Body Lotions",
+                "description": "Antioxidant lotion that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription": "Apply after bath or shower, massaging into skin until fully absorbed.",
+                "keywords": ["c", "vitamin", "dr", "teals", "lotion", "body", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "facemoisturiserSection": [{
+        "product": [{
+            "id": "PKN0Z9AT5V",
+            "image": "./../Images/product-faceMoisturiser-drRashelColagen.webp",
+            "name": "drRashel Colagen",
+            "price": 80,
+            "category": "Face Moisturiser",
+            "description": "Anti-aging moisturizer that promotes collagen production.",
+            "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+            "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-aging products.",
+            "prescription": "Apply morning and night, gently massaging into skin until fully absorbed.",
+            "keywords": ["rashel", "dr", "moisturiser", "product", "beauty", "face", "facial"]
+        }]
+    }],
+
+
+
+    "cleanserSection": [{
+        "product": [{
+                "id": "PW1R2ZJZW2",
+                "image": "./../Images/product-cleanser-bambooSoap.webp",
+                "name": "Bamboo Soap",
+                "price": 35,
+                "category": "Cleansers",
+                "description": "Gentle cleanser that cleans and moisturizes skin.",
+                "usage": "Cleans and moisturizes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription": "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["bamboo", "cleansers", "clean", "soap", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "Q3PZQT6ZYX",
+                "image": "./../Images/product-cleanser-kojisanSoap.webp",
+                "name": "Kojisan Soap",
+                "price": 60,
+                "category": "Cleansers",
+                "description": "Brightening soap that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["kojisan", "cleansers", "clean", "soap", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "R2Q6T3QI10",
+                "image": "./../Images/product-cleanser-nanoSoap.webp",
+                "name": "Nano Soap",
+                "price": 55,
+                "category": "Cleansers",
+                "description": "Gentle cleanser that cleans and moisturizes skin.",
+                "usage": "Cleans and moisturizes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. ",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["nano", "cleansers", "clean", "soap", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "RG7T2FZ4C1",
+                "image": "./../Images/product-cleanser-retinASoap.webp",
+                "name": "Retin A Soap",
+                "price": 50,
+                "category": "Cleansers",
+                "description": "Anti-aging cleanser that promotes collagen production.",
+                "usage": "Anti-aging, antioxidant, and moisturizing, reducing the appearance of fine lines and wrinkles. Helps to promote collagen production and improve skin texture.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-aging products.",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["a", "retin", "cleansers", "clean", "soap", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "RNQABU5CO8",
+                "image": "./../Images/product-cleanser-riceJamSoap.webp",
+                "name": "Rice Jam Soap",
+                "price": 35,
+                "category": "Cleansers",
+                "description": "Gentle cleanser that cleans and moisturizes skin.",
+                "usage": "Cleans and moisturizes skin. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["rice", "jam", "cleansers", "clean", "soap", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "RW0RBP143W",
+                "image": "./../Images/product-cleansers-tumericHoneySoap.webp",
+                "name": "Tumeric Honey Soap",
+                "price": 60,
+                "category": "Cleansers",
+                "description": "cleanser that reduces inflammation and promotes healing.",
+                "usage": "Reduces inflammation, promotes healing, and moisturizes skin. Helps to lock in moisture and promote healthy skin.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other natural products.",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["tumeric", "honey", "cleansers", "clean", "soap", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "facemaskSection": [{
+        "product": [{
+                "id": "SL8TQM6LZQ",
+                "image": "./../Images/product-faceMask-facemasks.webp",
+                "name": "Face Mask",
+                "price": 10,
+                "category": "Face Masks",
+                "description": "Hydrating face mask that moisturizes and nourishes skin.",
+                "usage": "Moisturizes, hydrates, and nourishes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": " May not be suitable for oily skin. Use in moderation. Avoid using with other hydrating products.",
+                "prescription": "Apply to face, leave on for 15-30 minutes, and rinse with warm water.",
+                "keywords": ["lip", "glow", "mask", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "SS4HMI77E1",
+                "image": "./../Images/product-faceMasks-lipmask.webp",
+                "name": "lip Mask",
+                "price": 10,
+                "category": "Face Masks",
+                "description": "Hydrating lip mask that moisturizes and nourishes lips.",
+                "usage": "Moisturizes, hydrates, and nourishes lips, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy lip cell growth.",
+                "disclaimer": "May not be suitable for sensitive lips. Patch test before using. Avoid using with other hydrating products.",
+                "prescription":  "Apply to lips, leave on for 15-30 minutes, and rinse with warm water.",
+                "keywords": ["lip", "glow", "mask", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "bodywashSection": [{
+        "product": [{
+                "id": "T0WGOYUKIC",
+                "image": "./../Images/product-bodyWash-goldenGlow.webp",
+                "name": "Golden Glow",
+                "price": 150,
+                "category": "Body Washers",
+                "description": "Brightening body wash that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription": "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["glow", "golden", "body", "wash", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "TRAV72QPW7",
+                "image": "./../Images/product-bodyWash-niveaBodywash.webp",
+                "name": "Nivea Bodywash",
+                "price": 110,
+                "category": "Body Washers",
+                "description": "Moisturizing body wash that hydrates and nourishes skin.",
+                "usage": "Moisturizes, hydrates, and nourishes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+                "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other moisturizing products.",
+                "prescription":  "Apply to damp skin, massage, and rinse with warm water.",
+                "keywords": ["glow", "nivea", "body", "wash", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "essenceSection": [{
+        "product": [{
+            "id": "TU6YSCCYC0",
+            "image": "./../Images/product-essence-aloeveraGel.webp",
+            "name": "Aloe Vera Gel",
+            "price": 65,
+            "category": "Essence",
+            "description": " Hydrating essence that moisturizes and soothes skin.",
+            "usage": "Moisturizes, hydrates, and soothes skin, reducing the appearance of fine lines and wrinkles. Helps to lock in moisture and promote healthy skin cell growth.",
+            "disclaimer": "May not be suitable for oily skin. Use in moderation. Avoid using with other hydrating products.",
+            "prescription":  "Apply to skin, gently massaging until fully absorbed.",
+            "keywords": ["gel", "vera", "aloe", "essence", "product", "beauty", "face", "facial"]
+        }]
+    }],
+
+
+
+    "treatmentcreamSection": [{
+        "product": [{
+                "id": "UEP2A0MTIJ",
+                "image": "./../Images/product-treatmentCream-clincapCream.webp",
+                "name": "Clincap Cream",
+                "price": 50,
+                "category": "Treatment Creams",
+                "description": "Anti-fungal cream that treats fungal infections.",
+                "usage": "Treats fungal infections, reducing inflammation and promoting healing.",
+                "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other anti-fungal products.",
+                "prescription":  "Apply to affected area, gently massaging until fully absorbed.",
+                "keywords": ["clincap", "treatment", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "UGKU5U4P9V",
+                "image": "./../Images/product-treatmentCream-OxyBenzoylPeroxidecream.webp",
+                "name": "OxyBenzoylPeroxide",
+                "price": 60,
+                "category": "Treatment Creams",
+                "description": "Acne treatment cream that reduces acne and prevents scarring.",
+                "usage": "Treats acne, reduces inflammation, and prevents scarring. Helps to unclog pores and prevent future breakouts.",
+                "disclaimer": "May dry out skin, not suitable for sensitive skin. Use moisturizer to avoid dryness. Avoid using with other acne products.",
+                "prescription":  "Apply to affected area, gently massaging until fully absorbed.",
+                "keywords": ["OxyBenzoylPeroxide", "peroxide", "benzoyl", "treatment", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "UIP97YS6ST",
+                "image": "./../Images/product-treatmentCreams-azelaicAcid.webp",
+                "name": "Azelaic Acid",
+                "price": 150,
+                "category": "Treatment Creams",
+                "description": "treatment cream that targets redness or acne rosesea.",
+                "usage": "treats acne and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. ",
+                "prescription":  "Apply to affected area, gently massaging until fully absorbed.",
+                "keywords": ["azelaic", "acid", "treatment", "cream", "product", "beauty", "face", "facial"]
+            },
+            {
+                "id": "V8DGL725II",
+                "image": "./../Images/product-treatmentCreams-hydroquinone.webp",
+                "name": "Hydroquinone",
+                "price": 160,
+                "category": "Treatment Creams",
+                "description": "Brightening cream that reduces melanin production.",
+                "usage": "Reduces melanin production, lightening skin tone and reducing the appearance of dark spots and hyperpigmentation.",
+                "disclaimer": "May contain harsh chemicals, not suitable for sensitive skin. Patch test before using. Avoid using with other brightening products.",
+                "prescription":  "Apply to affected area, gently massaging until fully absorbed.",
+                "keywords": ["hydro", "quinone", "treatment", "cream", "product", "beauty", "face", "facial"]
+            }
+        ]
+    }],
+
+
+
+    "bodyscrubSection": [{
+        "product": [{
+            "id": "VHFHO71870",
+            "image": "./../Images/product-bodyScrub-kuuSpa.webp",
+            "name": "Kuu Spa",
+            "price": 80,
+            "category": "Body Scrubs",
+            "description": " Exfoliating body scrub that removes dead skin cells.",
+            "usage": "Exfoliates skin, removing dead skin cells and promoting healthy skin cell growth. Helps to improve skin texture and reduce the appearance of fine lines and wrinkles.",
+            "disclaimer": "May not be suitable for sensitive skin. Patch test before using. Avoid using with other exfoliating products.",
+            "prescription": "Apply to damp skin, massage, and rinse with warm water.",
+            "keywords": ["kuu", "spa", "scrub", "wash", "body", "product", "beauty", "face", "facial"]
+        }]
+    }]
+}
