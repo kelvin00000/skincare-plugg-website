@@ -1,13 +1,18 @@
+import { displayProductInfoWindow } from "../Javascript/productsinfo.js";
+
 //////////////////////////////POPUP FUNCTION////////////////////////////////////
 const openPopupButtons = document.querySelectorAll(".js-open-popup");
 const closePopup = document.querySelector(".js-close-button");
-const popup = document.querySelector
+export const popup = document.querySelector
 (".popup");
 const productSections = document.querySelectorAll(".product-section")
 
 productSections.forEach(section => {
     section.addEventListener("click", productCard=>{
         if (productCard.target.classList.contains("js-open-popup")) {
+            const productId = productCard.target.dataset.id;
+            displayProductInfoWindow(productId);
+
             popup.classList.remove('closing');
             popup.classList.add('show');
             document.body.style.overflow = "hidden";
@@ -21,11 +26,15 @@ openPopupButtons.forEach(button=>{
         document.body.style.overflow = "hidden";
     })
 })
-closePopup.addEventListener("click", ()=>{
-    popup.classList.remove('show');
-    popup.classList.add('closing');
-    document.body.style.overflow = "auto";
-})
+document.addEventListener('click', e => {
+    if (e.target.classList.contains('js-close-button')) {
+        const popup = document.querySelector('.popup');
+        popup.classList.remove('show');
+        popup.classList.add('closing');
+        document.body.style.overflow = "auto";
+    }
+});
+
 
 
 
@@ -100,13 +109,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -122,13 +131,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -137,20 +146,20 @@ fetch("/Javascript/Data.json")
 
     ////////////////////////////////////BODY OILS////////////////////////////
     const bodyoilGrid = document.querySelector(".bodyoil-grid-container");
-     data.bodyoilSection.forEach(section => {
+    data.bodyoilSection.forEach(section => {
         section.product.forEach(product => {
             bodyoilGrid.innerHTML+=`
                 <div class="product-card">
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -166,13 +175,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -181,20 +190,20 @@ fetch("/Javascript/Data.json")
 
     ///////////////////////////////FACEWASHES//////////////////////////////////
     const facewashGrid = document.querySelector(".facewash-grid-container");
-     data.facewashSection.forEach(section => {
+    data.facewashSection.forEach(section => {
         section.product.forEach(product => {
             facewashGrid.innerHTML+=`
                 <div class="product-card">
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -203,20 +212,20 @@ fetch("/Javascript/Data.json")
 
     ///////////////////////////////TONERS///////////////////////////////////
     const tonerGrid = document.querySelector(".toner-grid-container");
-     data.tonerSection.forEach(section => {
+    data.tonerSection.forEach(section => {
         section.product.forEach(product => {
             tonerGrid.innerHTML+=`
                 <div class="product-card">
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -232,13 +241,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -247,20 +256,20 @@ fetch("/Javascript/Data.json")
 
     ///////////////////////////////FACE MOISTURISERS////////////////////////////
     const facemoisturiserGrid = document.querySelector(".facemoisturiser-grid-container");
-     data.facemoisturiserSection.forEach(section => {
+    data.facemoisturiserSection.forEach(section => {
         section.product.forEach(product => {
             facemoisturiserGrid.innerHTML+=`
                 <div class="product-card">
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -276,13 +285,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -291,20 +300,20 @@ fetch("/Javascript/Data.json")
 
     /////////////////////////////////FACE MASKS/////////////////////////////
     const facemaskGrid = document.querySelector(".facemask-grid-container");
-     data.facemaskSection.forEach(section => {
+    data.facemaskSection.forEach(section => {
         section.product.forEach(product => {
             facemaskGrid.innerHTML+=`
                 <div class="product-card">
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -320,13 +329,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -335,20 +344,20 @@ fetch("/Javascript/Data.json")
 
     /////////////////////////////////ESSENCE///////////////////////////////
     const essenceGrid = document.querySelector(".essence-grid-container");
-     data.essenceSection.forEach(section => {
+    data.essenceSection.forEach(section => {
         section.product.forEach(product => {
             essenceGrid.innerHTML+=`
                 <div class="product-card">
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -364,13 +373,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })
@@ -379,7 +388,7 @@ fetch("/Javascript/Data.json")
 
     ////////////////////////////////BODY SCRUBS////////////////////////////
     const bodyscrubGrid = document.querySelector(".bodyscrub-grid-container");
-     data.bodyscrubSection.forEach(section => {
+    data.bodyscrubSection.forEach(section => {
         section.product.forEach(product => {
             bodyscrubGrid.innerHTML+=
             `
@@ -387,13 +396,13 @@ fetch("/Javascript/Data.json")
                     <img src="${product.image}" alt="image of ${product.name}">
                     <p class="name">${product.name}</p>
                     <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist">
+                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
                         </svg>
                         </button>
                         <p class="wishlist-tooltip">add to wishlist</p>
                     </div>
-                    <button class="open-popup js-open-popup">more info</button>
+                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                 </div>
             `;
         })

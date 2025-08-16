@@ -93,8 +93,8 @@ main{
                         align-items: center;
                         
                         p{
-                            margin-right: 18%;
-                            text-wrap: nowrap;
+                            margin-right: 10%;
+                            text-wrap: wrap;
                         }
 
                         button{
@@ -152,7 +152,8 @@ main{
 
                     .header{
                         font-size: 18px;
-                        margin-bottom: 3px
+                        margin-bottom: 3px;
+                        font-weight: bold;
                     }
                 }
                 .left{
