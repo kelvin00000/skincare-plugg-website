@@ -1,6 +1,6 @@
 //////////////////////////////////////////PRODUCT INFO  WWINDOW//////////////////////////////////////////
 const productPopupContainer = document.querySelector(".popup-padding");
-export function displayProductInfoWindow(productId){
+export default function displayProductInfoWindow(productId){
     //PRODUCTS FETCH
     fetch("/Javascript/Data.json")
     .then(response => response.json())

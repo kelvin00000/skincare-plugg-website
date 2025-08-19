@@ -43,7 +43,7 @@
                         <path fill="url(#gradient)" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
                     </svg>
                 </button>
-                <button class="Sign-in signup-toggle navbar-signinBtn">Sign-in</button>
+                <button class="Sign-in signup-toggle navbar-signinBtn">Sign up</button>
                 <button class="contact-us signup-toggle">Contact Us</button>
                 <div class="wishlist-section">
                     <button class="js-open-wishlist">
@@ -60,6 +60,9 @@
                         <path fill="url(#instaGradient)" d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"/>
                         </svg>
                     </button>
+                    <div class="wishlist-counter-container">
+                        <p class="wishlist-counter js-wishlist-counter"></p>
+                    </div>
                     <p class="wishlist-tooltip">Open Wishlist</p>
                 </div>
 
@@ -71,15 +74,12 @@
                     </div>
                     <div class="CTAs">
                         <button class="logout-btn">
-                            <p class="logOutBtnText">Log Out</p>
+                            <p class="logOutBtnText">Remove Account</p>
                             <div class="loader loader-3"></div>
-                        </button>
-                        <button class="delete-btn">
-                            <p class="deleteOutBtnText">Delete Account</p>
-                            <div class="loader loader-4"></div>
                         </button>
                     </div>
                 </div>
+
                 <div class="e-profile-popup">
                     <div class="info">
                         <div class="profile-icon">
@@ -98,12 +98,8 @@
                     </div>
                     <div class="CTAs">
                         <button class="logout-btn">
-                            <p class="logOutBtnText">Log Out</p>
+                            <p class="logOutBtnText">Remove Account</p>
                             <div class="loader loader-3"></div>
-                        </button>
-                        <button class="delete-btn">
-                            <p class="deleteOutBtnText">Delete Account</p>
-                            <div class="loader loader-4"></div>
                         </button>
                     </div>
                 </div>
@@ -114,6 +110,7 @@
     <nav class="dock">
         <div class="nav-dock">
             <div class="padding">
+                <div class="swipeIndicator"></div>
                 <div class="divider five">
                     <input type="text" class="search" placeholder="looking for something?">
                     <button class="search-btn"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></button>
@@ -124,9 +121,9 @@
                 <div class="divider two">
                     <a href="Products.html" class="current-page">Products...</a>
                 </div>
-                <div class="divider">
+                <div class="divider wishlist-divider">
                     <button class="js-open-wishlist">
-                   <div class="svg-div">
+                    <div class="svg-div">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
                         <defs>
                             <linearGradient id="igGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -139,9 +136,12 @@
                         </defs>
                         <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z" fill="url(#igGradient)"/>
                         </svg>
-                   </div>
+                    </div>
                     Open Wishlist
-                </button>
+                    </button>
+                    <div class="wishlist-counter-container">
+                        <p class="wishlist-counter js-wishlist-counter"></p>
+                    </div>
                 </div>
                 <div class="divider">
                     <div class="buttons">
@@ -171,7 +171,7 @@
     <div class="signin-popup-container">
         <dialog class="signin-popup">
             <div class="contactus-section">
-                <p class="title">Visit any of my social handles to reach out</br> <span>or send me an email</span></p>
+                <p class="title">Visit any of my online profiles to reach out</br> <span>or send me an email</span></p>
                 <div class="contactus-section-padding">
                 <p>
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#7a7575"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
@@ -224,13 +224,13 @@
                     </p>
                 </div>
                 <button class="sign-in signup-toggle">
-                    Sign in
+                    Sign up
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg>
                 </button>
             </div>
             <div class="sigup-section">
                 <p class="welcome-message">
-                    <span>We're glad you're here</span></br> go ahead to log-in into your account or sign up if your new here.
+                    <span>We're glad you're here</span></br> Continue below to sign up with your Gmail and password.
                 </p>
                 <div class="form">
                     <form action="submit" method="post">
@@ -241,7 +241,7 @@
                     </form>
                 <div class="options">
                     <button class="send-details" id="email-signin-btn">
-                        <p class="formBtnText-1">Sign in</p>
+                        <p class="formBtnText-1">Sign up</p>
                         <div id="loader-1" class="loader"></div>
                     </button>
                     <button class="google-signin" id="google-login-btn">
@@ -271,7 +271,7 @@
                                     </g>
                                 </g>
                         </svg>
-                        <p class="formBtnText-2">or sign in with google</p>
+                        <p class="formBtnText-2">or sign up with google</p>
                         <div id="loader-2" class="loader"></div>
                     </button>
                 </div>
@@ -283,7 +283,7 @@
             </div>
             <div class="image-section"> 
                 <p><span class="tip">Did you know that without</br> a good sunscreen </br>your whole routine </br>is useless?</span>
-                    </br><span class="info">Get weekly tips like this </br>when you sign.</span>
+                    </br><span class="info">Sign up to recieve </br>tips like this.</span>
                 </p>
                 <img src="./Images/showcase-image-5.png" alt="sckincare-product-image">
             </div>
@@ -371,53 +371,12 @@
 
         <aside class="wishlist-popup-container">
             <div class="wishlist-popup">
+                <div class="swipeIndicator"></div>
                 <h2>Your Wishlist</h2>
                 <button class="expand">
                     <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#212121"><path d="M200-200v-240h80v160h160v80H200Zm480-320v-160H520v-80h240v240h-80Z"/></svg>
                 </button>
-                <div class="wishlist-results-screen">
-                   <div class="w-product-card">
-                        <div class="left">
-                            <img src="./Images/product-bodyLotion-drDarvy.webp" alt="">
-                        </div>
-                        <div class="right">
-                            <p class="w-product-name">Dove Lotion</p>
-                            <p class="w-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                            <div class="buttons">
-                                <button class="remove-from-wishlist">remove</button>
-                                <button class="open-popup js-open-popup">more info</button>
-                            </div>
-                        </div>
-                   </div>
-
-                   <div class="w-product-card">
-                        <div class="left">
-                            <img src="./Images/product-bodyLotion-drDarvy.webp" alt="">
-                        </div>
-                        <div class="right">
-                            <p class="w-product-name">Dove Lotion</p>
-                            <p class="w-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                            <div class="buttons">
-                                <button class="remove-from-wishlist">remove</button>
-                                <button class="open-popup js-open-popup">more info</button>
-                            </div>
-                        </div>
-                   </div>
-
-                   <div class="w-product-card">
-                        <div class="left">
-                            <img src="./Images/product-bodyLotion-drDarvy.webp" alt="">
-                        </div>
-                        <div class="right">
-                            <p class="w-product-name">Dove Lotion</p>
-                            <p class="w-description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
-                            <div class="buttons">
-                                <button class="remove-from-wishlist">remove</button>
-                                <button class="open-popup js-open-popup">more info</button>
-                            </div>
-                        </div>
-                   </div>
-                </div>
+                <div class="wishlist-results-screen"></div>
 
                 <div class="wishlist-noresults-screen"> 
                     <p>Looks like there's nothing here</p>
@@ -426,6 +385,11 @@
                         products
                         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg>
                     </a>
+                </div>
+
+                <div class="wishlist-noUser-screen"> 
+                    <p>You need to sign up to use the wishlist</p>
+                    <button class="Sign-in signup-toggle js-close-wishlist-popup">Sign up</button>
                 </div>
             </div>
 

@@ -333,6 +333,12 @@ main{
                         svg{
                             width: 15px;
                         }
+                        svg.sec3-left{
+                            margin-right: 2.5%;
+                        }
+                        svg.sec3-right{
+                            margin-left: 2.5%;
+                        }
                     }
                     .sec-3-mid-bottom{
                         .sec-3-mid-bottom-left{

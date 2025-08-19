@@ -340,6 +340,7 @@ body{
             }
 
             .wishlist-section{
+                position: relative;
                 font-family: var(--text-regular1);
 
                 button{
@@ -353,7 +354,26 @@ body{
                     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.13);
                 }
 
-                p{
+                .wishlist-counter-container{
+                    position: absolute;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    top: -25%;
+                    right: -75%;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 100%;
+                    background: rgba(255, 255, 255, 0.4);
+                    border: 1px solid rgba(255, 255, 255, 0.95);
+                    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.13);
+
+                    .wishlist-counter{
+                        font-size: 15px;
+                    }
+                }
+
+                .wishlist-tooltip{
                     position: absolute;
                     bottom: -80%;
                     text-wrap: nowrap;

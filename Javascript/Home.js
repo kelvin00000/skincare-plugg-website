@@ -4,7 +4,26 @@ const navDockCloseBtn = document.querySelector(".close-navdock");
 const navDock = document.querySelector(".nav-dock");
 const navDockOverlay = document.querySelector(".dock-overlay");
 
+let startY = 0;
+let endY = 0;
 
+navDock.addEventListener('touchstart', event=>{
+    startY = event.changedTouches[0].screenY;
+})
+navDock.addEventListener('touchend', event=>{
+    endY = event.changedTouches[0].screenY;
+    swipeDown();
+})
+function swipeDown(){
+    const distance = endY - startY;
+    if(distance>100){
+        navDock.classList.remove('navdock-show');
+        navDock.classList.add('navdock-hide');
+        navDockOverlay.style.visibility = "hidden";
+        navDockCloseBtn.style.visibility = "hidden";
+        navDockOpenBtn.style.visibility = "visible";
+    }
+}
 navDockOpenBtn.addEventListener('click', ()=>{
     navDock.classList.remove('navdock-hide');
     navDock.classList.add('navdock-show');
@@ -55,6 +74,10 @@ const signinPopupcloseBtn = document.querySelector(".close-signin");
 
 signinPopupOpenBtn.forEach(button => {
     button.addEventListener('click', ()=>{
+        if(window.innerWidth < 1001){
+            contactUsSection.classList.add('hide-left');
+            signUpSection.classList.remove('hide-right');
+        }
         siginPopup.classList.remove('signin-hide');
         siginPopup.classList.add('signin-show');
         navDockOverlay.style.visibility = "visible";
@@ -74,8 +97,8 @@ signinPopupcloseBtn.addEventListener('click', ()=>{
 const leftToggle = document.querySelectorAll(".sign-in");
 const rightToggle = document.querySelectorAll(".contact-us");
 const imageSection = document.querySelector(".image-section");
-const signUpSection = document.querySelector(".sigup-section");
-const contactUsSection = document.querySelector(".contactus-section");
+export const signUpSection = document.querySelector(".sigup-section");
+export const contactUsSection = document.querySelector(".contactus-section");
 
 leftToggle.forEach(button =>{
     button.addEventListener('click', ()=>{

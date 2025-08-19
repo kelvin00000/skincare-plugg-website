@@ -1,6 +1,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-functions.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+
 
   
 const firebaseConfig = {
@@ -15,11 +17,11 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const user = auth.currentUser;
+export const auth = getAuth(app);
+export const user = auth.currentUser;
 auth.languageCode = 'en';
 const provider = new GoogleAuthProvider();
-const siginPopup = document.querySelector(".signin-popup");
+export const siginPopup = document.querySelector(".signin-popup");
 const navSigninButton = document.querySelector(".navbar-signinBtn");
 const navDockSigninButton = document.querySelector(".navdock-signinBtn");
 
@@ -41,6 +43,10 @@ const postSignupMessage = document.querySelector('.post-signup');
 //CLOUD FUNCTIONS INITIALIZATION
 const functions = getFunctions(app);
 const sendToZapier = httpsCallable(functions, "sendToZapier");
+
+
+//WISHLIST FUNCTION INITIALIZATION
+export const db = getDatabase(app);
 
 
 /////////////GOOGLE SIGIN FUNCTION
@@ -108,29 +114,26 @@ function signInWithEmail(){
 
 
 ///////////////LOG OUT FUNCTION
-document.querySelectorAll(".logout-btn")
-.forEach(button =>{
-    button.addEventListener('click', ()=>{
-        const logOutBtnText = document.querySelectorAll('.logOutBtnText');
-        const logOutLoader = document.querySelectorAll('.loader-3');
+document.querySelector(".logout-btn").addEventListener('click', ()=>{
+    const logOutBtnText = document.querySelectorAll('.logOutBtnText');
+    const logOutLoader = document.querySelectorAll('.loader-3');
 
-        logOutBtnText.forEach(text=>{
-            text.style.display = 'none';
-        })
-        logOutLoader.forEach(loader=>{
-            loader.style.display = 'flex';
-        })
-
-        setTimeout(()=>{
-            signUserOut();
-            logOutLoader.forEach(loader=>{
-                loader.style.display = 'none';
-            })
-            logOutBtnText.forEach(text=>{
-                text.style.display = 'flex';
-            })
-        }, 2500);
+    logOutBtnText.forEach(text=>{
+        text.style.display = 'none';
     })
+    logOutLoader.forEach(loader=>{
+        loader.style.display = 'flex';
+    })
+
+    setTimeout(()=>{
+        signUserOut();
+        logOutLoader.forEach(loader=>{
+            loader.style.display = 'none';
+        })
+        logOutBtnText.forEach(text=>{
+            text.style.display = 'flex';
+        })
+    }, 2500);
 })
 function signUserOut(){
     signOut(auth).then(()=>{
@@ -225,11 +228,10 @@ const sendEmailToZapier = async (email) => {
 //////////////////////USER LOG
 onAuthStateChanged(auth, (user)=>{
     if(user){
-        sendEmailToZapier(user.email);
+        //sendEmailToZapier(user.email);
         postSigupPageUpdate();
         user.providerData.forEach((profile) => {
-            //console.log("Signed in with:", profile.providerId);
-            
+
             if (profile.providerId === "google.com") {
                 updateNavbarForGoogle();
                 updateUserProfile(user);

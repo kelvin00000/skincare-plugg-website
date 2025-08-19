@@ -52,7 +52,6 @@ main{
             scrollbar-width: thin;
             scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 
-
             h2{
                 margin-top: 3%;
                 font-family: var(--text-stylish1);
@@ -116,6 +115,11 @@ main{
                         }
 
                         .w-description{
+                            display: -webkit-box;
+                            line-clamp: 2;
+                            -webkit-line-clamp: 2;
+                            -webkit-box-orient: vertical;
+                            overflow: hidden;
                             font-size: 0.9rem
                         }
 
@@ -143,29 +147,29 @@ main{
             }
 
             .wishlist-noresults-screen{
-                display: flex;
+                display: none;
                 align-items: center;
-                justify-content: center;
                 flex-direction: column;
+                margin-top: 30%;
                 height: 100%;
                 line-height: 25px;
                 font-size: 18px;
                 text-wrap: nowrap;
                 text-align: center;
-                opacity: 0;
 
                 a{
+                    position: relative;
                     display: flex;
                     align-items: center;
                     margin-top: 2%;
                     gap: 6px;
-                    padding: 5px 10px;
+                    padding: 8px 13px;
+                    padding-left: 16px;
                     color: var(--text-color-main);
                     text-decoration: none;
                     font-size: 14px;
-                    background: var(--background-color-main);
+                    background: var(--accent-color);
                     border-radius: 30px;
-                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
                     transition: .5s ease-in-out;
 
                     svg{
@@ -173,8 +177,57 @@ main{
                         transition: .3s ease-in-out;
                     }
                 }
+                a::after{
+                    content: '';
+                    position: absolute;
+                    padding: 20px 55px;
+                    bottom: 12%;
+                    left: 8.5%;
+                    background: var(--background-color-main);
+                    border-radius: 30px;
+                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+                    z-index: -1;
+                }
                 a:hover{
-                    box-shadow: 1px 10px 14px rgba(0, 0, 0, 0.15), -.05px -.05px 3px rgba(0, 0, 0, 0.1);
+                    box-shadow: 1px 10px 14px rgba(0, 0, 0, 0.15), -.05px -.05px 3px rgba(0, 0, 0, 0.25);
+                }
+            }
+            .wishlist-noUser-screen{
+                display: none;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 30%;
+                height: 100%;
+                line-height: 25px;
+                font-size: 18px;
+                text-wrap: nowrap;
+                text-align: center;
+
+                .Sign-in{
+                    position: relative;
+                    margin-top: 10px;
+                    padding: 5px 18px;
+                    border-radius: 7px;
+                    font-family: var(--text-regular1);
+                    font-size: 14px;
+                    color: var(--text-color-main);
+                    text-wrap: nowrap;
+                    border: none;
+                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.29);
+                    background:linear-gradient(to right, var(--accent-color) 20%, #d693e4);
+                    cursor: pointer;
+                    transition: .3s ease-in-out;
+                }
+                .Sign-in::after{
+                    content: '';
+                    position: absolute;
+                    padding: 14px 41px;
+                    bottom: 12%;
+                    left: 8.5%;
+                    background: var(--background-color-main);
+                    border-radius: 7px;
+                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+                    z-index: -1;
                 }
             }
         }
@@ -314,6 +367,20 @@ main{
             .wishlist-popup{
                 left: 8%;
                 width: 85%;
+
+                h2{
+                    margin-top: 8%;
+                }
+
+                .swipeIndicator{
+                    position: absolute;
+                    top: 3.5%;
+                    left: 43.5%;
+                    width: 55px;
+                    height: 3px;
+                    border-radius: 100px;
+                    background: rgba(255, 255, 255, 0.85);
+                }
             }
             .saved-popup{
                 left: 35%

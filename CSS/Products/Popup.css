@@ -98,9 +98,12 @@ main{
                         }
 
                         button{
+                            position: absolute;
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            top: 6%;
+                            right: 1%;
                             padding: 5px 12px;
                             border-radius: 20px;
                             border: none;
@@ -306,6 +309,10 @@ main{
                             margin-top: 2px;
                             p{
                                 margin-right: 40%;
+                            }
+                            button{
+                                top: 71%;
+                                right: 4%
                             }
                         }
                         .category{
