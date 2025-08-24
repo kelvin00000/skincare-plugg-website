@@ -65,7 +65,7 @@ googleLoginBtn.addEventListener('click', ()=>{
         googleBtnText.style.display = 'flex';
         googleBtnSvg.style.display = 'flex';
         googleLoader.style.display = 'none';
-    }, 3000);
+    }, 1500);
 })
 function signInWithGoogle(){
     signInWithPopup(auth, provider).then(
@@ -95,7 +95,7 @@ emailLoginBtn.addEventListener('click', ()=>{
         signInWithEmail();
         googleBtnText.style.display = 'flex';
         googleLoader.style.display = 'none';
-    }, 2500);
+    }, 1500);
 })
 function signInWithEmail(){
     const email = document.getElementById("email").value;
@@ -133,7 +133,7 @@ document.querySelector(".logout-btn").addEventListener('click', ()=>{
         logOutBtnText.forEach(text=>{
             text.style.display = 'flex';
         })
-    }, 2500);
+    }, 1500);
 })
 function signUserOut(){
     signOut(auth).then(()=>{
@@ -158,7 +158,7 @@ function signUserOut(){
 
 ////////////////////////////////PAGE UPDATES
 function updateNavbarForGoogle(){
-    GprofilePopup.classList.toggle('profile-hide')
+    //GprofilePopup.classList.toggle('profile-hide')
     siginPopup.classList.remove('signin-show');
     siginPopup.classList.add('signin-hide');
 
@@ -177,7 +177,7 @@ function updateNavbarForEmail(){
 
     navSigninButton.style.display = 'none';
     EnavProfileButton.style.display = 'flex';
-    EprofilePopup.classList.toggle('profile-hide')
+    //EprofilePopup.classList.toggle('profile-hide')
 
     if (!sessionStorage.getItem('reloaded')) {
         sessionStorage.setItem('reloaded', 'true');

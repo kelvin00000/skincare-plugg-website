@@ -22,11 +22,12 @@ main{
         .section-5{
             position: relative;
             height: 100vh;
-            background: #f9bcd7;
+	        background-color: #F9BCD7;
             border-top-left-radius: 30px;
             border-top-right-radius: 30px;
             box-shadow:  260px 0px 1px #f9bcd7,
                         -275px -0px 1px #f9bcd7;
+            z-index: 0;
 
             .section-5-header{
                 display: flex;
@@ -56,7 +57,7 @@ main{
                     .review-card{
                         display: flex;
                         isolation: isolate;
-                        height: 231px;
+                        height: 240px;
                         width: 85%;
                         margin-bottom: 9px;
                         padding: 15px 10px;
@@ -64,6 +65,13 @@ main{
                         color: var(--text-color-main);
                         font-family: var(--text-regular2);
                         cursor: pointer;
+                        background: rgba(255, 255, 255, 0.3);
+                        border: 1px solid rgba(255, 255, 255, 0.75);
+                        backdrop-filter: blur(3px);
+                        -webkit-backdrop-filter: blur(3px);
+                        overflow: hidden;
+                        cursor: pointer;
+                        transition: transform 0.2s ease;
 
                         animation: appear .4s linear;
                         animation-timeline: view();
@@ -75,19 +83,38 @@ main{
                             margin-bottom: 5%;
                         }
                     }
-                    .review-card::before{
+                    .review-card::after{
                         content: '';
                         position: absolute;
-                        inset: 0;
-                        border-radius: inherit;
-                        background: rgba(255, 255, 255, 0.25);
-                        border: 1px solid rgba(255, 255, 255, 0.7);
-                        backdrop-filter: blur(10px);
-                        -webkit-backdrop-filter: blur(10px);
+                        top: 0;
+                        left: -150%;
+                        width: 50%;
+                        height: 100%;
+                        background: linear-gradient(
+                            120deg,
+                            transparent,
+                            rgba(255, 255, 255, 0.6),
+                            transparent
+                        );
+                        transform: skewX(-20deg);
                         z-index: -1;
                     }
+                    .review-card:hover::after {
+                        animation: shimmer 1s forwards;
+                    }
+                   
                 }
             }
+        }
+        .section-5::after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: .5;
+            background: linear-gradient(135deg, #FFADD9 25%, transparent 25%) -28px 0/ 56px 56px, linear-gradient(225deg, #FFADD980 25%, transparent 25%) -28px 0/ 56px 56px, linear-gradient(315deg, #FFADD9 25%, transparent 25%) 0 0/ 56px 56px, linear-gradient(45deg, #FFADD980 25%, #F9BCD7 25%) 0 0/ 56px 56px;
+	        background-color: #F9BCD7;
+            border-radius: inherit;
+            z-index: -1;
         }
     }
 }
@@ -101,6 +128,11 @@ main{
         scale: 1;
         opacity: 1;
     }
+}
+@keyframes shimmer {
+  100% {
+    left: 150%;
+  }
 }
 
 @media (max-width: 900px){

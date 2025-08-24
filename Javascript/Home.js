@@ -96,7 +96,7 @@ signinPopupcloseBtn.addEventListener('click', ()=>{
 ///////LEFT AND RIGHT TOGGLES
 const leftToggle = document.querySelectorAll(".sign-in");
 const rightToggle = document.querySelectorAll(".contact-us");
-const imageSection = document.querySelector(".image-section");
+export const imageSection = document.querySelector(".image-section");
 export const signUpSection = document.querySelector(".sigup-section");
 export const contactUsSection = document.querySelector(".contactus-section");
 

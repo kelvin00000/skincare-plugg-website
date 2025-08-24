@@ -2,13 +2,13 @@ import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/fi
 import { ref, set, get, remove } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
 import { db, auth, siginPopup } from "../Javascript/Forms.js";
 import { showSavedToWishlistPopup } from "../Javascript/Products.js";
-import { signUpSection, contactUsSection } from "../Javascript/Home.js";
+import { signUpSection, contactUsSection, imageSection } from "../Javascript/Home.js";
 
 
 //VARIABLES
 const res = await fetch("/Javascript/Data.json");
 const data = await res.json();
-const allProducts = [
+export const allProducts = [
     ...data.serumsSection.flatMap(section => section.product),
     ...data.facecreamSection.flatMap(section => section.product),
     ...data.bodyoilSection.flatMap(section => section.product),
@@ -32,11 +32,15 @@ export async function postWishlistItemID(productId){
     const user = auth.currentUser;
 
     if(!user){
+        if(window.innerWidth < 1001){
+            contactUsSection.classList.add('hide-left');
+            signUpSection.classList.remove('hide-right');
+        }
+        imageSection.classList.remove('slide-right');
+        imageSection.classList.add('slide-left');
+
         siginPopup.classList.remove('signin-hide');
         siginPopup.classList.add('signin-show');
-
-        contactUsSection.classList.add('hide-left');
-        signUpSection.classList.remove('hide-right');
         return;
     }
     const wishlistRef = ref(db, `wishlist/${user.uid}/${productId}`);
@@ -83,10 +87,6 @@ async function fetchWishlistItemData(allProducts){
 export async function removeWishlistItemID(productId){
     const user = auth.currentUser;
 
-    if(!user){
-        alert("Sign in to use wishlist");
-        return;
-    }
     const wishlistRef = ref(db, `wishlist/${user.uid}/${productId}`);
     await remove(wishlistRef)
 
@@ -109,8 +109,12 @@ async function renderWishlistUI(){
                     <p class="w-product-name">${item.name}</p>
                     <p class="w-description">${item.description}</p>
                     <div class="buttons">
-                        <button class="remove-from-wishlist js-remove-from-wishlist" data-id="${item.id}">remove</button>
-                        <button class="open-popup js-open-popup" data-id="${item.id}">more info</button>
+                        <button class="remove-from-wishlist js-remove-from-wishlist" data-id="${item.id}">
+                        <p class="js-remove-from-wishlist" data-id="${item.id}">remove</p>
+                        </button>
+                        <button class="open-popup js-open-popup" data-id="${item.id}">
+                        <p class="js-open-popup" data-id="${item.id}">more info</p>
+                        </button>
                     </div>
                 </div>
             </div>

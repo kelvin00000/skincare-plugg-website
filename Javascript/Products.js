@@ -1,8 +1,9 @@
 import  displayProductInfoWindow  from "../Javascript/productsinfo.js";
 import {postWishlistItemID, removeWishlistItemID } from "../Javascript/wishlist.js";
+import { publishReview } from "../Javascript/reviews.js";
 
-//////////////////////////////POPUP FUNCTION////////////////////////////////////
-const openPopupButtons = document.querySelectorAll(".js-open-popup");
+////////////////////////////////////////POPUP FEATURE///////////////////////////////////////////////
+///////////////////////////POPUP TOGGLE//////////////////////////////
 export const popup = document.querySelector
 (".popup");
 const productSections = document.querySelectorAll(".product-section")
@@ -17,13 +18,6 @@ document.addEventListener('click', element => {
         document.body.style.overflow = "hidden";
     }
 });
-openPopupButtons.forEach(button=>{
-    button.addEventListener('click', ()=>{
-        popup.classList.remove('closing');
-        popup.classList.add('show');
-        document.body.style.overflow = "hidden";
-    })
-})
 document.addEventListener('click', element => {
     if (element.target.classList.contains('js-close-button')) {
         const popup = document.querySelector('.popup');
@@ -33,10 +27,55 @@ document.addEventListener('click', element => {
     }
 });
 
+///////////////////////////REVIEW FUNCTIONS//////////////////////////////
+document.addEventListener('click', element => {
+    if (element.target.classList.contains('js-submit-review')) {
+        const submitBtnText = document.querySelector('.submit-btn-text');
+        const reviewBtnLoader = document.getElementById('js-review-loader');
+        let reviewMessageContent = document.getElementById('user-review-message').value;
+        const productId = element.target.dataset.id;
+
+        submitBtnText.style.display = "none";
+        reviewBtnLoader.style.display = "flex";
+
+        publishReview(productId, reviewMessageContent);
+    }
+});
+export function reviewSuccessResponse(){
+    const submitBtnText = document.querySelector('.submit-btn-text');
+    const successText = document.querySelector('.success-text');
+    const reviewBtnLoader = document.getElementById('js-review-loader');
+
+    setTimeout(()=>{
+        reviewBtnLoader.style.display = "none";
+        successText.style.display = "flex";
+    }, 500)
+
+    setTimeout(()=>{
+        successText.style.display = "none";
+        submitBtnText.style.display = "flex";
+    }, 1500)
+}
+export function reviewFailureResponse(){
+    const submitBtnText = document.querySelector('.submit-btn-text');
+    const failedText = document.querySelector('.failed-text');
+    const reviewBtnLoader = document.getElementById('js-review-loader');
+
+    setTimeout(()=>{
+        reviewBtnLoader.style.display = "none";
+        failedText.style.display = "flex";
+    }, 500)
+
+    setTimeout(()=>{
+        failedText.style.display = "none";
+        //reviewMessageContent = " ";
+        submitBtnText.style.display = "flex";
+    }, 1500)
+}
 
 
 
-/////////////////////////////////////WHISHLIST///////////////////////////////////////
+/////////////////////////////////////////////////WHISHLIST///////////////////////////////////////////
 
 ////////////WISHLIST POPUP /////////////////////
 const wishlistPopup = document.querySelector(".wishlist-popup");
@@ -46,27 +85,37 @@ const expandBtn = document.querySelector(".expand");
 const wishlistRedirectlink = document.querySelectorAll(".js-close-wishlist-popup");
 
 let startY = 0;
-let endY = 0;
+const distance = 100; 
 
 wishlistPopup.addEventListener('touchstart', event=>{
-    startY = event.changedTouches[0].screenY;
+    startY = event.touches[0].clientY;
 })
 wishlistPopup.addEventListener('touchend', event=>{
-    endY = event.changedTouches[0].screenY;
-    swipeDown();
+    const endY = event.changedTouches[0].clientY;
+    const difference = startY - endY;
+    if((Math.abs(difference)) > distance){
+        if(difference>0){
+            swipeUp();
+        }else{
+            swipeDown();
+        }
+    }
 })
 function swipeDown(){
-    const distance = endY - startY;
-    if(distance>100){
-        if(window.innerWidth < 600){
-            wishlistPopup.classList.remove('wishlist-show');
-            wishlistPopup.classList.add('wishlist-hide');
+    if(window.innerWidth < 605){
+        wishlistPopup.classList.remove('wishlist-expand');
+        wishlistPopup.classList.remove('wishlist-show');
+        wishlistPopup.classList.add('wishlist-hide');
 
-            overlay.classList.remove('overlay-show');
-            overlay.classList.add('overlay-hide')
+        overlay.classList.remove('overlay-show');
+        overlay.classList.add('overlay-hide')
 
-            document.body.style.overflow = "auto";
-        }
+        document.body.style.overflow = "auto";
+    }
+}
+function swipeUp(){
+    if(window.innerWidth < 605){
+        wishlistPopup.classList.add('wishlist-expand');
     }
 }
 openWishlistBtn.forEach(button => {
@@ -102,9 +151,6 @@ wishlistRedirectlink.forEach(link=>{
 
         document.body.style.overflow = "auto";
     })
-})
-expandBtn.addEventListener('click', ()=>{
-    wishlistPopup.classList.toggle('wishlist-expand');
 })
 
 

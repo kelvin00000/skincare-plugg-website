@@ -33,7 +33,7 @@
         backdrop-filter: blur(10px); 
         box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.35), 
                     -0px -.1px 3px rgba(0, 0, 0, 0.15); 
-        z-index: 120;
+        z-index: 140;
         visibility: hidden;
         transition: all .3s ease-in-out;
         
@@ -68,7 +68,7 @@
                 margin-bottom: 7%;
                 padding: 5% 5%;
                 border-radius: 10px;
-                border: .3px solid rgba(255, 255, 255, 0.85);
+                border: .3px solid rgba(255, 255, 255, 9);
 
                 a{
                     display: flex;
@@ -98,6 +98,7 @@
                 }
                 a:hover, p:hover{
                     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);
+                    translate: -5%;
                 }
             }
 
@@ -137,7 +138,7 @@
                 margin-bottom: 3%;
                 padding: 3% 7%;
                 border-radius: 15px;
-                border: .3px solid rgba(255, 255, 255, 0.85);
+                border: .3px solid rgba(255, 255, 255, 9);
                 form{
                     font-size: 15px;
 
@@ -204,7 +205,7 @@
                         padding: 0px 15px;
                         background: inherit;
                         border-radius: 20px;
-                        border: .3px solid rgba(255, 255, 255, 0.85);
+                        border: .3px solid rgba(255, 255, 255, 9);
                         cursor: pointer;
                         svg{
                             margin-right: 5px;
@@ -284,15 +285,16 @@
         }
 
         .close-signin{
-            display: grid;
-            place-items: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             position: absolute;
             top: 1%;
             right: 1%;
             padding: 2px 2px;
             border: none;
             border-radius: 100%;
-            background: rgba(255, 255, 255, 0.75); 
+            background: rgba(255, 255, 255, 0.25); 
             box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             z-index: 130;
@@ -383,7 +385,7 @@
             .close-signin{
                 padding: 5px 5px;
                 svg{
-                    width: 85%
+                    width: 90%;
                 }
             }
 

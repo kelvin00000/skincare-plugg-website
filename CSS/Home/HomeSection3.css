@@ -181,7 +181,8 @@ main{
                             .stat-card1{
                                 left: 15%;
                                 transform: rotate(15deg);
-                                background:linear-gradient(to left, var(--accent-color), #d693e4);
+                                background-image:  repeating-radial-gradient(circle at 0 0, transparent 0, #C490E7 68px), repeating-linear-gradient(#D693E4, #D693E4);
+	                            background-color: #C490E7;
                                 z-index: 15;
 
                                 animation: appear .3s linear;
@@ -200,6 +201,7 @@ main{
                                 animation-range: entry 0% cover 30%;
                             }
                             .stat-card3{
+                                position: relative;
                                 top: 60%;
                                 left: 25%;
                                 background: var(--hearder-bg-clr-);
@@ -209,6 +211,27 @@ main{
                                 animation: appear 0.3s linear;
                                 animation-timeline: view();
                                 animation-range: entry 0% cover 30%;
+                            }
+                            .stat-card2::after{
+                                content: '';
+                                position: absolute;
+                                inset: 0;
+                                background: radial-gradient(at bottom right, #F2E4F5 0, #F2E4F5 25px, #F2E4F533 25px, #F2E4F533 50px, #F2E4F5BF 50px, #F2E4F5BF 75px, #F2E4F540 75px, #F2E4F540 100px, #F2E4F54D 100px, #F2E4F54D 125px, #F2E4F5BF 125px, #F2E4F5BF 150px, #F2E4F533 150px, #F2E4F533 175px, transparent 175px, transparent 200px), radial-gradient(at top left, transparent 0, transparent 25px, #F2E4F533 25px, #F2E4F533 50px, #F2E4F5BF 50px, #F2E4F5BF 75px, #F2E4F54D 75px, #F2E4F54D 100px, #F2E4F540 100px, #F2E4F540 125px, #F2E4F5BF 125px, #F2E4F5BF 150px, #F2E4F533 150px, #F2E4F533 175px, #F2E4F5 175px, #F2E4F5 200px, transparent 200px, transparent 500px);
+                                background-blend-mode: multiply;
+                                background-size: 200px 200px, 200px 200px;
+                                background-color: #FFFFFF;
+                                border-radius: 20px;
+                                z-index: -1;
+                            }
+                            .stat-card3::after{
+                                content: '';
+                                position: absolute;
+                                inset: 0;
+                                background-image: radial-gradient(#E5AAD5 2px, transparent 2px);
+                                background-size: 21px 21px;
+                                background-color: #F8B5D3;
+                                border-radius: 20px;
+                                z-index: -1;
                             }
                         }
                     }
@@ -277,12 +300,15 @@ main{
     main{
         .body-container{
             .section-3{
-                height: 80%;
-                margin-top: 100px;
+                height: 75%;
+                margin-top: 90px;
                 .carousel-top-wrapper, .carousel-bottom-wrapper{
-                    height: 14%;
+                    height: 15%;
                     box-shadow: 165px 0px 1px var(--hearder-bg-clr-),
                         -180px -0px 1px var(--hearder-bg-clr-);
+                }
+                .carousel-bottom-wrapper{
+                    margin-top: 35px;
                 }
                 .section3-middle{
                     .sec-3-mid-top{
@@ -295,6 +321,7 @@ main{
                         }
                     }
                     .sec-3-mid-bottom{
+                        margin-top: 35px;
                         .sec-3-mid-bottom-left{
                             .stat-cards-container{
                                 .cards{

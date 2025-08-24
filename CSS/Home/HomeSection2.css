@@ -157,7 +157,6 @@ main{
         transform: translateY(-1%);
     }
 }
-
 @media(max-width: 900px){
     main{
         .body-container{

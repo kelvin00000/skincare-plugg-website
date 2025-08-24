@@ -59,10 +59,6 @@ main{
                 text-align: center;
             }
 
-            .expand{
-                display: none;
-            }
-
             .wishlist-results-screen{
                 display: flex;
                 align-items: center;
@@ -236,7 +232,7 @@ main{
         }
         .wishlist-hide{
             bottom: -100%;
-            opacity: 0;
+            opacity: 0.5;
         }
         
 
@@ -311,23 +307,6 @@ main{
                 height: 70%;
                 left: 25%;
                 width: 50%;
-                .expand{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    position: absolute;
-                    right: 3%;
-                    top:3%;
-                    width: 40px;
-                    height: 40px;
-                    padding: 5px 5px;
-                    border-radius: 100%;
-                    border: none;
-                    cursor: pointer;
-                    background: none;
-                    border: 1px solid rgba(255, 255, 255, 0.3);
-                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
-                }
             }
             .wishlist-expand{
                height: 100%
