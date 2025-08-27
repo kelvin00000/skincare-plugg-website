@@ -44,7 +44,7 @@ main{
                     width: 50%;
                     img{
                         width: 80%;
-                        filter: drop-shadow(15px 45px 15px rgba(0, 0, 0, 0.3));
+                        filter: drop-shadow(15px 45px 19px rgba(0, 0, 0, 0.45));
                     }
                 }
                 .product-info{

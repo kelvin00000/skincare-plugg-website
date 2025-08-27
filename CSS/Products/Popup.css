@@ -120,6 +120,9 @@ main{
                                 fill:  var(--background-color-main);;
                                 transform: rotate(45deg);
                             }
+                            p{
+                                margin-top: 2px;
+                            }
                         }
                         button:hover{
                             box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.35), 
@@ -271,7 +274,7 @@ main{
                     .Popup-review-cards-container{
                         display: none;
                         height: fit-content;
-                        width: 80%;
+                        width: 90%;
                         margin-bottom: 10px;
                         margin-top: 10px;
                         padding: 3% 3%;
@@ -280,59 +283,87 @@ main{
                         border-radius: 18px;
 
                         .Popup-review-card{
+                            display: flex;
                             margin-bottom: 25px;
-                            .user-info{
-                                display: flex;
-                                align-items: center;
-                                margin-bottom: 4px;
-                                svg{
-                                    margin-right: 2px;
-                                    fill: var(--text-color-main)
+                            padding: 0 5px;
+                            padding-bottom: 10px;
+                            .user-image{
+                                width: 8%;
+                                align-self: start;
+                                .user-profile-photo{
+                                    border-radius: 100%;
+                                    width: 40px
                                 }
-                                .user-name{
-                                    font-family: var(--text-stylish1);
+                                .user-profile-icon{
+                                    padding: 7px 7px;
+                                    border: 1px solid rgba(255, 255, 255, 0.9);
+                                    border-radius: 100%;
                                 }
                             }
 
-                            .review-reaction-buttons{
-                                display: flex;
-                                align-items: center;
-                                margin-top: 10px;
-
-                                .liked-review-container, .disliked-review-container{
+                            .review{
+                                width: 85%;
+                                .user-info{
                                     display: flex;
                                     align-items: center;
-                                    margin-right: 30px;
-                                    
-                                    button{
-                                        display: flex;
-                                        align-items: center;
-                                        justify-content: center;
-                                        margin-right: 4px;
-                                        padding: 1px 1px;
-                                        background: none;
-                                        border-radius: 100%;
-                                        border: 1px solid rgba(255, 255, 255, 0.6);
-                                        box-shadow: .4px .4px 4px rgba(0, 0, 0, 0.1);
-                                        transition: all .3s ease-in-out;
-                                        cursor: pointer;
-                                        svg{
-                                            width: 80%;
-                                            fill: var(--text-color-secondary)
-                                        }
+                                    margin-bottom: 4px;
+                                    svg{
+                                        margin-right: 2px;
+                                        fill: var(--text-color-main)
                                     }
-                                    button:hover{
-                                        background: rgba(255, 255, 255, 0.4);
-                                    }
-                                    p{
-                                        font-size: 15px;
+                                    .user-name{
+                                        font-family: var(--text-stylish1);
                                     }
                                 }
-                                .delete-review{
-                                    padding: 6px 6px;
-                                    background: none;
-                                    border: .5px solid var(--text-color-main);
-                                    border-radius: 30px;
+
+                                .user-message-container{
+                                    p{
+                                        width: 99%;
+                                        height: fit-content;
+                                        overflow-wrap: break-word;
+                                    }
+                                }
+
+                                .review-reaction-buttons{
+                                    display: flex;
+                                    align-items: center;
+                                    margin-top: 10px;
+
+                                    .liked-review-container{
+                                        display: flex;
+                                        align-items: center;
+                                        margin-right: 30px;
+                                        
+                                        button{
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            margin-right: 4px;
+                                            padding: 1px 1px;
+                                            background: none;
+                                            border-radius: 100%;
+                                            border: 1px solid rgba(255, 255, 255, 0.6);
+                                            box-shadow: .4px .4px 4px rgba(0, 0, 0, 0.1);
+                                            transition: all .3s ease-in-out;
+                                            cursor: pointer;
+                                            svg{
+                                                width: 80%;
+                                                fill: var(--text-color-secondary)
+                                            }
+                                        }
+                                        button:hover{
+                                            background: rgba(255, 255, 255, 0.4);
+                                        }
+                                        p{
+                                            font-size: 15px;
+                                        }
+                                    }
+                                    .delete-review{
+                                        padding: 6px 6px;
+                                        background: none;
+                                        border: .5px solid var(--text-color-main);
+                                        border-radius: 30px;
+                                    }
                                 }
                             }
                         }
@@ -391,13 +422,15 @@ main{
                                 margin-right: 40%;
                             }
                             button{
-                                top: 71%;
+                                top: 69.5%;
                                 right: 4%;
                                 svg{
                                     flex-shrink: 0;
                                     margin: 0;
+                                    margin-left: 5px;
                                 }
                                 p{
+                                    margin-top: 4px;
                                     font-size: 17px;
                                 }
                             }
@@ -440,6 +473,11 @@ main{
                     .Popup-reviews-container{
                         .Popup-review-cards-container{
                             width: 88%;
+                            .Popup-review-card{
+                                .user-image{
+                                    width: 15%;
+                                }
+                            }
                         }
                     }
                 }

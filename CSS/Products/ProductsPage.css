@@ -112,11 +112,11 @@ main{
                     }
                 }
                 .wishlist-container:hover{
-                        .wishlist-tooltip{
-                            visibility: visible;
-                            opacity: 1;
-                        }
+                    .wishlist-tooltip{
+                        visibility: visible;
+                        opacity: 1;
                     }
+                }
 
                 .open-popup{
                     position: absolute;
@@ -167,6 +167,17 @@ main{
     main{
         .sunscreen-section{
             margin-bottom: 250px;
+        }
+        .product-section{
+            .grid-container{
+                .product-card{
+                    .wishlist-container{
+                        .wishlist-tooltip{
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
     }
 }

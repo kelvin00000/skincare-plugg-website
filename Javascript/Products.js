@@ -30,17 +30,20 @@ document.addEventListener('click', element => {
 ///////////////////////////REVIEW FUNCTIONS//////////////////////////////
 document.addEventListener('click', element => {
     if (element.target.classList.contains('js-submit-review')) {
-        const submitBtnText = document.querySelector('.submit-btn-text');
-        const reviewBtnLoader = document.getElementById('js-review-loader');
         let reviewMessageContent = document.getElementById('user-review-message').value;
         const productId = element.target.dataset.id;
-
-        submitBtnText.style.display = "none";
-        reviewBtnLoader.style.display = "flex";
-
-        publishReview(productId, reviewMessageContent);
+        passReview(reviewMessageContent, productId)
     }
 });
+function passReview(reviewMessageContent, productId){
+    const submitBtnText = document.querySelector('.submit-btn-text');
+    const reviewBtnLoader = document.getElementById('js-review-loader');
+
+    submitBtnText.style.display = "none";
+    reviewBtnLoader.style.display = "flex";
+
+    publishReview(productId, reviewMessageContent);
+}
 export function reviewSuccessResponse(){
     const submitBtnText = document.querySelector('.submit-btn-text');
     const successText = document.querySelector('.success-text');
@@ -85,7 +88,7 @@ const expandBtn = document.querySelector(".expand");
 const wishlistRedirectlink = document.querySelectorAll(".js-close-wishlist-popup");
 
 let startY = 0;
-const distance = 100; 
+const distance = 200; 
 
 wishlistPopup.addEventListener('touchstart', event=>{
     startY = event.touches[0].clientY;
@@ -198,20 +201,22 @@ fetch("/Javascript/Data.json")
     const serumGrid = document.querySelector(".serum-grid-container");
     data.serumsSection.forEach(section => {
         section.product.forEach(product => {
-            serumGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button data-id="${product.id}" class="add-to-wishlist js-add-to-wishlist">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(serumGrid){
+                serumGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button data-id="${product.id}" class="add-to-wishlist js-add-to-wishlist">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -220,20 +225,22 @@ fetch("/Javascript/Data.json")
     const facecreamGrid = document.querySelector(".facecream-grid-container");
     data.facecreamSection.forEach(section => {
         section.product.forEach(product => {
-            facecreamGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(facecreamGrid){
+                facecreamGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -242,20 +249,22 @@ fetch("/Javascript/Data.json")
     const bodyoilGrid = document.querySelector(".bodyoil-grid-container");
     data.bodyoilSection.forEach(section => {
         section.product.forEach(product => {
-            bodyoilGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(bodyoilGrid){
+                bodyoilGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -264,20 +273,22 @@ fetch("/Javascript/Data.json")
     const sunscreenGrid = document.querySelector(".sunscreen-grid-container");
     data.sunscreenSection.forEach(section => {
         section.product.forEach(product => {
-            sunscreenGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(sunscreenGrid){
+                sunscreenGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -286,20 +297,22 @@ fetch("/Javascript/Data.json")
     const facewashGrid = document.querySelector(".facewash-grid-container");
     data.facewashSection.forEach(section => {
         section.product.forEach(product => {
-            facewashGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(facewashGrid){
+                facewashGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -308,20 +321,22 @@ fetch("/Javascript/Data.json")
     const tonerGrid = document.querySelector(".toner-grid-container");
     data.tonerSection.forEach(section => {
         section.product.forEach(product => {
-            tonerGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(tonerGrid){
+                tonerGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -330,20 +345,22 @@ fetch("/Javascript/Data.json")
     const bodylotionGrid = document.querySelector(".bodylotion-grid-container");
     data.bodylotionSection.forEach(section => {
         section.product.forEach(product => {
-            bodylotionGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(bodylotionGrid){
+                bodylotionGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -352,20 +369,22 @@ fetch("/Javascript/Data.json")
     const facemoisturiserGrid = document.querySelector(".facemoisturiser-grid-container");
     data.facemoisturiserSection.forEach(section => {
         section.product.forEach(product => {
-            facemoisturiserGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(facemoisturiserGrid){
+                facemoisturiserGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -374,20 +393,22 @@ fetch("/Javascript/Data.json")
     const cleanserGrid = document.querySelector(".cleanser-grid-container");
     data.cleanserSection.forEach(section => {
         section.product.forEach(product => {
-            cleanserGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(cleanserGrid){
+                cleanserGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -396,20 +417,22 @@ fetch("/Javascript/Data.json")
     const facemaskGrid = document.querySelector(".facemask-grid-container");
     data.facemaskSection.forEach(section => {
         section.product.forEach(product => {
-            facemaskGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(facemaskGrid){
+                facemaskGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -418,20 +441,22 @@ fetch("/Javascript/Data.json")
     const bodywashGrid = document.querySelector(".bodywash-grid-container");
     data.bodywashSection.forEach(section => {
         section.product.forEach(product => {
-            bodywashGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(bodywashGrid){
+                bodywashGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -440,20 +465,22 @@ fetch("/Javascript/Data.json")
     const essenceGrid = document.querySelector(".essence-grid-container");
     data.essenceSection.forEach(section => {
         section.product.forEach(product => {
-            essenceGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(essenceGrid){
+                essenceGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -462,20 +489,22 @@ fetch("/Javascript/Data.json")
     const treatmentcreamGrid = document.querySelector(".treatmentcream-grid-container");
     data.treatmentcreamSection.forEach(section => {
         section.product.forEach(product => {
-            treatmentcreamGrid.innerHTML+=`
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(treatmentcreamGrid){
+                treatmentcreamGrid.innerHTML+=`
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 
@@ -484,21 +513,23 @@ fetch("/Javascript/Data.json")
     const bodyscrubGrid = document.querySelector(".bodyscrub-grid-container");
     data.bodyscrubSection.forEach(section => {
         section.product.forEach(product => {
-            bodyscrubGrid.innerHTML+=
-            `
-                <div class="product-card">
-                    <img src="${product.image}" alt="image of ${product.name}">
-                    <p class="name">${product.name}</p>
-                    <div class="wishlist-container">
-                        <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                        </svg>
-                        </button>
-                        <p class="wishlist-tooltip">add to wishlist</p>
+            if(bodyscrubGrid){
+                bodyscrubGrid.innerHTML+=
+                `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="image of ${product.name}">
+                        <p class="name">${product.name}</p>
+                        <div class="wishlist-container">
+                            <button class="add-to-wishlist js-add-to-wishlist" data-id="${product.id}">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                            </svg>
+                            </button>
+                            <p class="wishlist-tooltip">add to wishlist</p>
+                        </div>
+                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                     </div>
-                    <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                </div>
-            `;
+                `;
+            }
         })
     });
 })

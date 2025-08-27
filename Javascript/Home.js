@@ -127,34 +127,35 @@ rightToggle.forEach(button =>{
 
 
 ///////////////////////////////////SEARCH REDIRECT//////////////////////////////
-const searchBtn = document.querySelectorAll(".search-btn");
-const search = document.querySelectorAll(".search");
-const searchInput = search.value;
+const searchBar = document.querySelectorAll(".search-bar");
 
-searchBtn.forEach(button => {
-    button.addEventListener('click', ()=>{
-        searchRedirect();
-    })
-})
-search.forEach(Input => {
-    Input.addEventListener('keydown', (e)=>{
-        if(e.key == 'Enter'){
-            searchRedirect();
+searchBar.forEach(bar => {
+    const searchBtn = bar.querySelector(".search-btn");
+    const search = bar.querySelector(".search");
+
+    if (!search || !searchBtn) return;
+
+    searchBtn.addEventListener("click", () => {
+        const query = search.value.trim().toLowerCase();
+        searchRedirect(query)
+    });
+
+    search.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            const query = search.value.trim().toLowerCase();
+            searchRedirect(query)
         }
-    })
-})
+    });
+});
 
-function searchRedirect(){
-    if (searchInput !== "") {
-        window.location.href = `SearchResults.html?q=${encodeURIComponent(searchInput)}`;
-        
-        searchInput = '';
-    }
+function searchRedirect(query){
+    if(!query) return;
+    window.location.href = `../SearchResults.html?query=${encodeURIComponent(query)}`;
 }
 
 
 
-////////////////////////////////PROFILE POPUP///////////////////////////////////
+////////////////////////////////NAVBAR PROFILE POPUP///////////////////////////////////
 //google
 const Gprofile = document.querySelector(".g-profile");
 const GprofilePopup = document.querySelector('.g-profile-popup');
