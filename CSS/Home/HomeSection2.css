@@ -43,7 +43,7 @@ main{
                     justify-content: center;
                     width: 50%;
                     img{
-                        width: 80%;
+                        width: 95%;
                         filter: drop-shadow(15px 45px 19px rgba(0, 0, 0, 0.45));
                     }
                 }
@@ -170,7 +170,7 @@ main{
                     .product-image{
                         height: 65%;
                         img{
-                            width: 60%;
+                            width: 70%;
                             filter: drop-shadow(15px 45px 15px rgba(0, 0, 0, 0.45));
                         }
                     }

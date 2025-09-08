@@ -35,7 +35,7 @@ body{
 .desktop{
     position: absolute;
     width: 85%;
-    height: 35px;
+    height: 40px;
     border-radius: 30px;
     transform: translate(8.5%, 70%);
     z-index: 100;
@@ -50,7 +50,7 @@ body{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        height: 35px;
+        height: 40px;
         width: 100%;
 
         .nav-left{
@@ -86,8 +86,8 @@ body{
             font-size: 22px;
 
             input{
-                height: 29px;
-                width: 170px;
+                height: 34px;
+                width: 180px;
                 padding-left: 10px;
                 padding-right: 51px;
                 border-radius: 30px;
@@ -104,7 +104,6 @@ body{
                 background: rgba(255, 255, 255, 0.1); 
                 backdrop-filter: blur(10px); 
                 -webkit-backdrop-filter: blur(10px);
-                border: 1px solid rgba(255, 255, 255, 0.1);
             }
             input::placeholder{
                 margin-left: 10px;
@@ -124,7 +123,7 @@ body{
                 position: absolute;
                 height: 20px;
                 width: 20px;
-                top: 5px;
+                top: 7px;
                 left: 82%;
                 background: none;
                 border: none;
@@ -313,7 +312,7 @@ body{
 
             .Sign-in{
                 display: none;
-                padding: 5px 18px;
+                padding: 8px 18px;
                 border-radius: 7px;
                 font-family: var(--text-regular1);
                 font-size: 14px;
@@ -328,7 +327,7 @@ body{
 
             .contact-us{
                 margin-left: 10%;
-                padding: 5px 5px;
+                padding: 8px 5px;
                 border-radius: 7px;
                 font-family: var(--text-regular1);
                 font-size: 14px;
@@ -415,11 +414,12 @@ body{
             }
             .nav-middle{
                 input{
-                    height: 30px;
-                    width: 140px;
+                    height: 35px;
+                    width: 240px;
+                    margin-bottom: .1px;
                 }
                 button{
-                    top: 5px;
+                    top: 7px;
                 }
             }
             .nav-right{
@@ -446,10 +446,9 @@ body{
         .nav-container{
             .nav-middle{
                 input{
-                    height: 30px; 
+                    width: 150px;
                 }
                 button{
-                    top: 5px;
                     left: 80%;
                 }
             }

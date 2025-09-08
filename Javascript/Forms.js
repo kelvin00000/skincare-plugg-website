@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-functions.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+import { sendConfirmationEmail } from "../Javascript/email.js";
 
 
   
@@ -40,12 +40,7 @@ const pageSignupBtn = document.querySelectorAll('.page-signup-btn');
 const postSignupMessage = document.querySelector('.post-signup');
 
 
-//CLOUD FUNCTIONS INITIALIZATION
-const functions = getFunctions(app);
-const sendToZapier = httpsCallable(functions, "sendToZapier");
-
-
-//WISHLIST FUNCTION INITIALIZATION
+//FIFREBASE DATATBASES'S
 export const db = getDatabase(app);
 
 
@@ -68,14 +63,20 @@ googleLoginBtn.addEventListener('click', ()=>{
     }, 1500);
 })
 function signInWithGoogle(){
-    signInWithPopup(auth, provider).then(
-        (result) => {
+    signInWithPopup(auth, provider).then(async (result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const user = result.user;
+            sendConfirmationEmail(user);
+
+            await setDoc(doc(firestoreDB, "users", user.uid), {
+                email: user.email,
+                name: user.displayName || user.email
+            });
         }
     ).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
             alert('Please check your internet connection')
         }
     );
@@ -102,12 +103,19 @@ function signInWithEmail(){
     const password = document.getElementById("passkey").value;
 
     createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential)=>{
+    .then(async (userCredential)=>{
         const user = userCredential.user;
+        sendConfirmationEmail(user);
+
+        await setDoc(doc(firestoreDB, "users", user.uid), {
+            email: user.email,
+            name: user.displayName || user.email
+        });
     })
     .catch((error)=>{
         const errorCode = error.code;
         const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
         alert('Email or Passsword is incorrect or User is already signed in with google')
     })
 }
@@ -164,11 +172,6 @@ function updateNavbarForGoogle(){
 
     navSigninButton.style.display = 'none';
     GnavProfileButton.style.display = 'flex';
-
-    if (!sessionStorage.getItem('reloaded')) {
-        sessionStorage.setItem('reloaded', 'true');
-        window.location.reload();
-    }
 }
 
 function updateNavbarForEmail(){
@@ -177,12 +180,6 @@ function updateNavbarForEmail(){
 
     navSigninButton.style.display = 'none';
     EnavProfileButton.style.display = 'flex';
-    //EprofilePopup.classList.toggle('profile-hide')
-
-    if (!sessionStorage.getItem('reloaded')) {
-        sessionStorage.setItem('reloaded', 'true');
-        window.location.reload();
-    }
 }
 function postSigupPageUpdate(){
     if(desktopMessage && mobileMessage && pageSignupBtn && postSignupMessage){
@@ -206,29 +203,23 @@ function updateUserProfile(user){
     const G_userEmail = user.email;
     const G_userProfilePhoto = user.photoURL;
 
-    document.querySelector(".g-profile-name").textContent = G_userName;
     document.querySelector(".g-profile-email").textContent = G_userEmail;
-    document.querySelectorAll(".g-profile-photo").forEach(photo =>{
-        photo.src = G_userProfilePhoto;
-    })
+    if(G_userName){
+        document.querySelector(".g-profile-name").textContent = G_userName;
+    }
+    if(G_userProfilePhoto){
+        document.querySelectorAll(".g-profile-photo").forEach(photo =>{
+            photo.src = G_userProfilePhoto;
+        })
+    }
 }
 
-///////////////////////////////ZAPPIER FUNCTION
-const sendEmailToZapier = async (email) => {
-  const result = await sendToZapier({ email });
-  try {
-    const result = await sendToZapier({ email });
-    console.log("Success:", result.data);
-  } catch (error) {
-    console.error("Failed to send to Zapier:", error.message);
-  }
-};
+///////////////////////////////
 
 
 //////////////////////USER LOG
 onAuthStateChanged(auth, (user)=>{
     if(user){
-        //sendEmailToZapier(user.email);
         postSigupPageUpdate();
         user.providerData.forEach((profile) => {
 
@@ -241,6 +232,7 @@ onAuthStateChanged(auth, (user)=>{
             }
         });
     }
+    
     else if(!user){
         if(window.innerWidth < 900){
             navSigninButton.style.display = 'none';

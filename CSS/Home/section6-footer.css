@@ -361,11 +361,10 @@ main{
 }
 @media(max-width: 500px){
     .body-container{
+        overflow-x: clip;
         footer{
-            
             box-shadow: none;
             .footer-padding{
-                width: 100%;
                 .intro{
                     .intro-image{
                         margin-right: 0;

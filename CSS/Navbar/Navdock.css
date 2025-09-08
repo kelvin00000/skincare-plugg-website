@@ -87,7 +87,7 @@
                         margin-bottom: 10%;
                         .Sign-in{
                             display: none;
-                            padding: 5px 18px;
+                            padding: 7px 18px;
                             margin-right: 10%;
                             border-radius: 7px;
                             font-family: var(--text-regular1);
@@ -101,7 +101,7 @@
                             transition: .3s ease-in-out;
                         }
                         .contact-us{
-                            padding: 5px 5px;
+                            padding: 7px 5px;
                             border-radius: 7px;
                             font-family: var(--text-regular1);
                             font-size: 14px;
