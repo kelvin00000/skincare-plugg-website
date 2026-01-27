@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { ref, set, get, remove } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+import {collection, deleteDoc, setDoc, doc ,getDocs, Timestamp} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../Javascript/Forms.js";
 import { showSavedToWishlistPopup } from "../Javascript/Products.js";
 import { signUpSection, contactUsSection, imageSection } from "../Javascript/Home.js";
@@ -30,6 +30,7 @@ export const allProducts = [
 //////////////////////////POST PRODUCT ID TO DB
 export async function postWishlistItemID(productId){
     const user = auth.currentUser;
+    const uid = user.uid;
 
     if(!user){
         if(window.innerWidth < 1001){
@@ -43,15 +44,17 @@ export async function postWishlistItemID(productId){
         siginPopup.classList.add('signin-show');
         return;
     }
-    const wishlistRef = ref(db, `wishlist/${user.uid}/${productId}`);
 
-    set(wishlistRef, true)
-        .then(()=> {
-            showSavedToWishlistPopup();
-        })
-        .catch(error=> console.error(error))
+    try{
+        const wishlistRef = doc(db, 'wishlist', uid, 'products', productId);
+        await setDoc(wishlistRef, {adde: true});
+        showSavedToWishlistPopup();
+    }catch(err){
+        console.error(err);
+        //FAILURE TOAST HERE
+    }
 
-    const wishlistItems = await fetchWishlistItemData(allProducts);
+    const wishlistItems = await fetchWishlistItemData(allProducts, productId);
     renderWishlistUI(wishlistItems);
 }
 
@@ -61,12 +64,12 @@ async function fetchWishlistItemData(allProducts){
     const wishlistNoResultsScreen = document.querySelector(".wishlist-noresults-screen");
     const wishlistResultsScreen = document.querySelector(".wishlist-results-screen");
     const user = auth.currentUser;
+    const uid = user.uid;
     if(!user){return[];}
 
-    const wishlistRef = ref(db, `wishlist/${user.uid}`);
-    const snapshot = await get(wishlistRef);
+    const snapshot = await getDocs(collection(db, 'wishlist', uid, 'products'));
 
-    if (!snapshot.exists()){
+    if (snapshot.empty){
         wishlistNoResultsScreen.style.display = 'flex';
         wishlistResultsScreen.style.display = 'none';
         wishlistCounter.forEach(counter=> {counter.innerHTML = 0})
@@ -76,7 +79,7 @@ async function fetchWishlistItemData(allProducts){
     wishlistNoResultsScreen.style.display = 'none';
     wishlistResultsScreen.style.display = 'flex';
 
-    const productIds = Object.keys(snapshot.val());
+    const productIds = snapshot.docs.map(doc => doc.id);
     wishlistCounter.forEach(counter=> {counter.innerHTML = productIds.length})
 
     //MATCHES FETCHED IDS TO LOCAL JSON DATA
@@ -86,9 +89,13 @@ async function fetchWishlistItemData(allProducts){
 ///////////////////////REMOVE PRODUCT ID FROM DB FUNCTION
 export async function removeWishlistItemID(productId){
     const user = auth.currentUser;
+    const uid = user.uid;
 
-    const wishlistRef = ref(db, `wishlist/${user.uid}/${productId}`);
-    await remove(wishlistRef)
+    const wishlistCard = document.querySelector(`.w-product-card[data-wishlist-item-id="${productId}"]`);
+    wishlistCard.classList.add('card-slide-out')
+
+    await deleteDoc(doc(db, 'wishlist', uid, 'products', productId));
+    wishlistCard.remove();
 
     const wishlistItems = await fetchWishlistItemData(allProducts);
     renderWishlistUI(wishlistItems);
@@ -101,7 +108,7 @@ async function renderWishlistUI(){
 
     wishlistResultsScreen.innerHTML = wishlistItems.map(item => 
         `
-            <div class="w-product-card">
+            <div class="w-product-card" data-wishlist-item-id="${item.id}">
                 <div class="left">
                     <img src="${item.image}" alt="image of ${item.name}">
                 </div>

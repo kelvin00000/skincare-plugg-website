@@ -31,16 +31,24 @@ document.addEventListener('click', element => {
 document.addEventListener('click', element => {
     if (element.target.classList.contains('js-submit-review')) {
         let reviewMessageContent = document.getElementById('user-review-message').value;
+        if(reviewMessageContent==='') return;
         const productId = element.target.dataset.id;
         passReview(reviewMessageContent, productId)
+        reviewMessageContent='';
     }
 });
+
 function passReview(reviewMessageContent, productId){
     const submitBtnText = document.querySelector('.submit-btn-text');
     const reviewBtnLoader = document.getElementById('js-review-loader');
 
     submitBtnText.style.display = "none";
     reviewBtnLoader.style.display = "flex";
+
+    setTimeout(()=>{
+        submitBtnText.style.display = "flex";
+        reviewBtnLoader.style.display = "none";
+    }, 2000)
 
     publishReview(productId, reviewMessageContent);
 }

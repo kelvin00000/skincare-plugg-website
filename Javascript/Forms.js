@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+import {getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { sendConfirmationEmail } from "../Javascript/email.js";
 
 
@@ -40,11 +40,11 @@ const pageSignupBtn = document.querySelectorAll('.page-signup-btn');
 const postSignupMessage = document.querySelector('.post-signup');
 
 
-//FIFREBASE DATATBASES'S
-export const db = getDatabase(app);
+//FIFREBASE FIRESTORE DATATBASE
+export const db = getFirestore(app);
 
 
-/////////////GOOGLE SIGIN FUNCTION
+/////////////GOOGLE SIGN FUNCTION
 const googleLoginBtn = document.getElementById("google-login-btn");
 googleLoginBtn.addEventListener('click', ()=>{
     const googleBtnText = document.querySelector('.formBtnText-2');
@@ -55,31 +55,40 @@ googleLoginBtn.addEventListener('click', ()=>{
     googleBtnSvg.style.display = 'none';
     googleLoader.style.display = 'flex';
 
-    setTimeout(()=>{
-        signInWithGoogle();
+    setTimeout(async ()=>{
+        await signInWithGoogle();
         googleBtnText.style.display = 'flex';
         googleBtnSvg.style.display = 'flex';
         googleLoader.style.display = 'none';
     }, 1500);
 })
-function signInWithGoogle(){
-    signInWithPopup(auth, provider).then(async (result) => {
-            const credential = GoogleAuthProvider.credentialFromResult(result);
-            const user = result.user;
-            sendConfirmationEmail(user);
+async function signInWithGoogle(){
+    try{
+        let result = await signInWithPopup(auth, provider);
+        const uid = result.user.uid;
+        //sendConfirmationEmail(user);
 
-            await setDoc(doc(firestoreDB, "users", user.uid), {
-                email: user.email,
-                name: user.displayName || user.email
-            });
-        }
-    ).catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode, errorMessage);
-            alert('Please check your internet connection')
-        }
-    );
+        await setDoc(doc(db, "users", uid), {
+            email: result.user.email,
+            name: result.user.displayName || result.user.email
+        });
+
+        //SHOW SUCCESS TOAST HERE
+        setTimeout(()=>{
+            //REMOVE SUCCESS TOAST HERE
+        }, 5000);
+
+
+    }catch (error){
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+
+        //SHOW ERROR TOAST HERE
+        setTimeout(()=>{
+            //REMOVE ERROR TOAST HERE
+        }, 5000);
+    }
 }
 
 
@@ -92,32 +101,54 @@ emailLoginBtn.addEventListener('click', ()=>{
     googleBtnText.style.display = 'none';
     googleLoader.style.display = 'flex';
 
-    setTimeout(()=>{
-        signInWithEmail();
+    setTimeout(async ()=>{
+        await signInWithEmail();
         googleBtnText.style.display = 'flex';
         googleLoader.style.display = 'none';
     }, 1500);
 })
-function signInWithEmail(){
+async function signInWithEmail(){
     const email = document.getElementById("email").value;
     const password = document.getElementById("passkey").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
-    .then(async (userCredential)=>{
-        const user = userCredential.user;
-        sendConfirmationEmail(user);
+    if (!email || !password) {
+        //SHOW ERROR TOAST HERE
+        setTimeout(()=>{
+            //REMOVE ERROR TOAST HERE
+        }, 5000);
+        return;
+    }
 
-        await setDoc(doc(firestoreDB, "users", user.uid), {
-            email: user.email,
-            name: user.displayName || user.email
+    try {
+        ////AUTH LOGIC
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const uid = userCred.user.uid;
+
+        ////USER PROFILE DATA WRITE
+        await setDoc(doc(db, "users", uid), {
+            email,
+            createdAt: new Date()
         });
-    })
-    .catch((error)=>{
+
+        //SHOW SUCCESS TOAST HERE
+        setTimeout(()=>{
+            //REMOVE SUCCESS TOAST HERE
+        }, 5000);
+
+    }
+    catch(error){
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
+
+        //SHOW ERROR TOAST HERE
+        setTimeout(()=>{
+            //REMOVE ERROR TOAST HERE
+        }, 5000);
+
+        //REMOVE THIS LATER
         alert('Email or Passsword is incorrect or User is already signed in with google')
-    })
+    }
 }
 
 

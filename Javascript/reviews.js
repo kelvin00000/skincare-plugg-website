@@ -1,11 +1,11 @@
-import { ref, set, push, get, onValue, off, remove, runTransaction } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-database.js";
+import {collection, addDoc, deleteDoc, runTransaction, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../Javascript/Forms.js";
 import { signUpSection, contactUsSection, imageSection } from "../Javascript/Home.js";
 import { reviewFailureResponse, reviewSuccessResponse } from "../Javascript/Products.js";
 
-
 /////////////////////////REVIEW PUBLISH FUNCTION/////////////////////////
 export async function publishReview(productId, message){
+    const popupReviewscontainer = document.querySelector(".Popup-review-cards-container");
     const user = auth.currentUser;
     if (!user) {
         if(window.innerWidth < 1001){
@@ -25,98 +25,123 @@ export async function publishReview(productId, message){
         return;
     }
 
-    const reviewRef = push(ref(db, `reviews/${productId}`));
-    await set(reviewRef, {
+    const reviewData = {
         userId: user.uid,
         username: user.displayName || user.email,
         userImage: user.photoURL,
         message,
         likesCount: 0,
+        productId,
         timestamp: Date.now()
-    })
-    .then(()=> {
-        message = ""
-        reviewSuccessResponse();
-    })
-    .catch(error=> {
-        message = ""
-        reviewFailureResponse();
-        console.error(error);
-    })
+    };
+    const reviewRef = collection(db, 'reviews', productId, 'reviews');
+
+    try {
+        ////REVIEW DATA WRITE
+        const docRef = await addDoc(reviewRef, reviewData);
+        const reviewId = docRef.id;
+
+        const html = renderReviewUI(productId, reviewId, reviewData)
+        popupReviewscontainer.insertAdjacentHTML("beforeend", html);
+        attachReviewActions(productId);
+    } 
+    catch (err) {
+        console.error(err);
+
+        //FAILURE TOAST HERE
+        setTimeout(()=>{
+
+        }, 5000);
+    }
 }
 
 /////////////////////////REVIEW DATA FETCH FUNCTION/////////////////////////
-let activeReviewRef = null;
-export function fetchReviewData(productId){
+export async function fetchReviewData(productId){
     const popupReviewscontainer = document.querySelector(".Popup-review-cards-container");
     const noReviewsScreen = document.querySelector(".Popup-review-noResults-screen");
+    popupReviewscontainer.innerHTML = "";
 
-    if (activeReviewRef) off(activeReviewRef); 
-    const reviewRef = ref(db, `reviews/${productId}`);
-    activeReviewRef = reviewRef;
+    const snap = await getDocs(collection(db, 'reviews', productId, 'reviews'));
+    if (snap.empty){
+        popupReviewscontainer.style.display = "none";
+        noReviewsScreen.style.display = "flex";
+        return;
+    }
+    noReviewsScreen.style.display = "none";
+    popupReviewscontainer.style.display = "block";
 
-    onValue(reviewRef, (snapshot) => {
-        popupReviewscontainer.innerHTML = "";
-
-        if (!snapshot.exists()) {
-            popupReviewscontainer.style.display = "none";
-            noReviewsScreen.style.display = "flex";
-            return;
-        }
-        popupReviewscontainer.style.display = "block";
-        noReviewsScreen.style.display = "none";
-
-        const reviews = snapshot.val();
-        let reviewCardhtml = "";
-        for (let reviewId in reviews) {
-            const review = reviews[reviewId];
-            reviewCardhtml += renderReviewUI(productId, reviewId, review);
-        }
-        popupReviewscontainer.innerHTML = reviewCardhtml;
-        attachReviewActions(productId)
+    let html="";
+    snap.forEach(docSnap => {
+        const review = docSnap.data();
+        const reviewId = docSnap.id;
+        html +=  renderReviewUI(productId, reviewId, review)
     });
+    popupReviewscontainer.insertAdjacentHTML("beforeend", html);
+    attachReviewActions(productId);
 }
 
 /////////////////////////REVIEW DELETE FUNCTION/////////////////////////
-export async function deleteReview(productId, reviewId){
-    await remove(ref(db, `reviews/${productId}/${reviewId}`));
+export async function deleteReview(productId, reviewId, reviewCard){
+    reviewCard.classList.add('review-card-slide-out')
+    await deleteDoc(doc(db, 'reviews', productId, 'reviews', reviewId));
+    reviewCard.remove();
+
+    const popupReviewscontainer = document.querySelector(".Popup-review-cards-container");
+    const noReviewsScreen = document.querySelector(".Popup-review-noResults-screen");
+
+    const snap = await getDocs(collection(db, 'reviews', productId, 'reviews'));
+    if (snap.empty){
+        popupReviewscontainer.style.display = "none";
+        noReviewsScreen.style.display = "flex";
+        return;
+    }
 }
 
 
 ///////////////////////REACTION BUTTONS FUNCTIONS/////////////////////
-async function reactToReview(productId, reviewId, reaction) {
+let isReacting = false;
+
+async function reactToReview(productId, reviewId) {
     const user = auth.currentUser;
-    if (!user) return;
+    if (!user || isReacting) return;
+    
+    isReacting = true;
+    
+    try {
+        const reactionRef = doc(db, 'reviewReactions', reviewId, 'reactions', user.uid);
+        const reviewRef = doc(db, 'reviews', productId, 'reviews', reviewId);
 
-    const reactionRef = ref(db, `reviewReactions/${reviewId}/${user.uid}`);
-    const reviewRef   = ref(db, `reviews/${productId}/${reviewId}`);
+        let newLikesCount;
 
-    const prevSnap = await get(reactionRef);
-    const prev = prevSnap.exists();
+        await runTransaction(db, async (transaction) => {
+            const reviewSnap = await transaction.get(reviewRef);
+            const reactionSnap = await transaction.get(reactionRef);
+            
+            if (!reviewSnap.exists()) return;
 
-    if (prev) {
-        await remove(reactionRef);
-    } else {
-        await set(reactionRef, true);
+            const review = reviewSnap.data();
+            let likesCount = review.likesCount || 0;
+            const hasLiked = reactionSnap.exists();
+
+            if (hasLiked) {
+                transaction.delete(reactionRef);
+                likesCount = Math.max(0, likesCount - 1);
+            } else {
+                transaction.set(reactionRef, { liked: true, timestamp: Date.now() });
+                likesCount += 1;
+            }
+
+            newLikesCount = likesCount;
+            transaction.update(reviewRef, { likesCount });
+        });
+
+        const likeCountContainer = document.querySelector(`.js-liked-review-counter[data-review-id="${reviewId}"]`);
+        likeCountContainer.innerHTML = newLikesCount;
+
+    } finally {
+        isReacting = false;
     }
-
-    await runTransaction(reviewRef, (review) => {
-        if (review == null) return review;
-
-        review.likesCount = review.likesCount || 0;
-
-        if (prev) {
-            review.likesCount = Math.max(0, review.likesCount - 1);
-        } else {
-            review.likesCount += 1;
-        }
-
-        return review;
-    });
 }
-
-
-
 
 
 
@@ -125,7 +150,7 @@ function renderReviewUI(productId, reviewId, review){
     const canDelete = review.userId === auth.currentUser?.uid;
 
     return  `
-            <div class="Popup-review-card">
+            <div class="Popup-review-card" data-product-id="${productId}" data-review-id="${reviewId}">
                 <div class="user-image">
                     ${review.userImage
                         ?` <img src="${review.userImage}" alt="profile-photo" class="user-profile-photo">` 
@@ -154,7 +179,7 @@ function renderReviewUI(productId, reviewId, review){
                             <button>
                                 <svg class="liked-review" data-product-id="${productId}" data-review-id="${reviewId}" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg>
                             </button>
-                            <p class="js-liked-review-counter">${review.likesCount}</p>
+                            <p class="js-liked-review-counter" data-review-id="${reviewId}">${review.likesCount}</p>
                         </div>
                         ${canDelete ? `<button class="delete-review js-delete-review" data-product-id="${productId}" data-review-id="${reviewId}">
                         <p class="js-delete-review" data-product-id="${productId}" data-review-id="${reviewId}">Remove</p>
@@ -169,7 +194,7 @@ function renderReviewUI(productId, reviewId, review){
 
 
 //////////////////////REVIEW CARD BUTTON EVENT LISTENERS//////////////
-function attachReviewActions(productId) {
+function attachReviewActions() {
     const popupReviewscontainer = document.querySelector(".Popup-review-cards-container");
 
     popupReviewscontainer.addEventListener("click", element => {
@@ -177,19 +202,14 @@ function attachReviewActions(productId) {
         if (element.target.classList.contains('js-delete-review')) {
             const reviewId = element.target.dataset.reviewId;
             const productId = element.target.dataset.productId;
-            deleteReview(productId, reviewId);
+            const reviewCard = document.querySelector(`.Popup-review-card[data-review-id="${element.target.dataset.reviewId}"]`);
+            deleteReview(productId, reviewId, reviewCard);
         }
         // LIKE BUTTON
         if (element.target.classList.contains("liked-review")) {
             const reviewId = element.target.dataset.reviewId;
             const productId = element.target.dataset.productId;
-            reactToReview(productId, reviewId, "like");
-        }
-        // DISLIKE BUTTON
-        if (element.target.classList.contains("disliked-review")) {
-            const reviewId = element.target.dataset.reviewId;
-            const productId = element.target.dataset.productId;
-            reactToReview(productId, reviewId, "dislike");
+            reactToReview(productId, reviewId);
         }
     });
 }

@@ -77,7 +77,7 @@ main{
                     border-radius: 20px;
                     background: rgba(255, 255, 255, 0.45);
                     border: 1px solid rgba(255, 255, 255, 0.45);
-                    
+                    transition: all .35s ease-in-out;
 
                     .left{
                         width: 45%;
@@ -139,6 +139,9 @@ main{
                             }
                         }
                     }
+                }
+                .card-slide-out{
+                    translate: -200% 0;
                 }
             }
 
