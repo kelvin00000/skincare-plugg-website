@@ -1,29 +1,18 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import {collection, deleteDoc, setDoc, doc ,getDocs, Timestamp} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import {collection, deleteDoc, setDoc, doc ,getDocs, collectionGroup} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../Javascript/Forms.js";
 import { showSavedToWishlistPopup } from "../Javascript/Products.js";
 import { signUpSection, contactUsSection, imageSection } from "../Javascript/Home.js";
 
 
-//VARIABLES
-const res = await fetch("/Javascript/Data.json");
-const data = await res.json();
-export const allProducts = [
-    ...data.serumsSection.flatMap(section => section.product),
-    ...data.facecreamSection.flatMap(section => section.product),
-    ...data.bodyoilSection.flatMap(section => section.product),
-    ...data.sunscreenSection.flatMap(section => section.product),
-    ...data.facewashSection.flatMap(section => section.product),
-    ...data.tonerSection.flatMap(section => section.product),
-    ...data.bodylotionSection.flatMap(section => section.product),
-    ...data.facemoisturiserSection.flatMap(section => section.product),
-    ...data.cleanserSection.flatMap(section => section.product),
-    ...data.facemaskSection.flatMap(section => section.product),
-    ...data.bodywashSection.flatMap(section => section.product),
-    ...data.essenceSection.flatMap(section => section.product),
-    ...data.treatmentcreamSection.flatMap(section => section.product),
-    ...data.bodyscrubSection.flatMap(section => section.product)
-];
+
+///////////////ALL PRODUCTS FETCH
+const sections = ['serumsSection', 'facecreamSection', 'bodyoilSection', 'sunscreenSection', 'facewashSection', 'tonerSection', 'bodylotionSection', 'facemoisturiserSection', 'cleanserSection', 'facemaskSection', 'bodywashSection', 'essenceSection', 'treatmentcreamSection', 'bodyscrubSection'];
+export const allProducts = [];
+sections.forEach(async section=>{
+    const snap = await getDocs(collection(db, 'products', section, 'items'));
+    snap.forEach(doc=>allProducts.push(doc.data()));
+})
 
 
 
@@ -47,7 +36,7 @@ export async function postWishlistItemID(productId){
 
     try{
         const wishlistRef = doc(db, 'wishlist', uid, 'products', productId);
-        await setDoc(wishlistRef, {adde: true});
+        await setDoc(wishlistRef, {added: true});
         showSavedToWishlistPopup();
     }catch(err){
         console.error(err);
