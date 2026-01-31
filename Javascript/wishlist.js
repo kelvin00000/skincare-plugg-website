@@ -1,5 +1,5 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import {collection, deleteDoc, setDoc, doc ,getDocs, collectionGroup} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import {collection, deleteDoc, setDoc, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../Javascript/Forms.js";
 import { showSavedToWishlistPopup } from "../Javascript/Products.js";
 import { signUpSection, contactUsSection, imageSection } from "../Javascript/Home.js";
