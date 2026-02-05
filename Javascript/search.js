@@ -1,39 +1,28 @@
-async function loadSearchResults(){
-    try{
-        const res = await fetch("/Javascript/Data.json");
-        const data = await res.json();
+import {collection, getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { db } from "../Javascript/Forms.js";
 
-        let allProducts = [];
-
-        for (let section in data) {
-            data[section].forEach(item => {
-                if (Array.isArray(item.product)) {
-                    allProducts.push(...item.product);
-                }
-            });
-        }
-        return allProducts;
-    }catch (error){
-        console.error("Error loading searched products: ", error);
-        return [];
-    }
-}
-
-function filterProducts(products, query) {
+async function filterProducts(query) {
     const queriedItem = query.toLowerCase();
 
-    const results = products.filter(product => {
-        if (!product.keywords) return false;
+    const sections = ['serumsSection', 'facecreamSection', 'bodyoilSection', 'sunscreenSection', 'facewashSection', 'tonerSection', 'bodylotionSection', 'facemoisturiserSection', 'cleanserSection', 'facemaskSection', 'bodywashSection', 'essenceSection', 'treatmentcreamSection', 'bodyscrubSection'];
 
-        const allKeywords = product.keywords.map(keywords =>
-            keywords.toLowerCase()
-        );
-        const match = allKeywords.some(keywords => keywords.includes(queriedItem));
+    const promises = sections.map(async section=>{
+        const snap = await getDocs(collection(db, 'products', section, 'items'));
+        let sectionResults = [];
 
-        return match;
-    });
+        snap.forEach(doc=> {
+            const allKeywords = doc.data().keywords.map(keywords =>
+                keywords.toLowerCase()
+            );
+            const match = allKeywords.some(keywords => keywords.includes(queriedItem));
+            if(match) sectionResults.push(doc.data());
+        });
 
-    return results;
+        return sectionResults;
+    }) 
+
+    const results = await Promise.all(promises)
+    return results.flat();
 }
 
 function renderProducts(products){
@@ -72,6 +61,8 @@ function renderProducts(products){
             </div>
         `;
     });
+
+    
 }
 
 
@@ -84,8 +75,7 @@ async function runSearch(){
         return;
     }
 
-    const allProducts = await loadSearchResults();
-    const results = filterProducts(allProducts, query);
+    const results = await filterProducts(query);
     renderProducts(results);
 }
 

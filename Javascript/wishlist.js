@@ -7,16 +7,20 @@ import { signUpSection, contactUsSection, imageSection } from "../Javascript/Hom
 
 
 ///////////////ALL PRODUCTS FETCH
+const allProducts = [];
+
 const sections = ['serumsSection', 'facecreamSection', 'bodyoilSection', 'sunscreenSection', 'facewashSection', 'tonerSection', 'bodylotionSection', 'facemoisturiserSection', 'cleanserSection', 'facemaskSection', 'bodywashSection', 'essenceSection', 'treatmentcreamSection', 'bodyscrubSection'];
-export const allProducts = [];
+
 sections.forEach(async section=>{
     const snap = await getDocs(collection(db, 'products', section, 'items'));
-    snap.forEach(doc=>allProducts.push(doc.data()));
+    snap.forEach(doc=> {
+        allProducts.push(doc.data())
+    });
 })
 
 
 
-//////////////////////////POST PRODUCT ID TO DB
+////////////////////////////POST PRODUCT ID TO DB
 export async function postWishlistItemID(productId){
     const user = auth.currentUser;
     const uid = user.uid;
@@ -43,7 +47,7 @@ export async function postWishlistItemID(productId){
         //FAILURE TOAST HERE
     }
 
-    const wishlistItems = await fetchWishlistItemData(allProducts, productId);
+    let wishlistItems = await fetchWishlistItemData(allProducts);
     renderWishlistUI(wishlistItems);
 }
 
@@ -69,9 +73,9 @@ async function fetchWishlistItemData(allProducts){
     wishlistResultsScreen.style.display = 'flex';
 
     const productIds = snapshot.docs.map(doc => doc.id);
-    wishlistCounter.forEach(counter=> {counter.innerHTML = productIds.length})
+    wishlistCounter.forEach(counter=> {counter.innerHTML = productIds.length});
 
-    //MATCHES FETCHED IDS TO LOCAL JSON DATA
+    //MATCHES FETCHED IDS TO STORED PRODUCT IDS
     return allProducts.filter(product => productIds.includes(product.id));
 }
 
@@ -127,7 +131,6 @@ onAuthStateChanged(auth, user=>{
             container.style.display = 'flex';
         })
         wishlistNoUserScreen.style.display = 'none';
-        fetchWishlistItemData(allProducts);
         renderWishlistUI()
     }else{
         wishlistCounterContainer.forEach(container=>{
