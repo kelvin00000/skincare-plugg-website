@@ -46,22 +46,24 @@ export const db = getFirestore(app);
 
 /////////////GOOGLE SIGN FUNCTION
 const googleLoginBtn = document.getElementById("google-login-btn");
-googleLoginBtn.addEventListener('click', ()=>{
-    const googleBtnText = document.querySelector('.formBtnText-2');
-    const googleBtnSvg = document.querySelector('.googleBtnsvg');
-    const googleLoader = document.getElementById('loader-2');
+if(googleLoginBtn){
+    googleLoginBtn.addEventListener('click', ()=>{
+        const googleBtnText = document.querySelector('.formBtnText-2');
+        const googleBtnSvg = document.querySelector('.googleBtnsvg');
+        const googleLoader = document.getElementById('loader-2');
 
-    googleBtnText.style.display = 'none';
-    googleBtnSvg.style.display = 'none';
-    googleLoader.style.display = 'flex';
+        googleBtnText.style.display = 'none';
+        googleBtnSvg.style.display = 'none';
+        googleLoader.style.display = 'flex';
 
-    setTimeout(async ()=>{
-        await signInWithGoogle();
-        googleBtnText.style.display = 'flex';
-        googleBtnSvg.style.display = 'flex';
-        googleLoader.style.display = 'none';
-    }, 1500);
-})
+        setTimeout(async ()=>{
+            await signInWithGoogle();
+            googleBtnText.style.display = 'flex';
+            googleBtnSvg.style.display = 'flex';
+            googleLoader.style.display = 'none';
+        }, 1500);
+    })
+}
 async function signInWithGoogle(){
     try{
         let result = await signInWithPopup(auth, provider);
@@ -94,19 +96,21 @@ async function signInWithGoogle(){
 
 ////////////EMAIL SIGNIN FUNCTION
 const emailLoginBtn = document.getElementById("email-signin-btn");
-emailLoginBtn.addEventListener('click', ()=>{
-    const googleBtnText = document.querySelector('.formBtnText-1');
-    const googleLoader = document.getElementById('loader-1');
+if(emailLoginBtn){
+    emailLoginBtn.addEventListener('click', ()=>{
+        const googleBtnText = document.querySelector('.formBtnText-1');
+        const googleLoader = document.getElementById('loader-1');
 
-    googleBtnText.style.display = 'none';
-    googleLoader.style.display = 'flex';
+        googleBtnText.style.display = 'none';
+        googleLoader.style.display = 'flex';
 
-    setTimeout(async ()=>{
-        await signInWithEmail();
-        googleBtnText.style.display = 'flex';
-        googleLoader.style.display = 'none';
-    }, 1500);
-})
+        setTimeout(async ()=>{
+            await signInWithEmail();
+            googleBtnText.style.display = 'flex';
+            googleLoader.style.display = 'none';
+        }, 1500);
+    })
+}
 async function signInWithEmail(){
     const email = document.getElementById("email").value;
     const password = document.getElementById("passkey").value;
@@ -153,27 +157,31 @@ async function signInWithEmail(){
 
 
 ///////////////LOG OUT FUNCTION
-document.querySelector(".logout-btn").addEventListener('click', ()=>{
-    const logOutBtnText = document.querySelectorAll('.logOutBtnText');
-    const logOutLoader = document.querySelectorAll('.loader-3');
+const logOutBtn = document.querySelector(".logout-btn")
+if(logOutBtn){
+    logOutBtn.addEventListener('click', ()=>{
+        const logOutBtnText = document.querySelectorAll('.logOutBtnText');
+        const logOutLoader = document.querySelectorAll('.loader-3');
 
-    logOutBtnText.forEach(text=>{
-        text.style.display = 'none';
-    })
-    logOutLoader.forEach(loader=>{
-        loader.style.display = 'flex';
-    })
-
-    setTimeout(()=>{
-        signUserOut();
-        logOutLoader.forEach(loader=>{
-            loader.style.display = 'none';
-        })
         logOutBtnText.forEach(text=>{
-            text.style.display = 'flex';
+            text.style.display = 'none';
         })
-    }, 1500);
-})
+        logOutLoader.forEach(loader=>{
+            loader.style.display = 'flex';
+        })
+
+        setTimeout(()=>{
+            signUserOut();
+            logOutLoader.forEach(loader=>{
+                loader.style.display = 'none';
+            })
+            logOutBtnText.forEach(text=>{
+                text.style.display = 'flex';
+            })
+        }, 1500);
+    })
+}
+
 function signUserOut(){
     signOut(auth).then(()=>{
         GprofilePopup.style.display = 'none';
