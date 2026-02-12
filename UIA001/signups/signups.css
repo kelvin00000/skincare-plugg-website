@@ -69,8 +69,12 @@ html, body{
                 .user-profile-container{
                     width: 30px;
                     height: 30px;
-                    background-color: #CCac00;
                     border-radius: 100%;
+
+                    img{
+                        width: 100%;
+                        border-radius: inherit;
+                    }
                 }
                 .user-username-container{
                     font-size: 18px;
