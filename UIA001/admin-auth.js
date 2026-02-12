@@ -1,5 +1,6 @@
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { auth } from "../Javascript/Forms.js";
+import { getDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { auth, db } from "../Javascript/Forms.js";
 
 ////INTERFACES
 const adminSigninInterface = document.getElementById("js-admin-signin-interface");
@@ -12,7 +13,22 @@ const loadingScreen = document.getElementById("js-loading-screen");
 const failToast = document.getElementById("js-fail-toast");
 const emptyFieldToast = document.getElementById("js-empty-field-toast");
 
+loader.classList.add('show-loader');
+loadingScreen.classList.add('show-loader');
 
+
+//// NEW USER CHECK
+const docSnap = await getDoc(doc(db, 'users', 'newUserCheck'));
+if (docSnap.exists()) {
+    if(docSnap.data().newUser){
+        document.getElementById("js-new-user-notification").style.display = "block"
+    }
+}
+
+
+
+
+//// ADMIN AUTH
 document.getElementById("js-admin-signin-btn").addEventListener("click",async () => {
     loader.classList.add('show-loader');
     loadingScreen.classList.add('show-loader');
@@ -58,10 +74,14 @@ onAuthStateChanged(auth, (user) => {
         adminSigninInterface.style.display = "none";
         adminMainInterface.style.display = "flex";
         adminHeader.style.display = "flex";
+        loader.classList.remove('show-loader');
+        loadingScreen.classList.remove('show-loader');
     } 
     else {
         adminHeader.style.display = "none";
         adminMainInterface.style.display = "none";
         adminSigninInterface.style.display = "flex";
+        loader.classList.remove('show-loader');
+        loadingScreen.classList.remove('show-loader');
     }
 });

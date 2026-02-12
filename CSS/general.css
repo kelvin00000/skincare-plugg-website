@@ -51,6 +51,11 @@
             border-radius: 100%;
         }
     }
+    .copied-toast{
+        svg{
+            background-color: green;
+        }
+    }
 
     /* CLASSLIST FOR HIDING TOAST TIP */
     .show-toast{

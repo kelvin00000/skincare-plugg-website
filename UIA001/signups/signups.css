@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-main: #faf9f6;
+    --background-sec: #F0F2F5;
+    --background-third: #F7F6F3;
+    --accent-black: #121212;
+    --accent-gold: #CCac00;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;          
+    --text-stylish: Leckerli One;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--background-main);
+    font-family: var(--text-regular1);
+}
+
+.searchinput-container{
+    display: none;
+    justify-self: center;
+    margin-top: 2%;
+
+    input{
+        padding: 15px;
+        padding-left: 20px;
+        border: none;
+        outline: none;
+        box-shadow: var(--box-shadow);
+        border-radius: 30px;
+
+        &::placeholder{
+            font-size: 16px;
+        }
+    }
+}
+
+.signups-cards-container{
+    display: flex;
+    justify-content: center;
+
+    .signups-cards-result-screen{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        padding: 35px;
+        width: 100%;
+
+        .signup-card{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 300px;
+            height: 90px;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: var(--box-shadow);
+
+            .top{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                .user-profile-container{
+                    width: 30px;
+                    height: 30px;
+                    background-color: #CCac00;
+                    border-radius: 100%;
+                }
+                .user-username-container{
+                    font-size: 18px;
+                    font-family: var(--text-stylish);
+                }
+            }
+
+            .middle{
+                .user-email-container{
+                    font-weight: 500;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .bottom{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                margin-top: 1px;
+
+                button{
+                    padding: 8px 30px;
+                    color: var(--background-sec);
+                    background: var(--accent-black);
+                    border-radius: 35px;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                }
+
+                .copy-btn{
+                    color: var(--accent-black);
+                    background: none;
+                    border: 1px solid var(--accent-black);
+                }
+            }
+        }
+    }
+
+    .signups-cards-noresult-screen{
+        display: none;
+        align-items: center;
+        margin-top: 10%;
+    }
+}
+
+@media (max-width: 450px){
+    .signups-cards-container{
+        .signups-cards-result-screen{
+            grid-template-columns: 1fr;
+        }
+
+        .signups-cards-noresult-screen{
+            margin-top: 50%;
+        }
+    }
+}

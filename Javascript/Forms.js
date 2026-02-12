@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import {getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { getFirestore, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { sendConfirmationEmail } from "../Javascript/email.js";
 
 
@@ -71,8 +71,13 @@ async function signInWithGoogle(){
         //sendConfirmationEmail(user);
 
         await setDoc(doc(db, "users", uid), {
+            profileImage: result.user.photoURL,
             email: result.user.email,
             name: result.user.displayName || result.user.email
+        });
+
+        await updateDoc(doc(db, 'users', 'newUserCheck'), {
+            newUser: true
         });
 
         //SHOW SUCCESS TOAST HERE
@@ -134,6 +139,10 @@ async function signInWithEmail(){
             createdAt: new Date()
         });
 
+        await updateDoc(doc(db, 'users', 'newUserCheck'), {
+            newUser: true
+        });
+
         //SHOW SUCCESS TOAST HERE
         setTimeout(()=>{
             //REMOVE SUCCESS TOAST HERE
@@ -171,7 +180,7 @@ if(logOutBtn){
         })
 
         setTimeout(()=>{
-            signUserOut();
+            removeAccount();
             logOutLoader.forEach(loader=>{
                 loader.style.display = 'none';
             })
@@ -182,23 +191,24 @@ if(logOutBtn){
     })
 }
 
-function signUserOut(){
-    signOut(auth).then(()=>{
+
+////REMOVE ACCOUNT FUNCTION
+async function removeAccount(){
+    const user = auth.currentUser;
+    if (!user) return;
+    const uid = user.uid;
+    
+    try {
+        await deleteDoc(doc(db, 'users', uid));
+        await deleteDoc(doc(db, 'wishlist', uid));
+        
+        await deleteUser(user);
+        
         GprofilePopup.style.display = 'none';
         EprofilePopup.style.display = 'none';
-    })
-    .catch((error)=>{
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    });
-
-    deleteUser(user).then(()=>{
-        console.log(user)
-    })
-    .catch((error)=>{
-        const errorCode = error.code;
-        const errorMessage = error.message;
-    });
+    } catch (error) {
+        console.error('Error deleting account:', error);
+    }
 }
 
 
@@ -253,12 +263,10 @@ function updateUserProfile(user){
     }
 }
 
-///////////////////////////////
-
 
 //////////////////////USER LOG
 onAuthStateChanged(auth, (user)=>{
-    if(user){
+    if(user && user.email !== 'ua-xys-admin-001@gmail.com'){
         postSigupPageUpdate();
         user.providerData.forEach((profile) => {
 
@@ -271,7 +279,6 @@ onAuthStateChanged(auth, (user)=>{
             }
         });
     }
-    
     else if(!user){
         if(window.innerWidth < 900){
             navSigninButton.style.display = 'none';
