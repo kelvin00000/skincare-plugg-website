@@ -3,6 +3,7 @@ import { collection, getDocs, updateDoc, doc, getDoc } from "https://www.gstatic
 import { auth, db } from "../../Javascript/Forms.js";
 
 
+//// INTERFACES
 const adminHeader = document.getElementById("js-header-container");
 const signupsCardsContainer = document.getElementById("js-signups-cards-result-screen");
 const signupsCardsNoResults = document.getElementById("js-signups-cards-noresult-screen");

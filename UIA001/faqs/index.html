@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs update</title>
+
+    <link rel="stylesheet" href="./faqs-admin.css">
+    <link rel="stylesheet" href="../admin-home.css">
+    <link rel="stylesheet" href="../../CSS/general.css">
+</head>
+<body>
+    <div class="admin-cms-header" id="js-admin-cms-header">
+        <div class="top">
+            <div class="logo-container">
+                <img src="../../Images/logo.PNG" alt="">
+            </div>
+
+            <div class="return-link-container">
+                <a href="../index.html">
+                    Back
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-container" id="js-header-container">
+            <p class="cms-header">
+                FAQs Update
+            </p>
+        </div>
+    </div>
+
+    <div class="all-faq-popups" id="js-all-faq-popups">
+        <div class="add-new-faq-container">
+            <div class="add-new-faq-card" id="js-add-new-faq-card">
+                Add New
+            </div>
+
+            <div class="add-new-faq-popup" id="js-add-new-faq-popup">
+                <div class="padding">
+                    <div class="question-container">
+                        Question
+                        <textarea class="faq-question-input" name="faq-question" id="js-add-new-faq-question-input-value"></textarea>
+                    </div>
+
+                    <div class="answer-container">
+                        Answer
+                        <textarea class="faq-answer-input" name="faq-question" id="js-add-new-faq-answer-input-value"></textarea>
+                    </div>
+
+                    <div class="bottom">
+                        <button id="js-addnew-faq-btn">
+                            Done
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-update-popup" id="js-faq-update-popup"></div>
+
+        <div class="confirm-delete-popup-container" id="js-confirm-delete-popup-container"></div>
+    </div>
+
+    <section class="all-faqs-container" id="js-all-faqs-container"></section>
+    
+
+    <div class="toasttips">
+        <div class="fail-toast toasttip" id="js-fail-toast">
+            <p>Unsuccessful <span>Try Again</span></p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3"><path d="M440-400v-360h80v360h-80Zm0 200v-80h80v80h-80Z"/></svg>
+        </div>
+
+        <div class="empty-field-toast toasttip" id="js-empty-field-toast">
+            <p>Please Fill Out All fields</p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3"><path d="M440-400v-360h80v360h-80Zm0 200v-80h80v80h-80Z"/></svg>
+        </div>
+
+        <div class="copied-toast toasttip" id="js-copied-toast">
+            <p>Copied</p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3">
+                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+            </svg>
+        </div>
+    </div>
+    <div class="loading-screen" id="js-loading-screen"></div>
+    <div class="loader" id="js-loader"></div>
+    <div class="black-screen" id="js-black-screen"></div>
+
+    <script type="module" src="./faqs-admin.js"></script>
+</body>
+</html>
