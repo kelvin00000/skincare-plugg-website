@@ -276,7 +276,7 @@ html, body{
 @media (max-width: 450px){
     .all-faqs-container{
         grid-template-columns: 1fr;
-        padding: 25px;
+        padding: 15px;
 
         .faq-container{
             width: 280px;

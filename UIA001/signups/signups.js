@@ -109,7 +109,11 @@ document.addEventListener('click', element => {
 document.addEventListener('click', element => {
     if (element.target.classList.contains('email-btn')) {
         const userEmail = element.target.dataset.email;
-        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}`, '_blank');
+        if (window.innerWidth < 750) {
+            window.location.href = `mailto:${userEmail}`;
+        } else {
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=${userEmail}`, '_blank');
+        }
     }
 });
 

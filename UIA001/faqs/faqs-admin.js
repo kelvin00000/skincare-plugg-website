@@ -332,6 +332,10 @@ document.addEventListener('click', element => {
         popupScreen.classList.remove('show-loader')
     }
 });
+document.getElementById("js-addnew-faq-popup-close-btn").addEventListener('click', ()=>{
+    addNewFaqPopup.classList.remove('popup-show');
+    popupScreen.classList.remove('show-loader')
+})
 popupScreen.addEventListener('click', ()=>{
     addNewFaqPopup.classList.remove('popup-show');
     confirmDeletePopup.classList.remove('popup-show');
