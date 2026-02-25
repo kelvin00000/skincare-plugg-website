@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Content</title>
+
+    <link rel="stylesheet" href="./managecontent-admin.css">
+    <link rel="stylesheet" href="../admin-home.css">
+    <link rel="stylesheet" href="../../CSS/general.css">
+</head>
+<body>
+    <div class="admin-cms-header" id="js-admin-cms-header">
+        <div class="top">
+            <div class="logo-container">
+                <img src="../../Images/logo.webp" alt="">
+            </div>
+
+            <div class="return-link-container">
+                <a href="../index.html">
+                    Back
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-container" id="js-header-container">
+            <div class="cms-header">
+                Manage Content
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-sections-screen" id="js-product-sections-screen">
+        <div class="screen-header">
+            <div class="title">Product Sections</div>
+            <input type="text" id="js-search-sections-input" placeholder="Search">
+        </div>
+
+        <div class="add-new-section-tab" id="js-add-new-section-tab">
+            Add New
+        </div>
+        
+        <div class="grid" id="js-product-sections-grid"></div>
+    </div>
+
+    <div class="products-screen" id="js-products-screen">
+        <div class="screen-header">
+            <div class="title" id="js-product-section-name"></div>
+
+            <div class="header-container">
+                <input type="text" id="js-search-products-input" placeholder="Search">
+                <button class="close-products-screen-btn" id="js-close-products-screen-btn">
+                    Close
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#121212"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="update-section-options-container" id="js-update-section-options-container">
+            <div class="section-title-container">
+                <label for="section-title-input">Section title</label><br>
+                <input type="text" name="section-title-input" id="js-update-section-title-value">
+            </div>
+
+            <button id="js-update-section-btn">update</button>
+        </div>
+
+        <div class="add-new-product-tab" id="js-add-new-product-tab">
+            Add New Product
+        </div>
+
+        <div class="grid" id="js-product-grid"></div>
+    </div>
+
+
+    <div class="add-new-product-section-screen" id="js-add-new-product-section-screen">
+        <div class="screen-header">
+            <div class="title">Add New Section</div>
+            <button class="close-add-new-section-screen-btn" id="close-add-new-section-screen-btn">
+                Close
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#121212"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </button>
+        </div>
+
+        <div class="content">
+            <div class="section-headers-container">
+                <div class="section-id-container">
+                    <label for="section-id-input">Section ID</label><br>
+                    <input type="text" name="section-id-input" id="add-new-section-id-value">
+                    <div>Eg: bodylotionSection</div>
+                </div>
+
+                <div class="title-container">
+                    <label for="title-input">Page Title</label><br>
+                    <input type="text" name="title-input" id="add-new-section-title-value">
+                    <div>Eg: Body Lotions</div>
+                </div>
+
+                <div class="image-container">
+                    <label for="image-input">Section Image</label><br>
+                    <img class="image-preview" id="add-new-section-image-preview"></img>
+                    <input type="file" name="image-input" id="add-new-section-image-value">
+                </div>
+            </div>
+
+            <p class="note-txt">*You must add at least one product</p>
+
+            <div class="product-details-container">
+                <div class="image-container">
+                    <label for="image-input">Product Image</label><br>
+                    <img class="image-preview" id="add-new-section-product-image-preview"></img>
+                    <input type="file" name="image-input" id="add-new-section-product-image-value">
+                </div>
+
+                <div class="name-container">
+                    <label for="name-input">Product Name</label><br>
+                    <input type="text" name="name-input" id="add-new-section-product-name-value">
+                </div>
+
+                <div class="category-container">
+                    <label for="category-input">Product Category</label><br>
+                    <input type="text" name="category-input" id="add-new-section-product-category-value">
+                    <div>NB: Same as page title</div>
+                </div>
+
+                <div class="price-container">
+                    <label for="price-input">Product Price</label><br>
+                    <input type="text" name="price-input" id="add-new-section-product-price-value">
+                    <div>NB: Enter only the number</div>
+                </div>
+
+                <div class="description-container">
+                    <label for="description-input">Product Description</label><br>
+                    <textarea name="description-input" id="add-new-section-product-description-value"></textarea>
+                </div>
+
+                <div class="benefit-container">
+                    <label for="benefit-input">Product Benefit</label><br>
+                    <textarea name="benefit-input" id="add-new-section-product-benefit-value"></textarea>
+                </div>
+
+                <div class="prescription-container">
+                    <label for="prescription-input">Product Prescription</label><br>
+                    <textarea name="prescription-input" id="add-new-section-product-prescription-value"></textarea>
+                </div>
+
+                <div class="disclaimer-container">
+                    <label for="disclaimer-input">Product Disclaimer</label><br>
+                    <textarea name="disclaimer-input" id="add-new-section-product-disclaimer-value"></textarea>
+                </div>
+            </div>
+
+            <button id="create-new-section-popup-btn">Done</button>
+        </div>
+    </div>
+
+    <div class="add-new-product-screen" id="js-add-new-product-screen">
+        <div class="screen-header">
+            <div class="title">Add New Product</div>
+            <button class="close-add-new-product-screen-btn" id="js-close-add-new-product-screen-btn">
+                Close
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#121212"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </button>
+        </div>
+
+        <div class="content">
+            <div class="product-details-container">
+                <div class="image-container">
+                    <label for="image-input">Product Image</label><br>
+                    <img class="image-preview" id="js-add-new-product-image-preview">
+                    <input type="file" name="image-input" id="add-new-product-image-value">
+                </div>
+
+                <div class="name-container">
+                    <label for="name-input">Product Name</label><br>
+                    <input type="text" name="name-input" id="add-new-product-name-value">
+                </div>
+
+                <div class="category-container">
+                    <label for="category-input">Category Name</label><br>
+                    <input type="text" name="category-input" id="add-new-product-category-value">
+                    <div>Eg: Body Lotions</div>
+                </div>
+
+                <div class="price-container">
+                    <label for="price-input">Product Price</label><br>
+                    <input type="text" name="price-input" id="add-new-product-price-value">
+                    <div>NB: Enter only the number</div>
+                </div>
+
+                <div class="description-container">
+                    <label for="description-input">Product Description</label><br>
+                    <textarea name="description-input" id="add-new-product-description-value"></textarea>
+                </div>
+
+                <div class="benefit-container">
+                    <label for="benefit-input">Product Benefit</label><br>
+                    <textarea name="benefit-input" id="add-new-product-benefit-value"></textarea>
+                </div>
+
+                <div class="prescription-container">
+                    <label for="prescription-input">Product Prescription</label><br>
+                    <textarea name="prescription-input" id="add-new-product-prescription-value"></textarea>
+                </div>
+
+                <div class="disclaimer-container">
+                    <label for="disclaimer-input">Product Disclaimer</label><br>
+                    <textarea name="disclaimer-input" id="add-new-product-disclaimer-value"></textarea>
+                </div>
+            </div>
+
+            <button id="add-new-product-screen-btn">Done</button>
+        </div>
+    </div>
+
+    <div class="update-product-screen" id="js-update-product-screen">
+        <div class="screen-header">
+            <div class="title">Update - <span id="js-update-product-name"></span></div>
+            <button class="close-update-product-screen-btn" id="js-close-update-product-screen-btn">
+                Close
+                <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#121212"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </button>
+        </div>
+
+        <div class="content">
+            <div class="product-details-container">
+                <div class="image-container">
+                    <label for="image-input">Product Image</label><br>
+                    <img class="image-preview" id="update-product-image-preview">
+                    <input type="file" name="image-input" id="update-product-image-value">
+                </div>
+
+                <div class="name-container">
+                    <label for="name-input">Product Name</label><br>
+                    <input type="text" name="name-input" id="update-product-name-value">
+                </div>
+
+                <div class="category-container">
+                    <label for="category-input">Category</label><br>
+                    <input type="text" name="category-input" id="update-product-category-value">
+                </div>
+
+                <div class="price-container">
+                    <label for="price-input">Product Price</label><br>
+                    <input type="text" name="price-input" id="update-product-price-value">
+                </div>
+
+                <div class="description-container">
+                    <label for="description-input">Product Description</label><br>
+                    <textarea name="description-input" id="update-product-description-value"></textarea>
+                </div>
+
+                <div class="benefit-container">
+                    <label for="benefit-input">Product Benefit</label><br>
+                    <textarea name="benefit-input" id="update-product-benefit-value"></textarea>
+                </div>
+
+                <div class="prescription-container">
+                    <label for="prescription-input">Product Prescription</label><br>
+                    <textarea name="prescription-input" id="update-product-prescription-value"></textarea>
+                </div>
+
+                <div class="disclaimer-container">
+                    <label for="disclaimer-input">Product Disclaimer</label><br>
+                    <textarea name="disclaimer-input" id="update-product-disclaimer-value"></textarea>
+                </div>
+            </div>
+
+            <button id="js-update-product-screen-btn">Update</button>
+        </div>
+    </div>
+
+    <div class="confirm-delete-popup-container" id="js-confirm-delete-popup-container"></div>
+
+
+    <div class="toasttips">
+        <div class="fail-toast toasttip" id="js-fail-toast">
+            <p>Unsuccessful <span>Try Again</span></p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3"><path d="M440-400v-360h80v360h-80Zm0 200v-80h80v80h-80Z"/></svg>
+        </div>
+
+        <div class="empty-field-toast toasttip" id="js-empty-field-toast">
+            <p>Please Fill Out All fields</p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3"><path d="M440-400v-360h80v360h-80Zm0 200v-80h80v80h-80Z"/></svg>
+        </div>
+
+        <div class="copied-toast toasttip" id="js-copied-toast">
+            <p>Copied</p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3">
+                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+            </svg>
+        </div>
+    </div>
+    <div class="loading-screen" id="js-loading-screen"></div>
+    <div class="loader" id="js-loader"></div>
+    <div class="black-screen" id="js-black-screen"></div>
+
+    <script type="module" src="./managecontent-admin.js"></script>
+</body>
+</html>

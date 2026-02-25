@@ -204,73 +204,51 @@ document.addEventListener('click', element => {
 
 //////////////////////////////////////////////PRODUCT GRIDS////////////////////////////////////////////////////
 
-async function FetchAndDisplayGridItems(productSection, grid){
+const productsPage = document.getElementById('js-all-products');
+async function FetchAndDisplayGridItems(){
     try{
-        const snap = await getDocs(collection(db, 'products', productSection, 'items'));
-        snap.forEach(doc=>{
-            const product = doc.data();
+        const snap = await getDocs(collection(db, 'products'));
+        
+        productsPage.innerHTML='';
+        snap.forEach(async doc=>{
+            const productSec = doc.data().title;
+            const productSecId = doc.id;
+            productsPage.innerHTML+=
+            `
+                <section class="product-section">
+                    <div class="title">${productSec}</div>
+                    <div class="grid-container" id="${productSecId}-grid-container"></div>
+                </section>
 
-            if(grid){
-                grid.innerHTML+=`
-                    <div class="product-card">
-                        <img src="${product.image}" alt="image of ${product.name}">
-                        <p class="name">${product.name}</p>
-                        <div class="wishlist-container">
-                            <button data-id="${product.id}" class="add-to-wishlist js-add-to-wishlist">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
-                            </svg>
-                            </button>
-                            <p class="wishlist-tooltip">add to wishlist</p>
+            `
+
+            try{
+                const snap = await getDocs(collection(db, 'products', productSecId, 'items'));
+                snap.forEach(doc=>{
+                    const product = doc.data();
+
+                    document.getElementById(`${productSecId}-grid-container`).innerHTML+=`
+                        <div class="product-card">
+                            <img src="${product.image}" alt="image of ${product.name}">
+                            <p class="name">${product.name}</p>
+                            <div class="wishlist-container">
+                                <button data-id="${product.id}" class="add-to-wishlist js-add-to-wishlist">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"       fill="#e3e3e3"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/>
+                                </svg>
+                                </button>
+                                <p class="wishlist-tooltip">add to wishlist</p>
+                            </div>
+                            <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
                         </div>
-                        <button class="open-popup js-open-popup" data-id="${product.id}">more info</button>
-                    </div>
-                `;
+                    `;
+                })
+
+            }catch(err){
+                console.error(err);
             }
         })
-
     }catch(err){
         console.error(err);
     }
 }
-
-const serumGrid = document.querySelector(".serum-grid-container");
-FetchAndDisplayGridItems('serumsSection', serumGrid);
-
-const facecreamGrid = document.querySelector(".facecream-grid-container");
-FetchAndDisplayGridItems('facecreamSection', facecreamGrid);
-
-const bodyoilGrid = document.querySelector(".bodyoil-grid-container");
-FetchAndDisplayGridItems('bodyoilSection', bodyoilGrid)
-
-const sunscreenGrid = document.querySelector(".sunscreen-grid-container");
-FetchAndDisplayGridItems('sunscreenSection', sunscreenGrid);
-
-const facewashGrid = document.querySelector(".facewash-grid-container");
-FetchAndDisplayGridItems('facewashSection', facewashGrid);
-
-const tonerGrid = document.querySelector(".toner-grid-container");
-FetchAndDisplayGridItems('tonerSection', tonerGrid)
-
-const bodylotionGrid = document.querySelector(".bodylotion-grid-container");
-FetchAndDisplayGridItems('bodylotionSection', bodylotionGrid)
-
-const facemoisturiserGrid = document.querySelector(".facemoisturiser-grid-container");
-FetchAndDisplayGridItems('facemoisturiserSection', facemoisturiserGrid);
-
-const cleanserGrid = document.querySelector(".cleanser-grid-container");
-FetchAndDisplayGridItems('cleanserSection', cleanserGrid);
-
-const facemaskGrid = document.querySelector(".facemask-grid-container");
-FetchAndDisplayGridItems('facemaskSection', facemaskGrid)
-
-const bodywashGrid = document.querySelector(".bodywash-grid-container");
-FetchAndDisplayGridItems('bodywashSection', bodywashGrid);
-
-const essenceGrid = document.querySelector(".essence-grid-container");
-FetchAndDisplayGridItems('essenceSection', essenceGrid);
-
-const treatmentcreamGrid = document.querySelector(".treatmentcream-grid-container");
-FetchAndDisplayGridItems('treatmentcreamSection', treatmentcreamGrid)
-
-const bodyscrubGrid = document.querySelector(".bodyscrub-grid-container");
-FetchAndDisplayGridItems('bodyscrubSection', bodyscrubGrid);
+FetchAndDisplayGridItems()

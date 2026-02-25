@@ -6,7 +6,7 @@ import { fetchReviewData } from "../Javascript/reviews.js";
 const productPopupContainer = document.querySelector(".popup-padding");
 export default function displayProductInfoWindow(productId){
     //PRODUCTS FETCH
-    const sections = ['serumsSection', 'facecreamSection', 'bodyoilSection', 'sunscreenSection', 'facewashSection', 'tonerSection', 'bodylotionSection', 'facemoisturiserSection', 'cleanserSection', 'facemaskSection', 'bodywashSection', 'essenceSection', 'treatmentcreamSection', 'bodyscrubSection'];
+    const sections = ['serumsSection', 'facecreamSection', 'bodyoilSection', 'sunscreenSection', 'facewashSection', 'tonerSection', 'bodylotionSection', 'facemoisturiserSection', 'cleanserSection', 'facemaskSection', 'bodywashSection', 'essenceSection', 'treatmentcreamSection', 'bodyscrubSection', 'testSection'];
     let matchingProduct;
     sections.forEach(async section=>{
         const snap = await getDocs(collection(db, 'products', section, 'items'));
