@@ -43,8 +43,12 @@ async function fetchAndDisplayProductSections(){
                         </div>
                     </div>
 
-                    <button class="js-confirmdelete-btn" data-section-id="${productSecId}" data-delete-item-name="${productSec}">
-                        <svg class="js-confirmdelete-btn" data-section-id="${productSecId}" data-delete-item-name="${productSec}" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <button class="js-confirmdelete-btn" data-section-id="${productSecId}" data-delete-item-name="${productSec}"
+                    ${doc.data().imagePublicId? `data-image-public-id="${doc.data().imagePublicId}"`: ``}
+                    >
+                        <svg class="js-confirmdelete-btn" data-section-id="${productSecId}" data-delete-item-name="${productSec}" 
+                        ${doc.data().imagePublicId? `data-image-public-id="${doc.data().imagePublicId}"`: ``}
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                         </svg>
                     </button>
@@ -96,8 +100,12 @@ document.getElementById("js-search-sections-input").addEventListener('input', as
                         </div>
                     </div>
 
-                    <button class="js-confirmdelete-section-btn" data-section-id="${sectionId}">
-                        <svg class="js-confirmdelete-section-btn" data-section-id="${sectionId}" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <button class="js-confirmdelete-section-btn" data-section-id="${sectionId}" data-delete-item-name="${productSection.title}"
+                    ${doc.data().imagePublicId? `data-image-public-id="${doc.data().imagePublicId}"`: ``}
+                    >
+                        <svg class="js-confirmdelete-section-btn" data-section-id="${sectionId}" data-delete-item-name="${productSection.title}"
+                        ${doc.data().imagePublicId? `data-image-public-id="${doc.data().imagePublicId}"`: ``}
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                         </svg>
                     </button>
@@ -260,9 +268,7 @@ async function createSectionAndAddDocToFirestore(Id, title, image, imagePublicId
     }
 }
 async function addProductToCreatedSection(sectionId, image, imagePublicId, name, category, price, description, benefit, prescription, disclaimer){
-
     const keywords = generateKeyWords(name, category, benefit, prescription, description);
-    console.log(keywords);
 
     try{
         const productRef = doc(collection(db, "products", sectionId, "items"));
@@ -376,8 +382,12 @@ async function fetchAndDisplayProducts(sectionId){
                         </div>
                     </div>
 
-                    <button class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}">
-                        <svg class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <button class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}"
+                    ${doc.data().imagePublicId? `data-image-public-id="${doc.data().imagePublicId}"`: ``}
+                    >
+                        <svg class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}" 
+                        ${doc.data().imagePublicId? `data-image-public-id="${doc.data().imagePublicId}"`: ``}
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                         </svg>
                     </button>
@@ -433,8 +443,12 @@ document.getElementById("js-search-products-input").addEventListener('input', as
                         </div>
                     </div>
 
-                    <button class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}">
-                        <svg class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <button class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}"
+                    ${product.imagePublicId? `data-image-public-id="${product.imagePublicId}"`: ``}
+                    >
+                        <svg class="js-confirmdelete-btn" data-section-id="${sectionId}" data-product-id="${productId}" data-delete-item-name="${product.name}" 
+                        ${product.imagePublicId? `data-image-public-id="${product.imagePublicId}"`: ``}
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                         </svg>
                     </button>
@@ -652,7 +666,6 @@ async function updateProduct(sectionId, productId){
     }
 
     const keywords = generateKeyWords(productName, productCategory, productBenefit, productPrescription, productDescription);
-    console.log(keywords);
 
     try{
         if(!productImage){
@@ -723,6 +736,7 @@ document.addEventListener('click', element => {
     if (element.target.classList.contains('js-confirmdelete-btn')) {
         const sectionId = element.target.dataset.sectionId;
         const productId = element.target.dataset.productId;
+        const imagePublicId = element.target.dataset.imagePublicId;
         const deleteItemName = element.target.dataset.deleteItemName;
 
         popupScreen.classList.add('show-loader');
@@ -736,9 +750,15 @@ document.addEventListener('click', element => {
                     <button class="js-close-confirmdelete-popup-btn">
                         No, Exit
                     </button>
-                    <button class="js-delete-btn" data-section-id="${sectionId}" ${productId? `data-product-id="${productId}"`: ''}>
+                    <button class="js-delete-btn" data-section-id="${sectionId}" 
+                    ${productId? `data-product-id="${productId}"`: ''}
+                    ${imagePublicId? `data-image-public-id="${imagePublicId}"`: ''}
+                    >
                         Continue
-                        <svg class="js-delete-btn" data-section-id="${sectionId} ${productId? `data-product-id="${productId}"`: ''} xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <svg class="js-delete-btn" data-section-id="${sectionId} 
+                        ${productId? `data-product-id="${productId}"`: ''} 
+                        ${imagePublicId? `data-image-public-id="${imagePublicId}"`: ''}
+                        xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                             <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/>
                         </svg>
                     </button>
@@ -761,23 +781,24 @@ document.addEventListener('click', async element => {
 
         const sectionId = element.target.dataset.sectionId;
         const productId = element.target.dataset.productId;
+        const imagePublicId = element.target.dataset.imagePublicId;
 
         try{
             if(!sectionId) return;
 
             if(sectionId && productId){
+                if(imagePublicId) deleteImageFromCloudinary(imagePublicId);
                 await deleteDoc(doc(db, 'products', sectionId, 'items', productId));
                 await fetchAndDisplayProducts();
             }
             else if(sectionId){
+                if(imagePublicId) deleteImageFromCloudinary(imagePublicId);
                 await deleteDoc(doc(db, 'products', sectionId));
                 await fetchAndDisplayProductSections();
             }
 
             popupScreen.classList.remove('show-loader');
             confirmDeletePopup.classList.remove('screen-show');
-
-            await fetchAndDisplayProductSections();
 
             loader.classList.remove('show-loader');
             loadingScreen.classList.remove('show-loader');
@@ -795,6 +816,15 @@ document.addEventListener('click', async element => {
         }
     }
 });
+async function deleteImageFromCloudinary(publicId) {
+    const response = await fetch('https://us-central1-scincare-plugg.cloudfunctions.net/deleteImage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ publicId })
+    });
+    
+    return await response.json();
+}
 
 
 
