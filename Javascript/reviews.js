@@ -1,10 +1,10 @@
-import {collection, addDoc, deleteDoc, runTransaction, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import {collection, setDoc, addDoc, deleteDoc, runTransaction, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../Javascript/Forms.js";
 import { signUpSection, contactUsSection, imageSection } from "../Javascript/Home.js";
 import { reviewFailureResponse, reviewSuccessResponse } from "../Javascript/Products.js";
 
 /////////////////////////REVIEW PUBLISH FUNCTION/////////////////////////
-export async function publishReview(productId, message){
+export async function publishReview(sectionId, productId, message){
     const popupReviewscontainer = document.querySelector(".Popup-review-cards-container");
     const user = auth.currentUser;
     if (!user) {
@@ -25,18 +25,35 @@ export async function publishReview(productId, message){
         return;
     }
 
-    const reviewData = {
-        userId: user.uid,
-        username: user.displayName || user.email,
-        userImage: user.photoURL,
-        message,
-        likesCount: 0,
-        productId,
-        timestamp: Date.now()
-    };
-    const reviewRef = collection(db, 'reviews', productId, 'reviews');
+
+    try{
+        const reviewDocData = {
+            sectionId
+        };
+        await setDoc(doc(db, "reviews", productId), reviewDocData);
+    }
+    catch(err){
+        console.error(err);
+        // failToast.classList.add('show-toast');
+        // setTimeout(()=>{
+        //     failToast.classList.remove('show-toast')
+        // }, 5000);
+    }
+
 
     try {
+        const reviewData = {
+            userId: user.uid,
+            userEmail: user.email, 
+            userName: user.displayName || user.email,
+            userImage: user.photoURL,
+            // userContact, pass this after sign in logic is remodeled
+            message,
+            likesCount: 0,
+            productId,
+            timestamp: Date.now()
+        };
+        const reviewRef = collection(db, 'reviews', productId, 'reviews');
         ////REVIEW DATA WRITE
         const docRef = await addDoc(reviewRef, reviewData);
         const reviewId = docRef.id;

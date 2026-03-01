@@ -34,13 +34,14 @@ document.addEventListener('click', element => {
     if (element.target.classList.contains('js-submit-review')) {
         let reviewMessageContent = document.getElementById('user-review-message').value;
         if(reviewMessageContent==='') return;
-        const productId = element.target.dataset.id;
-        passReview(reviewMessageContent, productId)
+        const productId = element.target.dataset.productId;
+        const sectionId = element.target.dataset.sectionId;
+        passReview(reviewMessageContent, sectionId, productId)
         reviewMessageContent='';
     }
 });
 
-function passReview(reviewMessageContent, productId){
+function passReview(reviewMessageContent, sectionId, productId){
     const submitBtnText = document.querySelector('.submit-btn-text');
     const reviewBtnLoader = document.getElementById('js-review-loader');
 
@@ -52,7 +53,7 @@ function passReview(reviewMessageContent, productId){
         reviewBtnLoader.style.display = "none";
     }, 2000)
 
-    publishReview(productId, reviewMessageContent);
+    publishReview(sectionId, productId, reviewMessageContent);
 }
 export function reviewSuccessResponse(){
     const submitBtnText = document.querySelector('.submit-btn-text');

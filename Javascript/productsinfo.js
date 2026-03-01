@@ -7,11 +7,14 @@ const productPopupContainer = document.querySelector(".popup-padding");
 export default function displayProductInfoWindow(productId){
     //PRODUCTS FETCH
     const sections = ['serumsSection', 'facecreamSection', 'bodyoilSection', 'sunscreenSection', 'facewashSection', 'tonerSection', 'bodylotionSection', 'facemoisturiserSection', 'cleanserSection', 'facemaskSection', 'bodywashSection', 'essenceSection', 'treatmentcreamSection', 'bodyscrubSection', 'testSection'];
-    let matchingProduct;
+    let matchingProduct, matchingSection;
     sections.forEach(async section=>{
         const snap = await getDocs(collection(db, 'products', section, 'items'));
         snap.forEach(product=>{
-            if(product.data().id === productId) matchingProduct = product.data();
+            if(product.data().id === productId) {
+                matchingSection = section
+                matchingProduct = product.data();
+            };
             if(matchingProduct){
                 productPopupContainer.innerHTML=
                 `
@@ -61,8 +64,8 @@ export default function displayProductInfoWindow(productId){
                     <div class="review-actions">
                         <div class="input">
                             <input type="text" id="user-review-message" required>
-                            <button class="submit-review js-submit-review" data-id="${matchingProduct.id}">
-                                <p class="submit-btn-text js-submit-review" data-id="${matchingProduct.id}">Post</p>
+                            <button class="submit-review js-submit-review" data-section-id="${matchingSection}" data-product-id="${matchingProduct.id}">
+                                <p class="submit-btn-text js-submit-review" data-section-id="${matchingSection}" data-product-id="${matchingProduct.id}">Post</p>
                                 <p class="success-text">Success!</p>
                                 <p class="failed-text">try again!</p>
                                 <div id="js-review-loader" class="review-loader"></div>
