@@ -1,6 +1,6 @@
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import { getDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { auth, db } from "../Javascript/Forms.js";
+import { auth, db } from "../Javascript/auth.js";
 
 ////INTERFACES
 const adminSigninInterface = document.getElementById("js-admin-signin-interface");

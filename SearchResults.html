@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="./CSS/Navbar/Navbar.css">
     <link rel="stylesheet" href="./CSS/Navbar/Navdock.css">
 
-    <link rel="stylesheet" href="./CSS/Products/ProductsPage.css">
     <link rel="stylesheet" href="./CSS/Products/SearchPage.css">
     <link rel="stylesheet" href="./CSS/Products/Popup.css">
     <link rel="stylesheet" href="./CSS/Products/wishlist.css">
@@ -318,9 +317,9 @@
 
     <main>
         <div class="product-section">
-            <p class="title" id="top"></p>
-            <div class="grid-container"></div>
-            <div class="no-results-screen">Sorry Couldn't find That Item</div>
+            <!-- <p class="results screen" id="top">Showing results for</p> -->
+            <div class="grid-container" id="grid-container"></div>
+            <div class="no-results-screen" id="no-results-screen">Sorry Couldn't find That Item</div>
         </div>
 
         <a href="#top" class="back-to-top js-back-to-top-btn">
@@ -435,8 +434,10 @@
     </main>
     
     <script src="./Javascript/Home.js" type="module" defer></script>
-    <script src="./Javascript/Forms.js" type="module" defer></script>
-    <script src="./Javascript/Products.js" type="module" defer></script>
-    <script src="./Javascript/search.js" type="module"></script>
+    <script src="./Javascript/auth.js" type="module" defer></script>
+    <script src="./Javascript/products/Products.js" type="module" defer></script>
+    <script src="./Javascript/wishlist/wishlistUI.js" type="module" defer></script>
+    <script src="./Javascript/reviews/reviewUI.js" type="module" defer></script>
+    <script src="./Javascript/search/search.js" type="module"></script>
 </body>
 </html>

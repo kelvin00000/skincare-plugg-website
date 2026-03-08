@@ -1,6 +1,6 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import { collection, addDoc, setDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { auth, db } from "../../Javascript/Forms.js";
+import { auth, db } from "../../Javascript/auth.js";
 
 
 //// INTERFACES
