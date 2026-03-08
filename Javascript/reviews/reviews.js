@@ -5,7 +5,6 @@ import { signUpSection, contactUsSection, imageSection } from "../Home.js";
 
 /////////////////////////REVIEW PUBLISH FUNCTION/////////////////////////
 export async function publishReview(sectionId, productId, message){
-    const popupReviewscontainer = document.querySelector(".Popup-review-cards-container");
     const user = auth.currentUser;
 
     if (!user) {
@@ -49,6 +48,10 @@ export async function publishReview(sectionId, productId, message){
         const reviewRef = collection(db, 'reviews', productId, 'reviews');
         await addDoc(reviewRef, reviewData);
 
+        //TODO
+        // REPLACE THIS BELOW WITH LOADING SCREEN WHEN REDESIGNING UI
+        document.querySelector(".Popup-review-cards-container").innerHTML='';
+        
         await fetchReviewData(productId);
     } 
     catch (err) {

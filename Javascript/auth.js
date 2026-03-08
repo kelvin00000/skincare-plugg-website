@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { getFirestore, setDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { getFirestore, setDoc, doc, updateDoc, enableIndexedDbPersistence } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { sendConfirmationEmail } from "./email.js";
 
 
@@ -17,6 +17,14 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
+//FIFREBASE FIRESTORE DATATBASE
+const db = getFirestore(app);
+
+enableIndexedDbPersistence(db).catch((err) => {
+    console.warn('Persistence error:', err.code);
+});
+export { db };
+
 export const auth = getAuth(app);
 export const user = auth.currentUser;
 auth.languageCode = 'en';
@@ -40,8 +48,6 @@ const pageSignupBtn = document.querySelectorAll('.page-signup-btn');
 const postSignupMessage = document.querySelector('.post-signup');
 
 
-//FIFREBASE FIRESTORE DATATBASE
-export const db = getFirestore(app);
 
 
 /////////////GOOGLE SIGN FUNCTION

@@ -3,7 +3,7 @@ import { db } from "../auth.js";
 import  displayProductInfoWindow  from "./productsinfo.js";
 
 
-///////////////////////////POPUP TOGGLE//////////////////////////////
+////POPUP TOGGLE
 export const popup = document.querySelector
 (".popup");
 
@@ -29,9 +29,7 @@ document.addEventListener('click', element => {
 
 
 
-
-//////////////////////////////////////////////PRODUCT GRIDS////////////////////////////////////////////////////
-
+////PRODUCT GRID
 const productsPage = document.getElementById('js-all-products');
 async function FetchAndDisplayGridItems(){
     try{
