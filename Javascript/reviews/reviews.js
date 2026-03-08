@@ -47,8 +47,7 @@ export async function publishReview(sectionId, productId, message){
         };
 
         const reviewRef = collection(db, 'reviews', productId, 'reviews');
-        const docRef = await addDoc(reviewRef, reviewData);
-        const reviewId = docRef.id;
+        await addDoc(reviewRef, reviewData);
 
         await fetchReviewData(productId);
     } 

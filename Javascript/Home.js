@@ -1,3 +1,7 @@
+import { collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { auth, db } from "../../Javascript/auth.js";
+
+
 ////////////////////////////////NAVDOCK TOGGLE FUNCTIONS/////////////////////////
 const navDockOpenBtn = document.querySelector(".open-navdock");
 const navDockCloseBtn = document.querySelector(".close-navdock");
@@ -175,26 +179,34 @@ Eprofile.addEventListener('click', ()=>{
 
 
 
+////FAQS ACCORDIAN
+async function fetchAndDisplayFaqs(){
+    let allFaqs = [];
+    try{
+        const snap = await getDocs(collection(db, 'faqs'));
+        snap.forEach(doc=>{
+            const faq = doc.data();
+            allFaqs.push(faq)
+        });
 
+        const shuffledFaqs = shuffleArray(allFaqs);
+        const selectedFaqs = shuffledFaqs.slice(0, 5);
 
-//////////////////////////////FAQS FUNCTIONS/////////////////////////////////////
+        selectedFaqs.forEach((faq, index) => {
+            const q = document.getElementById(`q${index + 1}`);
+            const a = document.getElementById(`a${index + 1}`);
 
-fetch("/Javascript/FAQs.json")
-.then(response => response.json())
-.then(faqs => {
-    const shuffledFaqs = shuffleArray(faqs);
-    const selectedFaqs = shuffledFaqs.slice(0, 5);
-
-    selectedFaqs.forEach((faq, index) => {
-        const q = document.getElementById(`q${index + 1}`);
-        const a = document.getElementById(`a${index + 1}`);
-
-        if (q && a) {
-            q.innerHTML = `${faq.question} <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>` ;
-            a.textContent = faq.answer;
-        }
-    });
-})
+            if (q && a) {
+                q.innerHTML = `${faq.question} <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>` ;
+                a.textContent = faq.answer;
+            }
+        });
+    }
+    catch(err){
+        console.error(err);
+    }
+}
+await fetchAndDisplayFaqs();
 
 function shuffleArray(array){
     return array
