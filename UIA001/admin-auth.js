@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
-import { getDoc, doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { getDoc, doc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { auth, db } from "../Javascript/auth.js";
 
 ////INTERFACES
@@ -29,12 +29,6 @@ if (docSnap.exists()) {
 
 
 //// ADMIN AUTH
-document.getElementById("js-admin-signin-btn").addEventListener("click",async () => {
-    loader.classList.add('show-loader');
-    loadingScreen.classList.add('show-loader');
-    await adminSignIn();
-});
-
 async function adminSignIn(){
     const username = document.getElementById("js-admin-username-input").value.trim();
     const password = document.getElementById("js-admin-password-input").value.trim();
@@ -65,9 +59,16 @@ async function adminSignIn(){
         loadingScreen.classList.remove('show-loader');
     }
 }
+document.getElementById("js-admin-signin-btn").addEventListener("click",async () => {
+    loader.classList.add('show-loader');
+    loadingScreen.classList.add('show-loader');
+    await adminSignIn();
+});
+
+
 
 ////SIGN OUT
-//signOut(auth);
+signOut(auth);
 
 onAuthStateChanged(auth, (user) => {
     if (user && user.email === 'ua-xys-admin-001@gmail.com')  {
