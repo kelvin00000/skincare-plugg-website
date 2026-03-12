@@ -160,7 +160,7 @@ async function loadMostViewedProducts(){
 
             const count = productStats.viewCount || 0;
             if (count > maxCount) maxCount = count;
-            const percentage = Math.min((productStats.viewCount / maxCount) * 100, 100);
+            const percentage = Math.min((productStats.viewCount / maxCount) * 10, 100);
 
             try{
                 const productData = await getDoc(doc(db, 'products', productStats.sectionId, 'items', productId));
@@ -184,7 +184,7 @@ async function loadMostViewedProducts(){
 
             const count = product.viewCount || 0;
             if (count > maxCount) maxCount = count;
-            const percentage = Math.min((product.viewCount / maxCount) * 100, 100);
+            const percentage = Math.min((product.viewCount / maxCount) * 10, 100);
 
             try{
                 const productData = await getDoc(doc(db, 'products', product.sectionId, 'items', product.Id));

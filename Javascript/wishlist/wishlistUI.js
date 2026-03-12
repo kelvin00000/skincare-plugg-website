@@ -87,8 +87,9 @@ const savedPopup = document.querySelector(".js-saved-popup");
 document.addEventListener('click', element => {
     if (element.target.classList.contains('js-add-to-wishlist')) {
         const productId = element.target.dataset.productId;
+        const sectionId = element.target.dataset.sectionId;
 
-        postWishlistItemID(productId);
+        postWishlistItemID(productId, sectionId);
     }
 });
 export function showSavedToWishlistPopup(){

@@ -8,7 +8,7 @@ import { trackWishlistAction } from "./trackWishlist.js";
 
 const wishlistCounter = document.querySelectorAll(".js-wishlist-counter");
 
-export async function postWishlistItemID(productId){
+export async function postWishlistItemID(productId, sectionId){
     const user = auth.currentUser;
     const uid = user.uid;
 
@@ -30,7 +30,7 @@ export async function postWishlistItemID(productId){
         await setDoc(wishlistRef, {added: true});
 
         showSavedToWishlistPopup();
-        await trackWishlistAction(uid, productId, 'added');
+        await trackWishlistAction(uid, productId, sectionId, 'added');
 
         const wishlistSnap = await getDocs(collection(db, 'wishlist', uid, 'products'));
         wishlistCounter.forEach(counter=>{
