@@ -18,10 +18,17 @@ loadingScreen.classList.add('show-loader');
 
 
 //// NEW USER CHECK
-const docSnap = await getDoc(doc(db, 'users', 'newUserCheck'));
-if (docSnap.exists()) {
-    if(docSnap.data().newUser){
-        document.getElementById("js-new-user-notification").style.display = "block"
+async function newUserCheck(){
+    try{
+        const docSnap = await getDoc(doc(db, 'users', 'newUserCheck'));
+        if (docSnap.exists()) {
+            if(docSnap.data().newUser){
+                document.getElementById("js-new-user-notification").style.display = "block"
+            }
+        }
+    }
+    catch(err){
+        console.error(err);
     }
 }
 
@@ -68,13 +75,14 @@ document.getElementById("js-admin-signin-btn").addEventListener("click",async ()
 
 
 ////SIGN OUT
-signOut(auth);
+//signOut(auth);
 
-onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, async (user) => {
     if (user && user.email === 'ua-xys-admin-001@gmail.com')  {
         adminSigninInterface.style.display = "none";
         adminMainInterface.style.display = "flex";
         adminHeader.style.display = "flex";
+        await newUserCheck();
         loader.classList.remove('show-loader');
         loadingScreen.classList.remove('show-loader');
     } 
