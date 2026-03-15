@@ -11,7 +11,7 @@
 
     <!--NAVBAR-->
     <link rel="stylesheet" href="./CSS/Navbar/Navbar.css">
-    <link rel="stylesheet" href="./CSS/Navbar/Navdock.css">
+    <link rel="stylesheet" href="./CSS/Navbar/Navbar-mobile.css">
 
     <link rel="stylesheet" href="./CSS/Products/SearchPage.css">
     <link rel="stylesheet" href="./CSS/Products/Popup.css">
@@ -41,164 +41,98 @@
 </script>
 
 <body>
-
     <nav class="desktop">
-        <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo"><img src="./Images/logo.png" width="60px"></div>
-                <div class="home-link"><a href="index.html">Home</a></div>
-                <div class="productsPge-link"><a href="Products.html">Products</a></div>
-            </div>
-            <div class="nav-middle">
-                <div class="search-bar">
-                    <input type="text" class="search" placeholder="find something...">
-                    <button class="search-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-                    </button>
-                </div>
-            </div>
-            <div class="nav-right">
-                <button class="g-profile GnavbarProfileBtn">
-                    <img src="" alt="profile-photo" class="g-profile-photo">
+        <div class="nav-left nav-divisions">
+            <div class="logo-container"><img src="./Images/logo.webp"></div>
+            <div class="page-link"><a href="./index.html">Home</a></div>
+            <div class="page-link"><a href="./Products.html">Products</a></div>
+            <div class="search-container">
+                <input type="text" class="search" placeholder="Shop Now...">
+                <button class="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
                 </button>
-                <button class="e-profile EnavbarProfileBtn">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="none">
-                        <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="10%" stop-color="#4f5bd5" />
-                            <stop offset="20%" stop-color="#962fbf" />
-                            <stop offset="70%" stop-color="#d055e7" />
-                            </linearGradient>
-                        </defs>
-                        <path fill="url(#gradient)" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
+            </div>
+        </div>
+
+        <div class="nav-right nav-divisions">
+            <button class="open-cart-btn" id="js-open-cart-btn">
+                <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g id="SVGRepo_iconCarrier"> 
+                        <g clip-path="url(#clip0_15_35)"> 
+                            <rect width="24" height="24" fill="none"/> 
+                            <path d="M5.33331 6H19.8672C20.4687 6 20.9341 6.52718 20.8595 7.12403L20.1095 13.124C20.0469 13.6245 19.6215 14 19.1172 14H16.5555H9.44442H7.99998" stroke="#F7F6F3" stroke-linejoin="round"/> 
+                            <path d="M2 4H4.23362C4.68578 4 5.08169 4.30341 5.19924 4.74003L8.30076 16.26C8.41831 16.6966 8.81422 17 9.26638 17H19" stroke="#F7F6F3" stroke-linecap="round" stroke-linejoin="round"/> 
+                            <circle cx="10" cy="20" r="1" stroke="#F7F6F3" stroke-linejoin="round"/> 
+                            <circle cx="17.5" cy="20" r="1" stroke="#F7F6F3" stroke-linejoin="round"/> 
+                        </g> 
+                        <defs> 
+                            <clipPath id="clip0_15_35"> 
+                                <rect width="24" height="24" fill="white"/> 
+                            </clipPath> 
+                        </defs> 
+                    </g>
+                </svg>
+            </button>
+            <div class="wishlist-container">
+                <button class="js-open-wishlist">
+                    Wishlist
+                    <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="#121212" stroke="#000000" stroke-width="0">
+                        <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"/>
                     </svg>
                 </button>
-                <button class="Sign-in signup-toggle navbar-signinBtn">Sign up</button>
-                <button class="contact-us signup-toggle">Contact Us</button>
-                <div class="wishlist-section">
-                    <button class="js-open-wishlist">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-                        <defs>
-                            <linearGradient id="instaGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#d055e7" />
-                            <stop offset="25%" stop-color="#d055e7" />
-                            <stop offset="50%" stop-color="#d055e7" />
-                            <stop offset="75%" stop-color="#962fbf" />
-                            <stop offset="100%" stop-color="#4f5bd5" />
-                            </linearGradient>
-                        </defs>
-                        <path fill="url(#instaGradient)" d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"/>
-                        </svg>
-                    </button>
-                    <div class="wishlist-counter-container">
-                        <p class="wishlist-counter js-wishlist-counter"></p>
-                    </div>
-                    <p class="wishlist-tooltip">Open Wishlist</p>
-                </div>
-
-                <div class="g-profile-popup">
-                    <div class="info">
-                        <div class="left"><img src="" alt="profile-photo" class="g-profile-photo"></div>
-                        <p class="g-profile-name"></p>
-                        <p class="g-profile-email"></p>
-                    </div>
-                    <div class="CTAs">
-                        <button class="logout-btn">
-                            <p class="logOutBtnText">Remove Account</p>
-                            <div class="loader loader-3"></div>
-                        </button>
-                    </div>
-                </div>
-                <div class="e-profile-popup">
-                    <div class="info">
-                        <div class="profile-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="none">
-                                <defs>
-                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="10%" stop-color="#4f5bd5" />
-                                    <stop offset="20%" stop-color="#962fbf" />
-                                    <stop offset="70%" stop-color="#d055e7" />
-                                    </linearGradient>
-                                </defs>
-                                <path fill="url(#gradient)" d="M480-480q-66 0-113-47t-47-113q0-66 47-113t113-47q66 0 113 47t47 113q0 66-47 113t-113 47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm240-320q33 0 56.5-23.5T560-640q0-33-23.5-56.5T480-720q-33 0-56.5 23.5T400-640q0 33 23.5 56.5T480-560Zm0-80Zm0 400Z"/>
-                            </svg>
-                        </div>
-                        <p class="e-profile-email"></p>
-                    </div>
-                    <div class="CTAs">
-                        <button class="logout-btn">
-                            <p class="logOutBtnText">Remove Account</p>
-                            <div class="loader loader-3"></div>
-                        </button>
-                    </div>
-                </div>
+                <div class="wishlist-counter"></div>
             </div>
+            <button class="sign-up-btn">Sign up</button>
+            <button class="account-management-btn">
+                Account 
+                <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#F7F6F3">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g id="SVGRepo_iconCarrier"> <circle cx="12" cy="12" r="3" stroke="#F7F6F3" stroke-width="1.5"/> <path d="M13.7654 2.15224C13.3978 2 12.9319 2 12 2C11.0681 2 10.6022 2 10.2346 2.15224C9.74457 2.35523 9.35522 2.74458 9.15223 3.23463C9.05957 3.45834 9.0233 3.7185 9.00911 4.09799C8.98826 4.65568 8.70226 5.17189 8.21894 5.45093C7.73564 5.72996 7.14559 5.71954 6.65219 5.45876C6.31645 5.2813 6.07301 5.18262 5.83294 5.15102C5.30704 5.08178 4.77518 5.22429 4.35436 5.5472C4.03874 5.78938 3.80577 6.1929 3.33983 6.99993C2.87389 7.80697 2.64092 8.21048 2.58899 8.60491C2.51976 9.1308 2.66227 9.66266 2.98518 10.0835C3.13256 10.2756 3.3397 10.437 3.66119 10.639C4.1338 10.936 4.43789 11.4419 4.43786 12C4.43783 12.5581 4.13375 13.0639 3.66118 13.3608C3.33965 13.5629 3.13248 13.7244 2.98508 13.9165C2.66217 14.3373 2.51966 14.8691 2.5889 15.395C2.64082 15.7894 2.87379 16.193 3.33973 17C3.80568 17.807 4.03865 18.2106 4.35426 18.4527C4.77508 18.7756 5.30694 18.9181 5.83284 18.8489C6.07289 18.8173 6.31632 18.7186 6.65204 18.5412C7.14547 18.2804 7.73556 18.27 8.2189 18.549C8.70224 18.8281 8.98826 19.3443 9.00911 19.9021C9.02331 20.2815 9.05957 20.5417 9.15223 20.7654C9.35522 21.2554 9.74457 21.6448 10.2346 21.8478C10.6022 22 11.0681 22 12 22C12.9319 22 13.3978 22 13.7654 21.8478C14.2554 21.6448 14.6448 21.2554 14.8477 20.7654C14.9404 20.5417 14.9767 20.2815 14.9909 19.902C15.0117 19.3443 15.2977 18.8281 15.781 18.549C16.2643 18.2699 16.8544 18.2804 17.3479 18.5412C17.6836 18.7186 17.927 18.8172 18.167 18.8488C18.6929 18.9181 19.2248 18.7756 19.6456 18.4527C19.9612 18.2105 20.1942 17.807 20.6601 16.9999C21.1261 16.1929 21.3591 15.7894 21.411 15.395C21.4802 14.8691 21.3377 14.3372 21.0148 13.9164C20.8674 13.7243 20.6602 13.5628 20.3387 13.3608C19.8662 13.0639 19.5621 12.558 19.5621 11.9999C19.5621 11.4418 19.8662 10.9361 20.3387 10.6392C20.6603 10.4371 20.8675 10.2757 21.0149 10.0835C21.3378 9.66273 21.4803 9.13087 21.4111 8.60497C21.3592 8.21055 21.1262 7.80703 20.6602 7C20.1943 6.19297 19.9613 5.78945 19.6457 5.54727C19.2249 5.22436 18.693 5.08185 18.1671 5.15109C17.9271 5.18269 17.6837 5.28136 17.3479 5.4588C16.8545 5.71959 16.2644 5.73002 15.7811 5.45096C15.2977 5.17191 15.0117 4.65566 14.9909 4.09794C14.9767 3.71848 14.9404 3.45833 14.8477 3.23463C14.6448 2.74458 14.2554 2.35523 13.7654 2.15224Z" stroke="#F7F6F3" stroke-width="1.5"/> </g>
+                </svg>
+            </button>
         </div>
     </nav>
     
-    <nav class="dock">
-        <div class="nav-dock">
-            <div class="padding">
-                <div class="swipeIndicator"></div>
-                <div class="divider five">
-                    <div class="search-bar">
-                        <input type="text" class="search" placeholder="looking for something?">
-                        <button class="search-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
-                        </button>
-                    </div>
-                </div>
-                <div class="divider one">
-                    <a href="index.html">Home...</a>
-                </div>
-                <div class="divider two">
-                    <a href="Products.html">Products...</a>
-                </div>
-                <div class="divider wishlist-divider">
-                    <button class="js-open-wishlist">
-                    <div class="svg-div">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
-                        <defs>
-                            <linearGradient id="igGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#d055e7" />
-                            <stop offset="25%" stop-color="#d055e7" />
-                            <stop offset="50%" stop-color="#d055e7" />
-                            <stop offset="75%" stop-color="#962fbf" />
-                            <stop offset="100%" stop-color="#4f5bd5" />
-                            </linearGradient>
-                        </defs>
-                        <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z" fill="url(#igGradient)"/>
-                        </svg>
-                    </div>
-                    Open Wishlist
-                    </button>
-                    <div class="wishlist-counter-container">
-                        <p class="wishlist-counter js-wishlist-counter"></p>
-                    </div>
-                </div>
-                <div class="divider">
-                    <div class="buttons">
-                        <button class="Sign-in signup-toggle navdock-signinBtn">Sign up</button>
-                        <button class="contact-us signup-toggle">Contact Us</button>
-                    </div>
-                </div>
+    <nav class="mobile">
+        <div class="nav-left nav-divisions">
+            <div class="logo-container"><img src="./Images/logo.webp"></div>
+            
+            <div class="search-container">
+                <input type="text" class="search" placeholder="Shop Now...">
+                <button class="search-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+                </button>
             </div>
         </div>
-        <div class="dock-overlay"></div>
 
-        <button class="open-navdock">
-            <svg fill="#000000" width="35px" height="35px" viewBox="0 0 24 24" id="menu" xmlns="http://www.w3.org/2000/svg" class="icon multi-color">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-            <g id="SVGRepo_iconCarrier">
-            <line id="primary-stroke" x1="3" y1="12" x2="21" y2="12" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
-            <path id="primary-stroke-2" data-name="primary-stroke" d="M9,18H21M3,6H15" style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"/>
-            </g>
-            </svg>
-        </button>
-        <button class="close-navdock">
-            <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#00000"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-        </button>
+        <div class="nav-right nav-divisions">
+            <button id="navbar-expand-btn">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g id="SVGRepo_iconCarrier"> <g id="Menu / Menu_Duo_LG"> <path id="Vector" d="M3 15H21M3 9H21" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </g> </g>
+                </svg>
+            </button>
+        </div>
+
+        <div class="nav-expansion" id="js-nav-expansion">
+            <div class="dot"></div>
+            <div class="page-link"><a href="./Products.html">Products</a></div>
+            <button class="open-cart-btn">Cart</button>
+            <div class="wishlist-container">
+                <button class="js-open-wishlist">Wishlist</button>
+                <div class="wishlist-counter"></div>
+            </div>
+            <button class="sign-up-btn">Sign up</button>
+            <button class="account-management-btn">Account</button>
+            <button id="navbar-retract-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#F7F6F3">
+                    <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                </svg>
+            </button>
+        </div>
     </nav>
 
     <div class="signin-popup-container">
@@ -330,7 +264,9 @@
         <div class="product-section">
             <!-- <p class="results screen" id="top">Showing results for</p> -->
             <div class="grid-container" id="grid-container"></div>
-            <div class="no-results-screen" id="no-results-screen">Sorry Couldn't find That Item</div>
+            <div class="no-results-screen" id="no-results-screen">
+                Sorry Couldn't find That Item
+            </div>
         </div>
 
         <a href="#top" class="back-to-top js-back-to-top-btn">

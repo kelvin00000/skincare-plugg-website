@@ -6,7 +6,7 @@ import { signUpSection, contactUsSection, imageSection } from "../Home.js";
 import { trackWishlistAction } from "./trackWishlist.js";
 
 
-const wishlistCounter = document.querySelectorAll(".js-wishlist-counter");
+const wishlistCounter = document.querySelectorAll(".wishlist-counter");
 
 export async function postWishlistItemID(productId, sectionId){
     const user = auth.currentUser;

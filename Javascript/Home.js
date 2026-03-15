@@ -2,47 +2,28 @@ import { collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from "
 import { auth, db } from "../../Javascript/auth.js";
 
 
-////////////////////////////////NAVDOCK TOGGLE FUNCTIONS/////////////////////////
-const navDockOpenBtn = document.querySelector(".open-navdock");
-const navDockCloseBtn = document.querySelector(".close-navdock");
-const navDock = document.querySelector(".nav-dock");
-const navDockOverlay = document.querySelector(".dock-overlay");
+////NAVBAR BACKGROUND TOGGLE
+const navdivisions = document.querySelectorAll(".nav-divisions")
 
-let startY = 0;
-let endY = 0;
-
-navDock.addEventListener('touchstart', event=>{
-    startY = event.changedTouches[0].screenY;
-})
-navDock.addEventListener('touchend', event=>{
-    endY = event.changedTouches[0].screenY;
-    swipeDown();
-})
-function swipeDown(){
-    const distance = endY - startY;
-    if(distance>100){
-        navDock.classList.remove('navdock-show');
-        navDock.classList.add('navdock-hide');
-        navDockOverlay.style.visibility = "hidden";
-        navDockCloseBtn.style.visibility = "hidden";
-        navDockOpenBtn.style.visibility = "visible";
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navdivisions.forEach(division=>division.classList.add('navbar-custom-background'));
+    } else {
+        navdivisions.forEach(division=>division.classList.remove('navbar-custom-background'));
     }
-}
-navDockOpenBtn.addEventListener('click', ()=>{
-    navDock.classList.remove('navdock-hide');
-    navDock.classList.add('navdock-show');
-    navDockOverlay.style.visibility = "visible";
-    navDockCloseBtn.style.visibility = "visible";
-    navDockOpenBtn.style.visibility = "hidden";
 });
-navDockCloseBtn.addEventListener('click', ()=>{
-    navDock.classList.remove('navdock-show');
-    navDock.classList.add('navdock-hide');
-    navDockOverlay.style.visibility = "hidden";
-    navDockCloseBtn.style.visibility = "hidden";
-    navDockOpenBtn.style.visibility = "visible";
-})
 
+
+
+////MAVBAR EXPANSION TOGGLE
+document.getElementById("navbar-expand-btn").addEventListener('click', ()=>{
+    document.getElementById("js-nav-expansion").classList.add("show");
+    document.getElementById("js-nav-expansion").classList.add("expand");
+})
+document.getElementById("navbar-retract-btn").addEventListener('click', ()=>{
+    document.getElementById("js-nav-expansion").classList.remove("expand");
+    document.getElementById("js-nav-expansion").classList.remove("show");
+})
 
 
 
@@ -73,7 +54,7 @@ window.addEventListener("scroll", ()=> {
 
 ///////////////////////////SIGNIN POPUP TOGGLE////////////////////////////////////
 const siginPopup = document.querySelector(".signin-popup");
-const signinPopupOpenBtn = document.querySelectorAll(".signup-toggle");
+const signinPopupOpenBtn = document.querySelectorAll(".sign-up-btn");
 const signinPopupcloseBtn = document.querySelector(".close-signin");
 
 signinPopupOpenBtn.forEach(button => {
@@ -84,14 +65,14 @@ signinPopupOpenBtn.forEach(button => {
         }
         siginPopup.classList.remove('signin-hide');
         siginPopup.classList.add('signin-show');
-        navDockOverlay.style.visibility = "visible";
+        // navDockOverlay.style.visibility = "visible";
         document.body.style.overflow = "hidden";
     })
 });
 signinPopupcloseBtn.addEventListener('click', ()=>{
     siginPopup.classList.remove('signin-show');
     siginPopup.classList.add('signin-hide');
-    navDockOverlay.style.visibility = "hidden";
+    // navDockOverlay.style.visibility = "hidden";
     document.body.style.overflow = "auto";
 })
 
@@ -131,11 +112,11 @@ rightToggle.forEach(button =>{
 
 
 ///////////////////////////////////SEARCH REDIRECT//////////////////////////////
-const searchBar = document.querySelectorAll(".search-bar");
+const searchContainer = document.querySelectorAll(".search-container");
 
-searchBar.forEach(bar => {
-    const searchBtn = bar.querySelector(".search-btn");
-    const search = bar.querySelector(".search");
+searchContainer.forEach(container => {
+    const searchBtn = container.querySelector(".search-btn");
+    const search = container.querySelector(".search");
 
     if (!search || !searchBtn) return;
 
@@ -161,20 +142,20 @@ function searchRedirect(query){
 
 ////////////////////////////////NAVBAR PROFILE POPUP///////////////////////////////////
 //google
-const Gprofile = document.querySelector(".g-profile");
-const GprofilePopup = document.querySelector('.g-profile-popup');
+// const Gprofile = document.querySelector(".g-profile");
+// const GprofilePopup = document.querySelector('.g-profile-popup');
 
-Gprofile.addEventListener('click', ()=>{
-    GprofilePopup.classList.toggle('profile-hide')
-});
+// Gprofile.addEventListener('click', ()=>{
+//     GprofilePopup.classList.toggle('profile-hide')
+// });
 
-//email
-const Eprofile = document.querySelector(".e-profile");
-const EprofilePopup = document.querySelector('.e-profile-popup');
+// //email
+// const Eprofile = document.querySelector(".e-profile");
+// const EprofilePopup = document.querySelector('.e-profile-popup');
 
-Eprofile.addEventListener('click', ()=>{
-    EprofilePopup.classList.toggle('profile-hide')
-});
+// Eprofile.addEventListener('click', ()=>{
+//     EprofilePopup.classList.toggle('profile-hide')
+// });
 
 
 
