@@ -1,18 +1,20 @@
-import { collection, addDoc, getDocs, updateDoc, doc, getDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
+import { collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { auth, db } from "../../Javascript/auth.js";
 
 
 ////NAVBAR BACKGROUND TOGGLE
 const navdivisions = document.querySelectorAll(".nav-divisions")
+const navSearchBars = document.querySelectorAll(".search")
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navdivisions.forEach(division=>division.classList.add('navbar-custom-background'));
+        navSearchBars.forEach(navBar=>navBar.classList.remove('navbar-custom-background'));
     } else {
         navdivisions.forEach(division=>division.classList.remove('navbar-custom-background'));
+        navSearchBars.forEach(navBar=>navBar.classList.add('navbar-custom-background'));
     }
 });
-
 
 
 ////MAVBAR EXPANSION TOGGLE

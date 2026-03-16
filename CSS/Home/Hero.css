@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-color-main: white;
+    --background-color: #f8f9f9;
+    --secondary-background-color: #e5e7e9 ;
+    --hearder-bg-clr-: #f8b5d3;
+    --accent-color: #d055e7;
+    --text-color-main: #212121;
+    --text-color-secondary: #7d7d7d;
+    --text-color-third: #d7dbdd;
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;                           
+    --text-stylish1: Leckerli One;
+    --text-stylish2: Send Flowers;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100dvw;
+    min-width: 100vw;
+
+    .hero{
+        .desktop-hero{
+            width: 100vw;
+            height: 100vh;
+            background-image: url('../../Images/Gemini_Generated_Image_qog2hkqog2hkqog2.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            transition: all 1.5s ease-in-out;
+
+            transform: scale(1.2);
+            animation: scaleDown 1.5s ease forwards;
+
+            .hero-text{
+                margin-top: 10%;
+                margin-left: 1%;
+                font-family: var(--text-bold);
+                font-size: 5rem;
+                line-height: .9;
+                color: var(--text-color-third);
+
+                opacity: 0;
+                transform: translateY(30px);
+                animation: fadeInUp 1s ease forwards;
+                animation-delay: 0.5s;
+            }
+
+            .company-name{
+                margin-top: 15%;
+                margin-left: 72%;
+                font-family: var(--text-bold);
+                font-size: 3rem;
+                color: white;
+
+                opacity: 0;
+                transform: translateX(30px);
+                animation: fadeInUp 1s ease forwards;
+                animation-delay: 0.5s;
+            }
+        }
+
+        .mobile-hero{
+            display: none;
+        }
+    }
+    
+    .body-container{
+        width: 60%;
+        height: 100vh;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    .back-to-top{
+        position: fixed;
+        display: none;
+        bottom: 25%;
+        right: 3%;
+        width: 20px;
+        padding: 5px 7px;
+        border-radius:  500%;
+        background: var(--accent-color);
+        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                    -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+        z-index: 60;
+
+        svg{
+            fill: var(--background-color-main);
+            transform: rotate(-90deg);
+        }
+    }
+}
+
+@keyframes scaleDown {
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media(max-width: 850px){
+    main{
+        .hero{
+            .desktop-hero{
+                display: none;
+            }
+
+            .mobile-hero{
+                display: flex;
+                flex-direction: column;
+                width: 100vw;
+                height: 100vh;
+                background-image: url('../../Images/Gemini_Generated_Image_2mi8ne2mi8ne2mi8.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                overflow: hidden;
+                transition: all 1.5s ease-in-out;
+
+                transform: scale(1.2);
+                animation: scaleDown 1.5s ease forwards;
+
+                .hero-text{
+                    width: 40%;
+                    margin-top: 30%;
+                    margin-left: 1.5%;
+                    font-family: var(--text-bold);
+                    font-size: 3.6rem;
+                    line-height: 1;
+                    color: var(--text-color-third);
+
+                    opacity: 0;
+                    transform: translateY(30px);
+                    animation: fadeInUp 1s ease forwards;
+                    animation-delay: 0.5s;
+                }
+
+                .company-name{
+                    margin-top: 90%;
+                    margin-left: 1.5%;
+                    font-family: var(--text-bold);
+                    font-size: 2.5rem;
+                    color: white;
+                    white-space: nowrap;
+
+                    opacity: 0;
+                    transform: translateX(30px);
+                    animation: fadeInUp 1s ease forwards;
+                    animation-delay: 0.5s;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 390px){
+    main{
+        .hero{
+            .mobile-hero{
+                .company-name{
+                    margin-top: 70%;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 375px){
+    main{
+        .hero{
+            .mobile-hero{
+                .hero-text{
+                    font-size: 3rem
+                }
+                .company-name{
+                    margin-top: 55%;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 360px){
+    main{
+        .hero{
+            .mobile-hero{
+                .company-name{
+                    margin-top: 80%;
+                }
+            }
+        }
+    }
+}
