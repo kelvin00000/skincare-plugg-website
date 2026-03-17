@@ -42,7 +42,7 @@ async function FetchAndDisplayGridItems(){
                 const productSecId = doc.id;
                 productsPage.innerHTML+=
                 `
-                    <section class="product-section">
+                    <section class="product-section" "id="${productSecId}">
                         <div class="title">${productSec}</div>
                         <div class="grid-container" id="${productSecId}-grid-container"></div>
                     </section>

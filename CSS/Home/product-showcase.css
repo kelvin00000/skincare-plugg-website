@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-main: #faf9f6;
+    --background-sec: #F0F2F5;
+    --background-third: #F7F6F3;
+    --background-fourth: #121212;
+    --accent-gold: #CCac00;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;          
+    --text-stylish: Leckerli One;
+
+    --font-size: 14px;
+}
+
+main{
+    .product-showcase-1, .product-showcase-2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 50px;
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        scroll-behavior: smooth;
+
+        background-image: url('../../Images/showcase-bg-1-desktop.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+
+        .product-info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            h4{
+                .line {
+                    display: block;
+                    color: #555555;
+                    font-size: 2rem;
+                    font-family: var(--text-bold);
+                    white-space: nowrap;
+                    background: linear-gradient(to right, #ccc 50%, #ccc 50%);
+                    background-size: 0% 100%;
+                    background-position: left;
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-repeat: no-repeat;
+                }
+            }
+
+            a{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 10%;
+                padding: 8px 20px;
+                width: 160px;
+                gap: 5px;
+                font-family: var(--text-regular1);
+                font-weight: 500;
+                background: var(--background-third);
+                color: var(--background-fourth);
+                text-decoration: none;
+                border-radius: 30px;
+                
+                svg{
+                    fill: var(--background-fourth);
+                }
+            }
+        }
+    }
+    .product-showcase-2{
+        flex-direction: row-reverse;
+    }
+}
+
+
+@media(max-width: 850px){
+    main{
+        .product-showcase-1, .product-showcase-2{
+            flex-direction: column;
+            gap: 20px;
+
+            img{
+                width: 40%;
+            }
+            .product-info{
+                padding: 0 20px;
+                text-align: center;
+            }
+        }
+    }
+}
+@media(max-width: 600px){
+    main{
+        .product-showcase-1, .product-showcase-2{
+            img{
+                width: 70%;
+            }
+            .product-info{
+                h4{
+                    .line{
+                        font-size: 1.7rem
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width: 390px){
+    main{
+        .product-showcase-1, .product-showcase-2{
+            img{
+                width: 70%;
+            }
+            .product-info{
+                h4{
+                    .line{
+                        font-size: 1.3rem
+                    }
+                }
+            }
+        }
+    }
+}

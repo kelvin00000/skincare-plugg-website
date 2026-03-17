@@ -29,6 +29,72 @@ document.getElementById("navbar-retract-btn").addEventListener('click', ()=>{
 
 
 
+////SHOWCASE SECTION ANIMATION
+gsap.registerPlugin(ScrollTrigger);
+
+// PRODUCT 1
+const tl1 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.product-showcase-1',
+        start: 'top top',
+        end: '+=400%',
+        scrub: 1,
+        pin: true,
+        pinSpacing: true
+    }
+});
+tl1.from('.product-image-1', { x: -100, opacity: 0, duration: 1 });
+tl1.from('.product-description-1', { x: 100, opacity: 0, duration: 1 }, '<');
+// TEXT FILL EFFECT
+const lines1 = gsap.utils.toArray('.product-description-1 .line');
+lines1.forEach((line, i) => {
+    tl1.fromTo(line, {
+        backgroundSize: '0% 100%'
+    }, {
+        backgroundSize: '100% 100%',
+        duration: 0.8
+    });
+});
+tl1.from('.product-section-link-1', { y: 30, opacity: 0, duration: 0.8 });
+// FADE OUT
+tl1.to('.product-showcase-1 > *', { 
+    opacity: 0, 
+    duration: .5,
+}, '+=0.5');
+
+// PRODUCT 2
+const tl2 = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.product-showcase-2',
+        start: 'top top',
+        end: '+=450%',
+        scrub: 1,
+        pin: true,
+        pinSpacing: true
+    }
+});
+tl2.from('.product-image-2', { x: 100, opacity: 0, duration: 1 });
+tl2.from('.product-description-2', { x: -100, opacity: 0, duration: 1 }, '<');
+// TEXT FILL EFFECT
+const lines2 = gsap.utils.toArray('.product-description-2 .line');
+lines2.forEach((line, i) => {
+    tl2.fromTo(line, {
+        backgroundSize: '0% 100%'
+    }, {
+        backgroundSize: '100% 100%',
+        duration: 0.8
+    });
+});
+tl2.from('.product-section-link-2', { y: 30, opacity: 0, duration: 0.8 });
+
+// tl2.to('.product-showcase-2 > *', { 
+//     opacity: 0, 
+//     duration: 1 
+// }, '+=0.5');
+
+
+
+
 /////////////////////////////////CAROUSEL///////////////////////////////////
 const carousels = document.querySelectorAll('.carousel');
 carousels.forEach(carousel => {

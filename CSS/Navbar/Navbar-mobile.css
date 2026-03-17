@@ -32,6 +32,7 @@
         font-family: var(--text-regular1);
         color: var(--background-third);
         z-index: 100;
+        overflow-x: hidden;
     
         .nav-left{
             display: flex;

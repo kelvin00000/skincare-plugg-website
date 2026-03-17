@@ -1,20 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
 
 :root{
-    --background-color-main: white;
-    --background-color: #f8f9f9;
-    --secondary-background-color: #e5e7e9 ;
-    --hearder-bg-clr-: #f8b5d3;
-    --accent-color: #d055e7;
-    --text-color-main: #212121;
-    --text-color-secondary: #7d7d7d;
-    --text-color-third: #d7dbdd;
+    --background-main: #faf9f6;
+    --background-sec: #F0F2F5;
+    --background-third: #F7F6F3;
+    --background-fourth: #121212;
+    --accent-gold: #CCac00;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
     --text-regular1: Roboto;
     --text-regular2: Open Sans;
-    --text-bold: Cal Sans;                           
-    --text-stylish1: Leckerli One;
-    --text-stylish2: Send Flowers;
+    --text-bold: Cal Sans;          
+    --text-stylish: Leckerli One;
+
+    --font-size: 14px;
 }
 
 main{
@@ -28,7 +27,7 @@ main{
         .desktop-hero{
             width: 100vw;
             height: 100vh;
-            background-image: url('../../Images/Gemini_Generated_Image_qog2hkqog2hkqog2.png');
+            background-image: url('../../Images/hero-desktop.webp');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -123,7 +122,7 @@ main{
                 flex-direction: column;
                 width: 100vw;
                 height: 100vh;
-                background-image: url('../../Images/Gemini_Generated_Image_2mi8ne2mi8ne2mi8.png');
+                background-image: url('../../Images/hero-mobile.jpg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
