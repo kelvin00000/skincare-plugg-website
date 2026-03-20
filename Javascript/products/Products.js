@@ -42,7 +42,7 @@ async function FetchAndDisplayGridItems(){
                 const productSecId = doc.id;
                 productsPage.innerHTML+=
                 `
-                    <section class="product-section" "id="${productSecId}">
+                    <section class="product-section">
                         <div class="title">${productSec}</div>
                         <div class="grid-container" id="${productSecId}-grid-container"></div>
                     </section>
@@ -80,4 +80,13 @@ async function FetchAndDisplayGridItems(){
         console.error(err);
     }
 }
-FetchAndDisplayGridItems();
+FetchAndDisplayGridItems().then(() => {
+    if (window.location.hash) {
+        setTimeout(() => {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 1500);
+    }
+});

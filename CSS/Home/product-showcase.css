@@ -28,11 +28,17 @@ main{
         overflow: hidden;
         scroll-behavior: smooth;
 
-        background-image: url('../../Images/showcase-bg-1-desktop.jpg');
+        background-image: url('../../Images/showcase-bg.jpg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         overflow: hidden;
+
+        img{
+            position: relative;
+            width: 35%;
+            filter: drop-shadow(0 30px 60px rgba(255, 255, 255, 0.3));
+        }
 
         .product-info{
             display: flex;
@@ -46,6 +52,7 @@ main{
                     font-size: 2rem;
                     font-family: var(--text-bold);
                     white-space: nowrap;
+                    text-align: center;
                     background: linear-gradient(to right, #ccc 50%, #ccc 50%);
                     background-size: 0% 100%;
                     background-position: left;
@@ -79,6 +86,10 @@ main{
     }
     .product-showcase-2{
         flex-direction: row-reverse;
+
+        img{
+            width: auto;
+        }
     }
 }
 
@@ -111,6 +122,13 @@ main{
                         font-size: 1.7rem
                     }
                 }
+            }
+        }
+        .product-showcase-2{
+            gap: 0;
+
+            .product-info{
+                margin-bottom: 10%;
             }
         }
     }

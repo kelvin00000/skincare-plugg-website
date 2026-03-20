@@ -2,10 +2,9 @@ import { collection, getDocs, doc, getDoc } from "https://www.gstatic.com/fireba
 import { auth, db } from "../../Javascript/auth.js";
 
 
-////NAVBAR BACKGROUND TOGGLE
+//// NAVBAR BACKGROUND TOGGLE
 const navdivisions = document.querySelectorAll(".nav-divisions")
 const navSearchBars = document.querySelectorAll(".search")
-
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navdivisions.forEach(division=>division.classList.add('navbar-custom-background'));
@@ -15,9 +14,7 @@ window.addEventListener('scroll', () => {
         navSearchBars.forEach(navBar=>navBar.classList.add('navbar-custom-background'));
     }
 });
-
-
-////MAVBAR EXPANSION TOGGLE
+// NAVBAR EXPANSION TOGGLE
 document.getElementById("navbar-expand-btn").addEventListener('click', ()=>{
     document.getElementById("js-nav-expansion").classList.add("show");
     document.getElementById("js-nav-expansion").classList.add("expand");
@@ -29,9 +26,8 @@ document.getElementById("navbar-retract-btn").addEventListener('click', ()=>{
 
 
 
-////SHOWCASE SECTION ANIMATION
+//// SHOWCASE SECTION ANIMATION
 gsap.registerPlugin(ScrollTrigger);
-
 // PRODUCT 1
 const tl1 = gsap.timeline({
     scrollTrigger: {
@@ -57,10 +53,10 @@ lines1.forEach((line, i) => {
 });
 tl1.from('.product-section-link-1', { y: 30, opacity: 0, duration: 0.8 });
 // FADE OUT
-tl1.to('.product-showcase-1 > *', { 
-    opacity: 0, 
-    duration: .5,
-}, '+=0.5');
+// tl1.to('.product-showcase-1 > *', { 
+//     opacity: 0, 
+//     duration: .5,
+// }, '+=0.5');
 
 // PRODUCT 2
 const tl2 = gsap.timeline({
@@ -86,7 +82,7 @@ lines2.forEach((line, i) => {
     });
 });
 tl2.from('.product-section-link-2', { y: 30, opacity: 0, duration: 0.8 });
-
+// FADE OUT
 // tl2.to('.product-showcase-2 > *', { 
 //     opacity: 0, 
 //     duration: 1 
@@ -95,12 +91,45 @@ tl2.from('.product-section-link-2', { y: 30, opacity: 0, duration: 0.8 });
 
 
 
-/////////////////////////////////CAROUSEL///////////////////////////////////
-const carousels = document.querySelectorAll('.carousel');
-carousels.forEach(carousel => {
-    const clone = carousel.innerHTML;
-    carousel.innerHTML += clone;
-})
+//// PACKAGE SECTION SLIDER
+if(document.querySelector(".packages-swiper")){
+    const swiper = new Swiper('.packages-swiper', {
+        // AUTOPLAY SETTINGS
+        autoplay: {
+            delay: 5000, // TIME BETWEEN SLIDES
+            pauseOnMouseEnter: true, // PAUSE ON HOVER
+            disableOnInteraction: false // CONTNUE AFTER MANUAL SWIPE
+        },
+        // ANIMATION SPEED
+        speed: 800, // TRANSITION DURATION
+        // PAGINATION
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true
+        },
+        // EFFECTS
+        effect: 'slide', // 'slide', 'fade', 'cube', 'coverflow', 'flip', 'cards'
+        // DIRECTION
+        direction: 'horizontal',
+        // LOOP
+        loop: true,
+        // SLIDES PER VIEW
+        slidesPerView: 1,
+        // SPACE BETWEEN SLIDES
+        spaceBetween: 30,
+        // ENABLE SWIPE ON DESKTOP
+        simulateTouch: true,
+        // DISABLE IF ONLY 1 SLIDE
+        watchOverflow: true,
+        // KEYBOARD CONTROL
+        keyboard: {
+            enabled: true
+        }
+    });
+}
+
+
+
 
 
 //////////////////////////BACK TO TOP LINK FUNCTION//////////////////////////
@@ -205,26 +234,6 @@ function searchRedirect(query){
     if(!query) return;
     window.location.href = `../SearchResults.html?query=${encodeURIComponent(query)}`;
 }
-
-
-
-////////////////////////////////NAVBAR PROFILE POPUP///////////////////////////////////
-//google
-// const Gprofile = document.querySelector(".g-profile");
-// const GprofilePopup = document.querySelector('.g-profile-popup');
-
-// Gprofile.addEventListener('click', ()=>{
-//     GprofilePopup.classList.toggle('profile-hide')
-// });
-
-// //email
-// const Eprofile = document.querySelector(".e-profile");
-// const EprofilePopup = document.querySelector('.e-profile-popup');
-
-// Eprofile.addEventListener('click', ()=>{
-//     EprofilePopup.classList.toggle('profile-hide')
-// });
-
 
 
 
