@@ -22,6 +22,7 @@ main{
     justify-content: center;
     width: 100dvw;
     min-width: 100vw;
+    background: var(--background-color-main);
 
     .hero{
         .desktop-hero{

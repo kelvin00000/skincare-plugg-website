@@ -16,8 +16,7 @@
 
 main{
     .package-offers{
-        height: 100vh;
-        background: var(--background-main);
+        height: 90vh;
         overflow: hidden;
 
         .swiper{
@@ -72,6 +71,7 @@ main{
 
 
                         .package-description{
+                            color: var(--background-third);
                             font-size: 1.6rem;
                             font-family: var(--text-regular2);
                             text-align: center;
@@ -96,8 +96,11 @@ main{
                             bottom: 0;
                             left: 0;
                             width: 100%;
-                            height: 40%;
-                            background: linear-gradient(to top, rgb(218, 218, 218), transparent);
+                            height: 50%;
+                            backdrop-filter: blur(100px);
+                            background: linear-gradient(to top, rgba(0, 0, 0, .5),  transparent);
+                            mask-image: linear-gradient(to top, black, transparent);
+                            -webkit-mask-image: linear-gradient(to top, black, transparent);
                             z-index: 10;
                         }
                     }
