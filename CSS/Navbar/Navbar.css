@@ -23,6 +23,7 @@
 html, body{
     scroll-snap-type: y proximity;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .desktop{

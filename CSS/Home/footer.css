@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
+
+:root{
+    --background-main: #faf9f6;
+    --background-sec: #F0F2F5;
+    --background-third: #F7F6F3;
+    --background-fourth: #121212;
+    --accent-gold: #CCac00;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+    --text-regular1: Roboto;
+    --text-regular2: Open Sans;
+    --text-bold: Cal Sans;          
+    --text-stylish: Leckerli One;
+}
+
+main{
+    footer{
+        display: flex;
+        flex-direction: column;
+        height: 95vh;
+        width: 100%;
+        color: var(--background-third);
+        font-family: var(--text-regular1);
+        background: var(--background-fourth);
+        overflow: hidden;
+
+        .top{
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px 100px;
+            padding-bottom: 0;
+            height: 30%;
+
+            .message-container{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                width: 50%;
+                height: fit-content;
+
+                .message{
+                    font-family: var(--text-regular2);
+                    font-size: 1.6rem;
+                }
+                a{
+                    display: flex;
+                    align-items: center;
+                    gap: 3px;
+                    padding: 6px 15px;
+                    width: fit-content;
+                    color: var(--background-fourth);
+                    text-decoration: none;
+                    font-size: 14px;
+                    background: var(--background-third);
+                    border-radius: 30px;
+                    transition: all .2s ease-in-out;
+                    svg{
+                        width: 21px;
+                        fill: var(--background-fourth);
+                        transition: all .2s ease-in-out;
+                    }
+                }
+                a:hover{
+                    padding-right: 20px;
+                    svg{
+                        transform: translateX(5px);
+                    }
+                }
+            }
+
+            .links-container{
+                display: flex;
+                justify-content: center;
+                gap: 20%;
+                width: 35%;
+                height: fit-content;
+
+                .media-links, .page-links{
+                    display: flex;
+                    flex-direction: column;
+                    padding-left: 15px;
+                    border-left: 1px solid rgb(37, 37, 37);
+
+                    p{
+                        font-size: 14px;
+                        margin-bottom: 15px;
+                    }
+
+                    a{
+                        margin-bottom: 8px;
+                        color: var(--background-third);
+                        text-decoration: none;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+
+        .bottom{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            margin-top: auto;
+            padding: 0 170px;
+
+            .business-name{
+                line-height: .75;
+                font-size: 8.85rem;
+                font-family: var(--text-bold);
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .copyright-msg-desktop{
+                display: flex;
+                align-items: center;
+                margin-bottom: 50px;
+                font-size: .7rem;
+                color: white;
+            }
+            .copyright-msg-mobile{
+                display: none;
+            }
+
+            span{
+                margin-right: 5px;
+            }
+            svg{
+                fill: var(--background-third);
+            }
+        }
+    }
+}
+
+@media(max-width: 1250px){
+    main{
+        footer{
+            height:  90vh;
+
+            .top{
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 90px;
+                padding: 50px 50px;
+                height: 75%;
+
+                .message-container{
+                    width: 100%;
+                }
+                
+                .links-container{
+                    flex-direction: column;
+                    gap: 10%;
+                    width: 100%;
+                    height: 205px;
+                    border-left: 1px solid rgb(37, 37, 37);
+
+                    .media-links, .page-links{
+                        border: none;
+                        p{
+                            margin-bottom: 10px;
+                            font-size: 15px;
+                            color: rgb(146, 146, 146);
+                        }
+                        a{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .bottom{
+                padding: 0 50px;
+                .business-name{
+                    font-size: 6rem;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 500px){
+    main{
+        footer{
+            .top{
+                gap: 50px;
+                padding: 20px 20px;
+                padding-bottom: 0;
+
+                .message-container{
+                    gap: 15px;
+                    .message{
+                        line-height: 1.2;
+                    }
+                }
+            }
+            .bottom{
+                flex-direction: column-reverse;
+                padding: 0 20px;
+                height: 15%;
+
+                .business-name{
+                    font-size: 4rem;
+                }
+                .copyright-msg-mobile{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    align-self: flex-end;
+                    font-size: 13px;
+                    white-space: nowrap;
+                    div{
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                .copyright-msg-desktop{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 430px){
+    main{
+        footer{
+            .bottom{
+                .business-name{
+                    font-size: 3.2rem;
+                }
+            }
+        }
+    }
+}
+@media(max-width: 390px){
+    main{
+        footer{
+            .bottom{
+                .business-name{
+                    font-size: 2.9rem;
+                }
+            }
+        }
+    }
+}
