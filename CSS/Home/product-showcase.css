@@ -22,7 +22,6 @@ main{
         align-items: center;
         justify-content: center;
         flex-direction: row;
-        /* gap: 50px; */
         height: 100vh;
         width: 100%;
         overflow: hidden;
@@ -35,7 +34,6 @@ main{
         overflow: hidden;
 
         img{
-            position: relative;
             width: 35%;
             filter: drop-shadow(0 30px 60px rgba(255, 255, 255, 0.2));
         }
@@ -108,6 +106,7 @@ main{
             }
             .product-info{
                 padding: 0 20px;
+                height: 40%;
                 text-align: center;
             }
         }
