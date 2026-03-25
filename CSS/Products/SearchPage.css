@@ -1,29 +1,73 @@
 @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Leckerli+One&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Send+Flowers&display=swap');
 
 :root{
-    --background-color-main: white;
-    --background-color: #f8f9f9;
-    --secondary-background-color: #e5e7e9 ;
-    --accent-color: #d055e7 ;
-    --text-color-main: #212121;
-    --text-color-secondary: #7d7d7d;
-    --text-color-third: #d7dbdd;
+    --background-main: #faf9f6;
+    --background-sec: #F0F2F5;
+    --background-third: #F7F6F3;
+    --background-fourth: #121212;
+    --accent-gold: #CCac00;
+    --box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
     --text-regular1: Roboto;
     --text-regular2: Open Sans;
-    --text-bold: Cal Sans;                           
-    --text-stylish1: Leckerli One;
-    --text-stylish2: Send Flowers;
+    --text-bold: Cal Sans;          
+    --text-stylish: Leckerli One;
 }
 
 main{
+    .showcase-offset{
+        display: flex;
+        align-items: center;
+        height: 250px;
+        width: 100%;
+        background-image: url('../../Images/showcase-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+
+        img{
+            flex-shrink: 0;
+            margin-top: 12%;
+            width: 30%;
+            rotate: 27deg;
+            transform: scale(1.2);
+            animation: scaleDown 1.5s ease forwards;
+        }
+        .text{
+            margin-left: 1%;
+            font-family: var(--text-bold);
+            font-size: 4.5rem;
+            line-height: .9;
+            color: var(--text-color-third);
+            
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+    }
+
     .product-section{
+        display: flex;
+        flex-direction: column;
         height: fit-content;
-        margin-bottom: 60px;
-        padding-top: 40px;
-        padding-left: 30px;
-        padding-right: 30px;
+        margin-bottom: 200px;
+        margin-top: 40px;
+        padding: 0 30px;
         font-family: var(--text-regular1);
+
+        .search-results-text{
+            margin-bottom: 60px;
+            font-family: var(--text-regular1);
+            font-style: italic;
+            font-size: 1.5rem;
+            span{
+                font-style: normal;
+                font-weight: bold;
+                font-size: 1.4rem;
+            }
+        }
         
         .grid-container{
             display: grid;
@@ -127,59 +171,61 @@ main{
             }
         }
 
-
         .no-results-screen{
             display: none;
-            position: absolute;
-            top: 5%;
-            left: 44%;
-            margin-top: 250px;
+            align-self: center;
+            justify-self: center;
+            font-size: 1.3rem;
             font-family: var(--text-bold);
         }
     }
 }
+@keyframes scaleDown {
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 @media (max-width: 900px){
     main{
-        .product-section{
-            .no-results-screen{
+        .showcase-offset{
+            position: relative;
+            justify-content: center;
+            img{
                 position: absolute;
-                top: 40%;
-                left: 38%;
-                margin-top: 250px;
-                font-family: var(--text-bold);
+                bottom: -30%;
+                left: -3%;
+                width: 250px;
+            }
+            .text{
+                font-size: 3rem;
             }
         }
     }
 }
 @media (max-width: 600px){
     main{
-        .product-section{
-            .no-results-screen{
-                position: absolute;
-                top: 10%;
-                left: 33%;
-                margin-top: 250px;
-                font-family: var(--text-bold);
+        .showcase-offset{
+            img{
+                bottom: -35%;
+            }
+            .text{
+                margin-bottom: 40px;
+                font-size: 2.8rem;
             }
         }
     }
 }
-@media (max-width: 559px){
+@media (max-width: 390px){
     main{
-        .product-section{
-            margin-top: 80px;
-        }
-    }
-}
-@media (max-width: 500px){
-    main{
-        .product-section{
-            .no-results-screen{
-                position: absolute;
-                top: 10%;
-                left: 24%;
-                margin-top: 250px;
-                font-family: var(--text-bold);
+        .showcase-offset{
+            .text{
+                font-size: 2.5rem;
             }
         }
     }

@@ -87,6 +87,7 @@ async function runSearch(){
         return;
     }
 
+    document.getElementById("search-query").innerHTML=query;
     const results = await filterProducts(query);
     renderProducts(results);
     await trackSearch(userId, query, results)
