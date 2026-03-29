@@ -1,5 +1,6 @@
 import { collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { auth, db } from "../../Javascript/auth.js";
+import { showErrorPopup } from "./general.js";
 
 
 //// NAVBAR BACKGROUND TOGGLE
@@ -279,6 +280,7 @@ async function fetchAndDisplayFaqs(){
     }
     catch(err){
         console.error(err);
+        showErrorPopup('Please check your Internet connection and try again');
     }
 }
 await fetchAndDisplayFaqs();

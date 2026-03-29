@@ -23,7 +23,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 45px;
+        height: 50px;
         width: 400px;
         background: var(--background-third);
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
@@ -56,14 +56,108 @@
             background-color: green;
         }
     }
+    .user-toasttip{
+        gap: 20px;
+        width: 98%;
+        color: var(--background-third);
+        background: rgba(87, 94, 85, .4);
+        backdrop-filter: blur(20px);
+        p{
+            font-size: .8rem;
+        }
+        button{
+            width: 110px;
+            height: 30px;
+            color: var(--accent-black);
+            white-space: nowrap;
+            font-family: var(--text-regular1);
+            font-size: .8rem;
+            background: var(--background-third);
+            font-weight: bold;
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--box-shadow);
+            transition: all .4s ease-in-out;
+            cursor: pointer;
+            &:hover{
+                color: var(--background-third);
+                background: rgba(255, 255, 255, 0.35);
+                box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                -0px -.1px 3px rgba(0, 0, 0, 0.15);
+                svg{
+                    fill: var(--background-third);
+                }
+            }
+        }
+    }
 
-    /* CLASSLIST FOR HIDING TOAST TIP */
+    /* CLASSLIST FOR TOAST TIP TOGGLE */
     .show-toast{
         visibility: visible;
         bottom: 1%;
         opacity: 1;
     }
 }
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 320px;
+    height: 200px;
+    color: var(--background-third);
+    font-family: var(--text-regular1);
+    font-size: 1.3rem;
+    text-align: center;
+    background: rgba(87, 94, 85, .4);
+    backdrop-filter: blur(20px);
+    box-shadow: var(--box-shadow);
+    border-radius: 20px;
+    transition: all .4s ease-in-out;
+    z-index: 1000;
+
+    visibility: hidden;
+    opacity: 0;
+
+    button{
+        width: 110px;
+        height: 50px;
+        color: var(--accent-black);
+        white-space: nowrap;
+        font-family: var(--text-regular1);
+        font-size: .8rem;
+        background: var(--background-third);
+        font-weight: bold;
+        backdrop-filter: blur(10px); 
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: var(--box-shadow);
+        transition: all .4s ease-in-out;
+        cursor: pointer;
+        &:hover{
+            color: var(--background-third);
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+            -0px -.1px 3px rgba(0, 0, 0, 0.15);
+            svg{
+                fill: var(--background-third);
+            }
+        }
+    }
+}
+.show{
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .loader{
     position: fixed;
@@ -107,17 +201,88 @@
     visibility: hidden;
     opacity: 0;
 }
-
 /* CLASSLIST FOR HIDING LOADER */
 .show-loader{
     visibility: visible;
     opacity: 1;
 }
-
 @keyframes spin{
     to { rotate: 360deg};
 }
 
+
+/* SKELETON LAODING SCREEN */
+.windows-container{
+    .skeleton-loading-screen, .wishlist-skeleton-loading-screen{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 20px;
+
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                rgba(87, 94, 85, .1) 25%,
+                rgba(87, 94, 85, .2) 50%,
+                rgba(87, 94, 85, .1) 75%
+            );
+            background-size: 200% 100%;
+            border-radius: 18px;
+            animation: loading 1.5s infinite;
+            backdrop-filter: blur(30px);
+        }
+        .skeleton-image {
+            height: 300px;
+            width: 100%;
+        }
+        .skeleton-title {
+            height: 60px;
+            width: 60%;
+            margin-bottom: 12px;
+        }
+        .skeleton-text {
+            height: 30px;
+            margin-bottom: 8px;
+        }
+        .skeleton-box {
+            height: 155px;
+            width: 400px;
+        }
+    }
+    .wishlist-skeleton-loading-screen{
+        flex-direction: column;
+    }
+}
+.review-cards-container{
+    .skeleton-loading-screen{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 10px;
+        height: 200px;
+
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                rgba(87, 94, 85, .1) 25%,
+                rgba(87, 94, 85, .2) 50%,
+                rgba(87, 94, 85, .1) 75%
+            );
+            background-size: 200% 100%;
+            border-radius: 18px;
+            animation: loading 1.5s infinite;
+            backdrop-filter: blur(30px);
+        }
+        .skeleton-text {
+            height: 20px;
+            margin-bottom: 8px;
+        }
+    }
+}
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
 
 @media(max-width: 900px){
     .toast-tip-container{
@@ -129,5 +294,20 @@
     }
     .loader{
         left: 44%;
+    }
+
+    .windows-container{
+        .skeleton-loading-screen{
+            .skeleton-image{
+                height: 550px;
+            }
+        }
+        .wishlist-skeleton-loading-screen{
+            .skeleton-box {
+                height: 190px;
+                width: 330px;
+                margin-bottom: 5px;
+            }
+        }
     }
 }

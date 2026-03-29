@@ -176,7 +176,7 @@ main{
                                 color: var(--background-fourth);
                                 font-weight: bold;
                                 &:hover{
-                                    box-shadow: var(--box-shadow);
+                                    color: var(--background-third);
                                 }
                             }
                         }

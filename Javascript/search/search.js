@@ -33,11 +33,13 @@ async function filterProducts(query) {
             }
             catch(err){
                 console.error(err);
+                showErrorPopup(err);
             }
         }
     }
     catch(err){
         console.error(err);
+        showErrorPopup(err);
     }
 
    return sectionResults;

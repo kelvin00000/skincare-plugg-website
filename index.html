@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./CSS/Navbar/Navbar-mobile.css">
 
     <!--POPUPs-->
-    <link rel="stylesheet" href="./CSS/Products/Popup.css">
+    <link rel="stylesheet" href="./CSS/Products/product-info-window.css">
     <link rel="stylesheet" href="./CSS/Products/wishlist.css">
     <link rel="stylesheet" href="./CSS/Sign-up/signin.css">
 
@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="./CSS/Home/carousel.css">
     <link rel="stylesheet" href="./CSS/Home/testimonials.css">
     <link rel="stylesheet" href="./CSS/Home/footer.css">
+
+    <!-- OTHERS -->
+    <link rel="stylesheet" href="./CSS/general.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
@@ -93,7 +96,7 @@
                         <path d="M240-80q-33 0-56.5-23.5T160-160v-480q0-33 23.5-56.5T240-720h80q0-66 47-113t113-47q66 0 113 47t47 113h80q33 0 56.5 23.5T800-640v480q0 33-23.5 56.5T720-80H240Zm0-80h480v-480h-80v80q0 17-11.5 28.5T600-520q-17 0-28.5-11.5T560-560v-80H400v80q0 17-11.5 28.5T360-520q-17 0-28.5-11.5T320-560v-80h-80v480Zm160-560h160q0-33-23.5-56.5T480-800q-33 0-56.5 23.5T400-720ZM240-160v-480 480Z"/>
                     </svg>
                 </button>
-                <div class="wishlist-counter">10</div>
+                <div class="wishlist-counter"></div>
             </div>
             <button class="sign-up-btn">Sign up</button>
             <button class="account-management-btn">
@@ -135,7 +138,7 @@
             <button class="open-cart-btn">Cart</button>
             <div class="wishlist-container">
                 <button class="js-open-wishlist">Wishlist</button>
-                <div class="wishlist-counter">10</div>
+                <div class="wishlist-counter"></div>
             </div>
             <button class="sign-up-btn">Sign up</button>
             <button class="account-management-btn">
@@ -601,39 +604,9 @@
         </footer>
 
 
-        <div class="popup"> 
-            <div class="popup-padding"></div>
+        <div class="windows-container" id="js-window-container">
+            
         </div>
-
-        <aside class="wishlist-popup-container">
-            <div class="wishlist-popup">
-                <div class="swipeIndicator"></div>
-                <h2>Your Wishlist</h2>
-                <div class="wishlist-results-screen"></div>
-
-                <div class="wishlist-noresults-screen"> 
-                    <p>Looks like there's nothing here</p>
-                    <p>add a product</p>
-                    <a href="Products.html#serum" class="js-close-wishlist-popup">
-                        products
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/></svg>
-                    </a>
-                </div>
-
-                <div class="wishlist-noUser-screen"> 
-                    <p>You need to sign up to use the wishlist</p>
-                    <button class="Sign-in signup-toggle js-close-wishlist-popup">Sign up</button>
-                </div>
-            </div>
-
-            <div class="wishlist-popup-overlay"></div>
-
-            <div class="saved-popup js-saved-popup">
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-                added <button class="js-open-wishlist">see list</button>
-            </div>
-        </aside>
-        
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
