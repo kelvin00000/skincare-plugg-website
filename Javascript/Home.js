@@ -168,62 +168,62 @@ window.addEventListener("scroll", ()=> {
 
 
 ///////////////////////////SIGNIN POPUP TOGGLE////////////////////////////////////
-const siginPopup = document.querySelector(".signin-popup");
-const signinPopupOpenBtn = document.querySelectorAll(".sign-up-btn");
-const signinPopupcloseBtn = document.querySelector(".close-signin");
+// const siginPopup = document.querySelector(".signin-popup");
+// const signinPopupOpenBtn = document.querySelectorAll(".sign-up-btn");
+// const signinPopupcloseBtn = document.querySelector(".close-signin");
 
-signinPopupOpenBtn.forEach(button => {
-    button.addEventListener('click', ()=>{
-        if(window.innerWidth < 1001){
-            contactUsSection.classList.add('hide-left');
-            signUpSection.classList.remove('hide-right');
-        }
-        siginPopup.classList.remove('signin-hide');
-        siginPopup.classList.add('signin-show');
-        // navDockOverlay.style.visibility = "visible";
-        document.body.style.overflow = "hidden";
-    })
-});
-signinPopupcloseBtn.addEventListener('click', ()=>{
-    siginPopup.classList.remove('signin-show');
-    siginPopup.classList.add('signin-hide');
-    // navDockOverlay.style.visibility = "hidden";
-    document.body.style.overflow = "auto";
-})
+// signinPopupOpenBtn.forEach(button => {
+//     button.addEventListener('click', ()=>{
+//         if(window.innerWidth < 1001){
+//             contactUsSection.classList.add('hide-left');
+//             signUpSection.classList.remove('hide-right');
+//         }
+//         siginPopup.classList.remove('signin-hide');
+//         siginPopup.classList.add('signin-show');
+//         // navDockOverlay.style.visibility = "visible";
+//         document.body.style.overflow = "hidden";
+//     })
+// });
+// signinPopupcloseBtn.addEventListener('click', ()=>{
+//     siginPopup.classList.remove('signin-show');
+//     siginPopup.classList.add('signin-hide');
+//     // navDockOverlay.style.visibility = "hidden";
+//     document.body.style.overflow = "auto";
+// })
 
 
 
-///////LEFT AND RIGHT TOGGLES
-const leftToggle = document.querySelectorAll(".sign-in");
-const rightToggle = document.querySelectorAll(".contact-us");
-export const imageSection = document.querySelector(".image-section");
-export const signUpSection = document.querySelector(".sigup-section");
-export const contactUsSection = document.querySelector(".contactus-section");
+// ///////LEFT AND RIGHT TOGGLES
+// const leftToggle = document.querySelectorAll(".sign-in");
+// const rightToggle = document.querySelectorAll(".contact-us");
+// export const imageSection = document.querySelector(".image-section");
+// export const signUpSection = document.querySelector(".sigup-section");
+// export const contactUsSection = document.querySelector(".contactus-section");
 
-leftToggle.forEach(button =>{
-    button.addEventListener('click', ()=>{
-        if(window.innerWidth < 1001){
-            contactUsSection.classList.add('hide-left');
-            signUpSection.classList.remove('hide-right');
-        }
-        else{
-            imageSection.classList.remove('slide-right');
-            imageSection.classList.add('slide-left');
-        }
-    })
-})
-rightToggle.forEach(button =>{
-    button.addEventListener('click', ()=>{
-        if(window.innerWidth < 1001){
-            signUpSection.classList.add('hide-right');
-            contactUsSection.classList.remove('hide-left');
-        }
-        else{
-            imageSection.classList.remove('slide-left');
-            imageSection.classList.add('slide-right');
-        }
-    })
-})
+// leftToggle.forEach(button =>{
+//     button.addEventListener('click', ()=>{
+//         if(window.innerWidth < 1001){
+//             contactUsSection.classList.add('hide-left');
+//             signUpSection.classList.remove('hide-right');
+//         }
+//         else{
+//             imageSection.classList.remove('slide-right');
+//             imageSection.classList.add('slide-left');
+//         }
+//     })
+// })
+// rightToggle.forEach(button =>{
+//     button.addEventListener('click', ()=>{
+//         if(window.innerWidth < 1001){
+//             signUpSection.classList.add('hide-right');
+//             contactUsSection.classList.remove('hide-left');
+//         }
+//         else{
+//             imageSection.classList.remove('slide-left');
+//             imageSection.classList.add('slide-right');
+//         }
+//     })
+// })
 
 
 ///////////////////////////////////SEARCH REDIRECT//////////////////////////////

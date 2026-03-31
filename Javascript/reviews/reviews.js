@@ -1,6 +1,6 @@
 import {collection, setDoc, addDoc, deleteDoc, runTransaction, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../auth.js";
-import { signUpSection, contactUsSection, imageSection } from "../Home.js";
+// import { signUpSection, contactUsSection, imageSection } from "../Home.js";
 
 function showReviewSectionLoader(){
     const reviewsContainer = document.querySelector(".review-cards-container");

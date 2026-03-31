@@ -4,6 +4,27 @@ import  displayProductInfoWindow  from "./productsinfo.js";
 import { showErrorPopup } from "../general.js";
 
 
+const productsPage = document.getElementById('js-all-products');
+function showProductPageLoader(){
+    if(productsPage){
+        productsPage.innerHTML=
+        `
+            <div class="product-section">
+                <div class="productpage-skeleton-loader">
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton-grid">
+                        <div class="skeleton skeleton-box"></div>
+                        <div class="skeleton skeleton-box"></div>
+                        <div class="skeleton skeleton-box"></div>
+                        <div class="skeleton skeleton-box"></div>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+}
+showProductPageLoader();
+
 ////POPUP TOGGLE
 const windowContainer = document.getElementById('js-window-container');
 document.addEventListener('click', element => {
@@ -40,7 +61,6 @@ function showInfoWindowLoader(){
 
 
 ////PRODUCT GRID
-const productsPage = document.getElementById('js-all-products');
 async function FetchAndDisplayGridItems(){
     try{
         const snap = await getDocs(collection(db, 'products'));

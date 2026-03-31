@@ -1,7 +1,7 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import {collection, deleteDoc, setDoc, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 import { db, auth, siginPopup } from "../auth.js";
-import { signUpSection, contactUsSection, imageSection } from "../Home.js";
+// import { signUpSection, contactUsSection, imageSection } from "../Home.js";
 import { trackWishlistAction } from "./trackWishlist.js";
 import { showErrorPopup, showToasttip } from "../general.js";
 
@@ -30,7 +30,7 @@ export async function postWishlistItemID(productId, sectionId){
         const wishlistRef = doc(db, 'wishlist', uid, 'products', productId);
         await setDoc(wishlistRef, {added: true});
 
-        showToasttip('Added to Wishlist', 'js-open-wishlist');
+        showToasttip({title:'Added to Wishlist', classList:'js-open-wishlist', button: true});
         await trackWishlistAction(uid, productId, sectionId, 'added');
 
         const wishlistSnap = await getDocs(collection(db, 'wishlist', uid, 'products'));

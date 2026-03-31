@@ -213,9 +213,9 @@
                 /* display: none; */
                 height: auto;
                 padding: 5px 15px;
+                color: var(--background-fourth);
                 font-family: var(--text-regular1);
                 font-size: var(--font-size);
-                color: var(--text-color-main);
                 text-wrap: nowrap;
                 border-radius: 7px;
                 box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.29);
@@ -226,7 +226,6 @@
                 display: none;
                 align-items: center;
                 justify-content: center;
-                color: var(--background-third);
             }
 
 

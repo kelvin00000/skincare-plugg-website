@@ -15,13 +15,13 @@ export function showErrorPopup(errorMsg){
     });
 }
 
-export function showToasttip(title, classList){
+export function showToasttip({title, classList, button=false}){
     const toastContainer = document.createElement('div');
     toastContainer.className = 'toasttips';
     toastContainer.innerHTML = `
         <div class="toasttip user-toasttip">
             <p>${title}</p> 
-            <button class="${classList}">View</button>
+            ${button?`<button class="${classList}">View</button>`:``}
         </div>
     `;
     

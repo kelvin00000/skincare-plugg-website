@@ -142,7 +142,14 @@ export default async function displayProductInfoWindow(sectionId, productId){
 document.addEventListener('click', e=>{
     if(e.target.classList.contains("js-ask-about-product")){
         const productName = e.target.dataset.productName;
-        const msg = `Hello, please I have a question about your ${productName}`;
+
+        const hourOfDay = new Date().getUTCHours();
+        let greeting='';
+        if(hourOfDay<11) greeting='Morning'
+        else if(hourOfDay>11&&hourOfDay<17) greeting='Afternoon'
+        else greeting='Evening';
+
+        const msg = `Hello Good ${greeting}, I would like to make an enquiry about your ${productName} product, `;
         window.open(`https://wa.me/+233505869086?text=${encodeURIComponent(msg)}`, '_blank');
     }
 })
