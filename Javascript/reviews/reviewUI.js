@@ -1,3 +1,4 @@
+import { showInputError } from "../authUI.js";
 import { publishReview } from "./reviews.js";
 
 
@@ -8,7 +9,7 @@ document.addEventListener('click', async element => {
         document.getElementById('user-review-message').value='';
         
         if(reviewMessageContent===''){
-            // SHOW FILL-FIELED/ERROR POPUP
+            showInputError('user-review-message')
             return;
         }
 

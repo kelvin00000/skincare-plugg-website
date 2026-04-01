@@ -213,7 +213,7 @@
 
 /* SKELETON LAODING SCREEN */
 .windows-container{
-    .skeleton-loading-screen, .wishlist-skeleton-loading-screen{
+    .skeleton-loading-screen, .wishlist-skeleton-loading-screen, .sign-up-window-skeleton-loader{
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -235,6 +235,11 @@
             height: 300px;
             width: 100%;
         }
+        .skeleton-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
         .skeleton-title {
             height: 60px;
             width: 60%;
@@ -251,6 +256,20 @@
     }
     .wishlist-skeleton-loading-screen{
         flex-direction: column;
+    }
+    .sign-up-window-skeleton-loader{
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        height: 100%;
+        .skeleton{
+            gap: 10px;
+            max-width: 330px;
+        }
+        .skeleton-text{
+            margin-bottom: 5px;
+            height: 60px;
+        }
     }
 }
 .review-cards-container{

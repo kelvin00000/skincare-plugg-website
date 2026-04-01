@@ -25,7 +25,7 @@ main{
     background: var(--background-color-main);
 
     .hero{
-        .desktop-hero{
+        .desktop-hero, .mobile-hero{
             width: 100vw;
             height: 100vh;
             background-image: url('../../Images/hero-desktop.webp');
@@ -44,7 +44,7 @@ main{
                 font-family: var(--text-bold);
                 font-size: 5rem;
                 line-height: .9;
-                color: var(--text-color-third);
+                color: var(--background-third);
 
                 opacity: 0;
                 transform: translateY(30px);
@@ -122,45 +122,20 @@ main{
             .mobile-hero{
                 display: flex;
                 flex-direction: column;
-                width: 100vw;
-                height: 100vh;
                 background-image: url('../../Images/hero-mobile.jpg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                overflow: hidden;
-                transition: all 1.5s ease-in-out;
-
-                transform: scale(1.2);
-                animation: scaleDown 1.5s ease forwards;
 
                 .hero-text{
                     width: 40%;
                     margin-top: 30%;
                     margin-left: 1.5%;
-                    font-family: var(--text-bold);
                     font-size: 3.6rem;
                     line-height: 1;
-                    color: var(--text-color-third);
-
-                    opacity: 0;
-                    transform: translateY(30px);
-                    animation: fadeInUp 1s ease forwards;
-                    animation-delay: 0.5s;
                 }
 
                 .company-name{
                     margin-top: 90%;
                     margin-left: 1.5%;
-                    font-family: var(--text-bold);
                     font-size: 2.5rem;
-                    color: white;
-                    white-space: nowrap;
-
-                    opacity: 0;
-                    transform: translateX(30px);
-                    animation: fadeInUp 1s ease forwards;
-                    animation-delay: 0.5s;
                 }
             }
         }

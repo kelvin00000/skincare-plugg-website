@@ -23,7 +23,12 @@ export async function trackProductView(userId, sectionId, productId){
         if(userId && userId!== 'anonymous'){
             const userActivityRef = doc(db, 'analytics', 'userActivity', 'users', userId);
             batch.set(userActivityRef, {
-                [`viewedProducts.${productId}`]: increment(1),
+                viewedProducts: {
+                    [productId]: {
+                        count: increment(1), 
+                        sectionId
+                    }
+                },
                 lastActive: Date.now()
             }, { merge: true });
         }

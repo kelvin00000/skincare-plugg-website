@@ -1,9 +1,11 @@
-export function showErrorPopup(errorMsg){
+export function showErrorPopup({errorMsg, classList}){
     const popup = document.createElement('div');
     popup.className = 'popup error-popup';
     popup.innerHTML = `
         <span class="message">${errorMsg}</span>
-        <button class="js-close-popup">Got it</button>
+        <button class="${classList?`${classList} js-close-popup`:`js-close-popup`}">
+            <span class="${classList?`${classList} js-close-popup`:`js-close-popup`}">Got it</span>
+        </button>
     `;
     
     document.body.appendChild(popup);

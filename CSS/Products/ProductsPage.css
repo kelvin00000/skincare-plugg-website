@@ -24,6 +24,7 @@ body{
 }
 
 main{
+    background: var(--background-third);
     .showcase-offset{
         display: flex;
         align-items: center;

@@ -138,13 +138,6 @@ html, body{
         height: 100%;
         border-radius: 30px;
 
-        button{
-            color: var(--background-fourth);
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
         .wishlist-container{
             position: relative;
             font-family: var(--text-regular1);
@@ -179,9 +172,10 @@ html, body{
             }
         }
 
-        .sign-up-btn{
-            /* display: none; */
+        .open-sign-up-window-btn{
+            display: none;
             padding: 5px 15px;
+            color: var(--background-fourth);
             font-family: var(--text-regular1);
             font-size: var(--font-size);
             text-wrap: nowrap;
@@ -195,10 +189,16 @@ html, body{
             align-items: center;
             justify-content: center;
             gap: 3px;
+            color: var(--background-third);
+            background: none;
+            box-shadow: none;
+        }
 
-            stroke{
-                fill: var(--background-third);
-            }
+        button{
+            color: var(--background-third);
+            background: none;
+            border: none;
+            cursor: pointer;
         }
     }
 

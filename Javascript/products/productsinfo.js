@@ -1,10 +1,9 @@
 import { getDoc, doc} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { db, auth } from "../auth.js";
+import { db, user } from "../auth.js";
 import { fetchReviewData } from "../reviews/reviews.js";
 import { trackProductView } from "./trackproducts.js";
 import { showErrorPopup } from "../general.js";
 
-const userId = auth.currentUser?.uid;
 
 //////////////////////////////////////////PRODUCT INFO  WWINDOW//////////////////////////////////////////
 const windowsContainer = document.getElementById("js-window-container");
@@ -109,7 +108,7 @@ export default async function displayProductInfoWindow(sectionId, productId){
                     Would you like to leave a review?
                 </div>
                 <div class="review-actions">
-                    <input type="text" id="user-review-message">
+                    <input type="text" class="user-review-message" id="user-review-message">
                     <button class="submit-review js-submit-review" data-section-id="${sectionId}" data-product-id="${product.id}">
                         <span class="js-submit-review" data-section-id="${sectionId}" data-product-id="${product.id}">Post</span>
                     </button>
@@ -131,6 +130,8 @@ export default async function displayProductInfoWindow(sectionId, productId){
         // FETCH REVIEW DATA PLACED HERE BECAUSE OF UI DEPENDENCIES - 
         // REVIEW MESSAGES CONTAINER
         await fetchReviewData(productId);
+
+        const userId = user.uid;
         await trackProductView(userId, sectionId, productId);
     }
     catch(err){

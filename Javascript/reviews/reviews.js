@@ -1,6 +1,7 @@
 import {collection, setDoc, addDoc, deleteDoc, runTransaction, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { db, auth, siginPopup } from "../auth.js";
-// import { signUpSection, contactUsSection, imageSection } from "../Home.js";
+import { db, auth, user } from "../auth.js";
+import { showErrorPopup } from "../general.js";
+
 
 function showReviewSectionLoader(){
     const reviewsContainer = document.querySelector(".review-cards-container");
@@ -19,19 +20,8 @@ function showReviewSectionLoader(){
 }
 /////////////////////////REVIEW PUBLISH FUNCTION/////////////////////////
 export async function publishReview(sectionId, productId, message){
-    const user = auth.currentUser;
-
     if (!user) {
-        if(window.innerWidth < 1001){
-            contactUsSection.classList.add('hide-left');
-            signUpSection.classList.remove('hide-right');
-        }
-        imageSection.classList.remove('slide-right');
-        imageSection.classList.add('slide-left');
-
-        siginPopup.classList.remove('signin-hide');
-        siginPopup.classList.add('signin-show');
-        alert("Sign up to leave a review");
+        showErrorPopup({errorMsg:'Sign Up before you can perform this action', classList:'open-sign-up-window-btn'});
         return;
     }
 
@@ -148,6 +138,11 @@ function renderReviewUI(productId, reviewId, review){
 document.addEventListener("click", element => {
     // LIKE BUTTON
     if (element.target.classList.contains("liked-review")) {
+        if (!user) {
+            showErrorPopup({errorMsg:'Sign Up before you can perform this action', classList:'open-sign-up-window-btn'});
+            return;
+        }
+
         const reviewId = element.target.dataset.reviewId;
         const productId = element.target.dataset.productId;
         reactToReview(productId, reviewId);
@@ -165,7 +160,6 @@ document.addEventListener("click", element => {
 // REACTION FUNCTION
 let isReacting = false;
 async function reactToReview(productId, reviewId) {
-    const user = auth.currentUser;
     if (!user || isReacting) return;
     
     isReacting = true;

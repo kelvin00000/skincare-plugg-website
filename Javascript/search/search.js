@@ -1,8 +1,7 @@
 import {collection, getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { db, auth } from "../auth.js";
+import { db, user } from "../auth.js";
 import { trackSearch } from "./tracksearch.js";
 
-const userId = auth.currentUser?.uid;
 
 function showSearchPageUI(){
     document.getElementById("all-products").innerHTML=
@@ -165,6 +164,7 @@ async function runSearch(){
     document.getElementById("search-query").innerHTML=query;
     renderProducts(results);
     
+    const userId = user.uid
     await trackSearch(userId, query, results)
 }
 

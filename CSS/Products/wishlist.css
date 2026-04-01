@@ -44,7 +44,7 @@ main{
                 cursor: pointer;
                 transition: all .4s ease-in-out;
                 svg{
-                    fill:  var(--background-color-main);
+                    fill:  var(--background-third);
                     transform: rotate(45deg);
                 }
                 &:hover{

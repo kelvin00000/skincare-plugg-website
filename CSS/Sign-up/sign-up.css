@@ -14,424 +14,258 @@
     --text-stylish: Leckerli One;
 }
 
-.signin-popup-container{
-    position: relative;
-    .signin-popup{
-        position: relative;
-        position: fixed;
-        display: flex;
-        transform: translate(35%, 20%);
-        width: 60%;
-        height: 70%;
-        font-family: var(--text-regular1);
-        overflow: hidden;
-        border: none;
-        border-radius: 15px;
-        background: rgba(255, 255, 255, 0.75); 
-        backdrop-filter: blur(10px); 
-        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.35), 
-                    -0px -.1px 3px rgba(0, 0, 0, 0.15); 
-        z-index: 140;
-        visibility: hidden;
-        transition: all .3s ease-in-out;
-        /*  */
 
-        .contactus-section{
+main{
+    .windows-container{
+        .sign-up-window{
+            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 50%;
+            width: 100%;
             height: 100%;
-            padding: 3% 0%;
-            font-size: 17px;
-            border-bottom-left-radius: inherit;
-            border-top-left-radius: inherit;
-            transition: all .4s ease-in-out;
+            color: var(--background-third);
+            font-family: var(--text-regular1);
 
-            .title{
-                text-align: center;
-                font-size: 18px;
-                span{
-                    font-family: var(--text-stylish1);
-                    color: var(--accent-color);
-                }
-            }
-
-            .contactus-section-padding{
-                display: flex;
-                flex-direction: column;
-                gap: 7px;
-                margin-top: 7%;
-                margin-bottom: 7%;
-                padding: 5% 6%;
-                border-radius: 10px;
-                border: .3px solid rgba(255, 255, 255, 9);
-
-                a{
-                    display: flex;
-                    width: 96%;
-                    padding: 5px 10px;
-                    text-decoration: none;
-                    color: var(--text-color-main);
-                    background: rgba(255, 255, 255, 0.4);
-                    border-radius: 10px;
-                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.20);
-                    transition: all .4s ease-in-out;
-                    cursor: pointer;
-                    svg{
-                        margin-right: 10px;
-                    }
-                }
-                p{
-                    display: flex;
-                    width: 96%;
-                    padding: 5px 10px;
-                    padding-right: 10px;
-                    background: rgba(255, 255, 255, 0.4);
-                    border-radius: 10px;
-                    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.20);
-                    transition: all .4s ease-in-out;
-                    cursor: pointer;
-                    svg{
-                        margin-right: 4px;
-                        flex-shrink: 0;
-                    }
-                }
-                a:hover, p:hover{
-                    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.35);
-                    translate: -5%;
-                }
-            }
-
-            button{
+            .close-button{
+                position: absolute;
+                top: 2%;
+                right: 1%;
                 display: flex;
                 align-items: center;
-                margin-bottom: 12%;
-                padding: 4px 15px;
-                font-family: var(--text-regular1);
-                background: inherit;
-                border-radius: 20px;
-                border: 1px solid var(--text-color-main);
+                justify-content: center;
+                padding: 10px 10px;
+                background: rgba(87, 94, 85, .4);
+                backdrop-filter: blur(10px);
+                color: var(--background-third);
+                box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+                border: 1px solid rgba(255, 255, 255, .15);
+                border-radius: 100%;
                 cursor: pointer;
+                transition: all .4s ease-in-out;
                 svg{
-                    margin-left: 3px;
-                    fill: var(--text-color-main);
+                    fill:  var(--background-third);
+                    transform: rotate(45deg);
+                }
+                &:hover{
+                    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.35), 
+                    -0px -.1px 2px rgba(0, 0, 0, 0.15);
                 }
             }
-        }
 
-        .sigup-section{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 50%;
-            height: 100%;
-            border-bottom-right-radius: inherit;
-            border-top-right-radius: inherit;
-            transition: all .4s ease-in-out;
-
-            .welcome-message{
-                display: none
-            }
-
-            .form{
-                margin-bottom: 3%;
-                padding: 3% 7%;
-                border-radius: 15px;
-                border: .3px solid rgba(255, 255, 255, 9);
-                form{
-                    font-size: 15px;
-
-                    label{
-                        font-size: 13px;
-                    }
-
-                    input{
-                        height: 30px;
-                        width: 200px;
-                        padding-left: 10px;
-                        padding-right: 10px;
-                        border-radius: 7px;
-                        border: none;
-                        background: rgba(255, 255, 255, 0.05); 
-                        backdrop-filter: blur(10px); 
-                        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
-                    }
-                    #email{
-                        margin-bottom: 10%;
-                    }
-                    input:focus{
-                        border: none;
-                        outline: none;
-                        background: rgba(255, 255, 255, 0.05); 
-                        backdrop-filter: blur(10px); 
-                        -webkit-backdrop-filter: blur(10px);
-                        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.4);
-                    }
-                    input::placeholder{
-                        opacity: 0;
-                        transition: opacity 0.3s;
-                    }
-                    input:-webkit-autofill {
-                        -webkit-text-fill-color: #000 !important;
-                        transition: background-color 5000s ease-in-out 0s;
-                    }
-
-                }
-
-                .options{
+            .content{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                .form-container{
                     display: flex;
                     flex-direction: column;
-                    margin-top: 15%;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 10%;
+                    height: 100%;
 
-                    .google-signin, .send-details{
-                        .loader {
-                            display: none;
-                            width: 15px;
-                            height: 15px;
-                            border: 4px solid #ddd;
-                            border-top: 4px solid #6200ee;
-                            border-radius: 500%;
-                            animation: spin 1s linear infinite;
+                    .message{
+                        font-size: 1.3rem;
+                        font-family: var(--text-bold);
+                        text-align: center;
+                        p{
+                            &:nth-child(1){
+                                font-size: 2rem;
+                                margin-bottom: 5px;
+                            }
                         }
                     }
 
-                    .google-signin{
+                    .form{
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
-                        justify-content: center;
-                        margin-top: 4px;
-                        height: 39px;
-                        padding: 0px 15px;
-                        background: inherit;
-                        border-radius: 20px;
-                        border: .3px solid rgba(255, 255, 255, 9);
-                        cursor: pointer;
-                        svg{
-                            margin-right: 5px;
-                        }
-                    }
-
-                    .send-details{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin-bottom: auto;
-                        height: 40px;
-                        padding: 0px 15px;
-                        color: var(--background-color-main);
-                        background: var(--text-color-main);
-                        border: none;
-                        border-radius: 20px;
-                        cursor: pointer;
-                    }
-                }
-            }
-
-            .contactus-toggle{
-                display: flex;
-                align-items: center;
-                margin-top: 10%;
-                padding: 4px 15px;
-                font-family: var(--text-regular1);
-                background: inherit;
-                border-radius: 20px;
-                border: 1px solid var(--text-color-main);
-                cursor: pointer;
-                svg{
-                    margin-right: 3px;
-                    fill: var(--text-color-main);
-                    transform: rotate(180deg);
-                }
-            }
-        }
-       
-
-        .image-section{
-            position: absolute;
-            inset: 0;
-            height: 100%;
-            width: 50%;
-            border-radius: 15px;
-            background: #ecc991;
-            transition: all .4s ease-in-out;
-
-            img{
-                position: absolute;
-                width: 60%;
-                right: 0%;
-                bottom: 0;
-            }
-
-            p{
-                padding: 6%;
-                
-                .tip{
-                    font-size: 26px;
-                    font-weight: bold;
-                    color: var(--background-color-main)
-                }
-                .info{
-                    color: var(--text-color-secondary);
-                    font-size: 14px;
-                }
-            }
-        }
-        .slide-left{
-            transform: translate(0%, 0%)
-        }
-        .slide-right{
-            transform: translate(100%, 0%)
-        }
-
-        .close-signin{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: 1%;
-            right: 1%;
-            padding: 2px 2px;
-            border: none;
-            border-radius: 100%;
-            background: rgba(255, 255, 255, 0.25); 
-            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            z-index: 130;
-            svg{
-                width: 85%;
-                fill: var(--text-color-main)
-            }
-        }
-    }
-    .signin-show{
-        transform: translate(35%, 20%);
-        visibility: visible;
-        scale: 1
-    }
-    .signin-hide{
-        transform: translate(37%, 23%);
-        visibility: hidden;
-        scale: 0.9;
-        opacity: 0;
-    }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-@media (max-width: 1000px){
-    .signin-popup-container{
-        .signin-popup{
-            transform: translate(75%, 10%);
-            width: 40%;
-            height: 85%;
-            background: rgba(255, 255, 255, 0.45); 
-            .contactus-section, .sigup-section{
-                position: absolute;
-                inset: 0;
-                width: 100%;
-                padding: 10% 0%;
-                z-index: 125;
-            }
-            .contactus-section{
-                font-size: 19px;
-                .contactus-section-padding{
-                    height: fit-content;
-                    width: 75%;
-                    margin-bottom: 15%;
-                    gap: 10px
-                }
-            }
-            .sigup-section{
-                .welcome-message{
-                    display: block;
-                    padding: 0 4%;
-                    text-align: center;
-                    font-size: 18px;
-                    span{
-                        font-size: 20px;
-                        color: var(--accent-color);
-                        font-family: var(--text-stylish1);
-                    }
-                }
-                .form{
-                    margin-top: 5%;
-                    width: 70%;
-                    form{
+                    
                         input{
-                            width: 94%;
-                            height: 40px;
-                        }
-                    }
-                    .options{
-                        .send-details{
-                            padding: 12px 15px;
-                        }
-                        .google-signin{
-                            padding: 9px 15px;
-                        }
-                    }
-                }
-                .contactus-toggle{
-                    margin-bottom: 22%;
-                }
-            }
-            .image-section{
-                display: none
-            }
-            .close-signin{
-                padding: 5px 5px;
-                svg{
-                    width: 90%;
-                }
-            }
+                            padding: 0 15px;
+                            min-height: 50px;
+                            width: 100%;
+                            color: var(--background-third);
+                            font-family: var(--text-regular1);
+                            font-size: 16px;
+                            text-align: center;
+                            background: rgba(0, 0, 0, 0.2);
+                            border-radius: 15px;
+                            border: none;
 
-            .hide-left{
-                left: -100%;
-                z-index: 120;
+                            &::placeholder{
+                                text-align: center;
+                                color: var(--background-third);
+                            }
+                            &:focus{
+                                border: .09px solid rgba(255, 255, 255, 1);
+                                outline: none; 
+                                
+                            }
+                            &:-webkit-autofill {
+                                -webkit-text-fill-color: var(--background-third) !important;
+                                transition: background-color 5000s ease-in-out 0s;
+                            }
+                        }
+                        div{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+                            margin-top: 10px;
+                            height: 20px;
+                        }
+                    }
+                    .sign-up-btn{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        width: 200px;
+                        height: 50px;
+                        color: var(--background-fourth);
+                        white-space: nowrap;
+                        font-size: .8rem;
+                        background: var(--background-third); 
+                        backdrop-filter: blur(10px); 
+                        -webkit-backdrop-filter: blur(10px);
+                        border-radius: 20px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: var(--box-shadow);
+                        transition: all .4s ease-in-out;
+                        cursor: pointer;
+
+                        &:hover{
+                            color: var(--background-third);
+                            background: rgba(255, 255, 255, 0.35);
+                            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                            -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+                        }
+                    }
+                }
+
+                .account-management{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5%;
+                    height: 100%;
+
+                    p{
+                        font-size: 2.5rem;
+                        font-family: var(--text-bold);
+                        text-align: center;
+                    }
+
+                    .profile{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5%;
+                        img{
+                            width: 120px;
+                            height: 120px;
+                            object-fit: cover;
+                            border-radius: 50%;
+                        }
+                        span{
+                            font-size: 1.3rem;
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .activity{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 15px;
+                        height: 200px;
+                        width: 330px;
+                        background: rgba(87, 94, 85, .2);
+                        border-radius: 18px;
+                        backdrop-filter: blur(10px);
+                        .user-product-stats{
+                            display: flex;
+                            gap: 10px;
+                            .stat{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                white-space: nowrap;
+                                font-size: .7rem;
+                                span{
+                                    font-size: 2rem;
+                                    font-family: var(--text-bold);
+                                }
+                            }
+                        }
+                        .product-interest-info{
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+                            span{
+                                &:nth-child(1){
+                                    font-size: .9rem;
+                                }
+                                &:nth-child(2){
+                                    font-size: 1.2rem;
+                                    font-family: var(--text-bold);
+                                }
+                            }
+                        }
+                        .see-recommendations-btn{
+                            height: 30px;
+                        }
+                    }
+
+                    button{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 5px;
+                        width: 200px;
+                        height: 50px;
+                        color: var(--background-fourth);
+                        white-space: nowrap;
+                        font-size: .8rem;
+                        background: var(--background-third); 
+                        backdrop-filter: blur(10px); 
+                        -webkit-backdrop-filter: blur(10px);
+                        border-radius: 20px;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: var(--box-shadow);
+                        transition: all .4s ease-in-out;
+                        cursor: pointer;
+                        &:hover{
+                            color: var(--background-third);
+                            background: rgba(255, 255, 255, 0.35);
+                            box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                            -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+                        }
+                    }
+                }
             }
-            .hide-right{
-                transform: translateX(100%);
-                z-index: 120;
+        }
+    }
+}
+
+@media (max-width: 850px){
+    main{
+        .windows-container{
+            .sign-up-window{
+                .close-button{
+                    top: 1%;
+                    right: 2%;
+                    padding: 15px 15px;
+                }
             }
-        }
-    }
-}
-@media (max-width: 950px){
-    .signin-popup-container{
-        .signin-popup{
-            transform: translate(50%, 10%);
-            width: 50%;
-        }
-    }
-}
-@media (max-width: 800px){
-    .signin-popup-container{
-        .signin-popup{
-            transform: translate(33%, 10%);
-            width: 60%;
-        }
-    }
-}
-@media (max-width: 600px){
-    .signin-popup-container{
-        .signin-popup{
-            transform: translate(27%, 10%);
-            width: 65%;
-        }
-    }
-}
-@media (max-width: 550px){
-    .signin-popup-container{
-        .signin-popup{
-            transform: translate(1%, 1%);
-            width: 98%;
-            height: 98%
         }
     }
 }

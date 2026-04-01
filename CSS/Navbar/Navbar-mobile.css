@@ -209,8 +209,8 @@
                 }
             }
 
-            .sign-up-btn{
-                /* display: none; */
+            .open-sign-up-window-btn{
+                display: none;
                 height: auto;
                 padding: 5px 15px;
                 color: var(--background-fourth);
@@ -226,6 +226,9 @@
                 display: none;
                 align-items: center;
                 justify-content: center;
+                color: var(--background-third);
+                background: none;
+                box-shadow: none;
             }
 
 

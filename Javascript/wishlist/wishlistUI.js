@@ -1,4 +1,8 @@
+import { user } from "../auth.js";
+import { showErrorPopup } from "../general.js";
 import { removeWishlistItemID, postWishlistItemID, fetchWishlistItemData } from "./wishlist.js";
+
+// const user = auth.currentUser;
 
 
 export function showWishlistLoader(){
@@ -56,6 +60,11 @@ const openWishlistBtn = document.querySelectorAll(".js-open-wishlist");
 const wishlistRedirectlink = document.querySelectorAll(".js-close-wishlist-popup");
 
 async function openWishlist() {
+    if (!user) {
+        showErrorPopup({errorMsg:'Sign Up before you can perform this action', classList:'open-sign-up-window-btn'});
+        return;
+    }
+
     windowContainer.classList.remove('close');
     windowContainer.classList.add('show');
     document.body.style.overflow = 'hidden';
@@ -64,11 +73,6 @@ async function openWishlist() {
     showWishlistLoader();
     await fetchWishlistItemData()
 }
-openWishlistBtn.forEach(button => {
-    button.addEventListener('click', async ()=>{
-        await openWishlist();
-    })
-})
 document.addEventListener('click', async element => {
     if (element.target.classList.contains('js-open-wishlist')) {
         await openWishlist();
@@ -108,6 +112,11 @@ document.addEventListener('click', element => {
 //// ADD TO WISHLIST
 document.addEventListener('click', element => {
     if (element.target.classList.contains('js-add-to-wishlist-btn')) {
+        if (!user) {
+            showErrorPopup({errorMsg:'Sign Up before you can perform this action', classList:'open-sign-up-window-btn'});
+            return;
+        }
+
         const productId = element.target.dataset.productId;
         const sectionId = element.target.dataset.sectionId;
 

@@ -1,7 +1,6 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-auth.js";
 import {collection, deleteDoc, setDoc, doc ,getDocs} from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-import { db, auth, siginPopup } from "../auth.js";
-// import { signUpSection, contactUsSection, imageSection } from "../Home.js";
+import { db, auth } from "../auth.js";
 import { trackWishlistAction } from "./trackWishlist.js";
 import { showErrorPopup, showToasttip } from "../general.js";
 
@@ -12,19 +11,6 @@ const wishlistCounterContainer = document.querySelectorAll(".wishlist-counter-co
 export async function postWishlistItemID(productId, sectionId){
     const user = auth.currentUser;
     const uid = user.uid;
-
-    if(!user){
-        if(window.innerWidth < 1001){
-            contactUsSection.classList.add('hide-left');
-            signUpSection.classList.remove('hide-right');
-        }
-        imageSection.classList.remove('slide-right');
-        imageSection.classList.add('slide-left');
-
-        siginPopup.classList.remove('signin-hide');
-        siginPopup.classList.add('signin-show');
-        return;
-    }
 
     try{
         const wishlistRef = doc(db, 'wishlist', uid, 'products', productId);
@@ -50,7 +36,6 @@ export async function fetchWishlistItemData(){
 
     const user = auth.currentUser;
     const uid = user.uid;
-    if(!user) return[];
 
     try{
         const productIdSnap = await getDocs(collection(db, 'wishlist', uid, 'products'));
@@ -172,6 +157,5 @@ onAuthStateChanged(auth, async user=>{
         wishlistCounterContainer.forEach(container=>{
             container.style.display = 'none';
         })
-        wishlistNoUserScreen.style.display = 'flex';
     }
 })
