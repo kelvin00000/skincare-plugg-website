@@ -265,16 +265,22 @@ z
 
 const failedQueriesDash = document.getElementById("js-failed-queries-dash");
 async function loadFailedQueries(){
+    let displayQueries = [];
     try{
         const snap = await getDocs(collection(db, 'analytics', 'failedSearchStats', 'logs'));
 
+        const randomItems = snap.docs
+            .sort(() => Math.random() - 0.5)
+            .slice(0, 40)
+            .map(doc => ({ id: doc.id, ...doc.data() }));
+
         failedQueriesDash.innerHTML='';
-        snap.forEach(async snap=>{
+        randomItems.forEach(item => {
             failedQueriesDash.innerHTML+=
             `
-                <div class="query">${snap.data().query}</div>
+                <div class="query">${item.query}</div>
             ` 
-        })
+        });
     }
     catch(err){
         console.error(err);
