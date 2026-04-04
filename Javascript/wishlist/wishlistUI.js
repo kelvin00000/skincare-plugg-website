@@ -2,8 +2,6 @@ import { user } from "../auth.js";
 import { showErrorPopup } from "../general.js";
 import { removeWishlistItemID, postWishlistItemID, fetchWishlistItemData } from "./wishlist.js";
 
-// const user = auth.currentUser;
-
 
 export function showWishlistLoader(){
     document.getElementById("js-wishlist-results-screen").innerHTML=
@@ -29,9 +27,7 @@ function showWishlistUI(){
             </div>
 
             <div class="right" id="js-wishlist-right">
-                <div class="wishlist-results-screen" id="js-wishlist-results-screen">
-                    
-                </div>
+                <div class="wishlist-results-screen" id="js-wishlist-results-screen"></div>
 
                 <div class="wishlist-no-user-screen" id="js-wishlist-no-user-screen"> 
                     <p>You need to sign up to use the wishlist</p>
@@ -56,8 +52,6 @@ function showWishlistUI(){
 
 //// WISHLIST WINDOW
 const windowContainer = document.getElementById('js-window-container');
-const openWishlistBtn = document.querySelectorAll(".js-open-wishlist");
-const wishlistRedirectlink = document.querySelectorAll(".js-close-wishlist-popup");
 
 async function openWishlist() {
     if (!user) {
@@ -78,17 +72,7 @@ document.addEventListener('click', async element => {
         await openWishlist();
     }
 });
-wishlistRedirectlink.forEach(link=>{
-    link.addEventListener('click', ()=>{
-        wishlistPopup.classList.remove('wishlist-show');
-        wishlistPopup.classList.add('wishlist-hide');
 
-        overlay.classList.remove('overlay-show');
-        overlay.classList.add('overlay-hide')
-
-        document.body.style.overflow = "auto";
-    })
-})
 // RETURN TO WISHLIST FROM INFO WINDOW CLASSLIST SET
 document.addEventListener('click', element => {
     if (element.target.classList.contains('js-wishlist-return-set-btn')) {

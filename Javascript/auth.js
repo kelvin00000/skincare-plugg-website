@@ -64,9 +64,15 @@ export async function removeAccount(){
     const uid = user.uid;
     
     try {
-        await deleteDoc(doc(db, 'users', uid));
-        await deleteDoc(doc(db, 'wishlist', uid));
-        // DELETE CART TOO LATER
+        const provider = new GoogleAuthProvider();
+        await reauthenticateWithPopup(user, provider);
+
+        await Promise.all([
+            deleteDoc(doc(db, 'users', uid)),
+            deleteDoc(doc(db, 'wishlist', uid)),
+            deleteDoc(doc(db, 'analytics', 'userActivity', 'users', uid))
+            // TODO DELETE CART TOO LATER
+        ]);
         
         await deleteUser(user);
         showSignUpWindowUI();

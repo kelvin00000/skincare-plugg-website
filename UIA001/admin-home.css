@@ -203,6 +203,12 @@ html, body{
                     border-bottom: 3px solid #665600;
                 }
             }
+            &:nth-child(6){
+                .ribbon{
+                    border-left: 3px solid #D9BE33;
+                    border-bottom: 3px solid #D9BE33;
+                }
+            }
         }
     }
 }

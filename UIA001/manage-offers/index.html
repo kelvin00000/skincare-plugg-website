@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Offers</title>
+
+    <link rel="stylesheet" href="./manage-offers.css">
+    <link rel="stylesheet" href="../admin-home.css">
+    <link rel="stylesheet" href="../../CSS/general.css">
+</head>
+<body>
+    <div class="admin-cms-header" id="js-admin-cms-header">
+        <div class="top">
+            <div class="logo-container">
+                <img src="../../Images/logo.webp" alt="">
+            </div>
+
+            <div class="return-link-container">
+                <a href="../index.html">
+                    Back
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-container" id="js-header-container">
+            <div class="cms-header">
+                Manage Offers
+            </div>
+        </div>
+    </div>
+
+    <div class="add-new-package-tab" id="js-add-new-package-tab">Add New Package</div>
+    <section class="all-packages-container" id="js-all-packages-container"></section>
+
+    <div class="package-details-screen" id="js-package-details-screen">
+        <button class="close-btn" id="js-close-package-details-screen-btn">
+            Close
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#121212"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+        </button>
+
+        <div class="top">
+            <div class="title-container">
+                <label for="package-name-input">Package Name</label><br>
+                <input type="text" name="package-name-input" id="package-name-value">
+            </div>
+
+            <div class="image-container">
+                <label for="image-input">Section Image</label><br>
+                <img class="image-preview" id="image-preview"></img>
+                <input type="file" name="image-input" id="package-image-value">
+            </div>
+
+            <div class="description-container">
+                <label for="description-input">Product Prescription</label><br>
+                <textarea name="description-input" id="package-description-value"></textarea>
+            </div>
+        </div>
+
+        <div class="product-selection-container">
+            <h3>Search Products To Add</h3>
+            <input type="text" id="js-search-products-input" placeholder="Search">
+
+            <div class="product-preview-container">
+                <span>The following products were found</span>
+                <div class="found-product-preview" id="js-found-product-preview"></div>
+            </div>
+            <button class="select-product" id="js-select-product">Select</button>
+
+            <div class="selected-prodcts-row" id="js-selected-prodcts-row"></div>
+        </div>
+
+        <button class="complete-btn" id="js-update-package">Update</button>
+        <button class="complete-btn" id="js-add-package">Complete</button>
+    </div>
+
+
+    <div class="toasttips">
+        <div class="fail-toast toasttip" id="js-fail-toast">
+            <p>Unsuccessful <span>Try Again</span></p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3"><path d="M440-400v-360h80v360h-80Zm0 200v-80h80v80h-80Z"/></svg>
+        </div>
+        <div class="empty-field-toast toasttip" id="js-empty-field-toast">
+            <p>Please Fill Out All fields</p> 
+            <svg xmlns="http://www.w3.org/2000/svg" height="19px" viewBox="0 -960 960 960" width="19px" fill="#e3e3e3"><path d="M440-400v-360h80v360h-80Zm0 200v-80h80v80h-80Z"/></svg>
+        </div>
+    </div>
+    <div class="confirm-delete-popup-container" id="js-confirm-delete-popup-container"></div>
+
+    <div class="loading-screen" id="js-loading-screen"></div>
+    <div class="loader" id="js-loader"></div>
+    <div class="black-screen" id="js-black-screen"></div>
+
+    <script type="module" src="./manage-offers.js"></script>
+</body>
+</html>

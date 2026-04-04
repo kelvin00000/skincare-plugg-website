@@ -213,10 +213,10 @@
 
 /* SKELETON LAODING SCREEN */
 .windows-container{
-    .skeleton-loading-screen, .wishlist-skeleton-loading-screen, .sign-up-window-skeleton-loader{
+    .skeleton-loading-screen, .wishlist-skeleton-loading-screen, .package-skeleton-loading-screen, .sign-up-window-skeleton-loader{
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 30px;
         padding: 20px 20px;
 
         .skeleton {
@@ -269,6 +269,22 @@
         .skeleton-text{
             margin-bottom: 5px;
             height: 60px;
+        }
+    }
+    .package-skeleton-loading-screen{
+        .header{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .bottom{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+            .skeleton-box{
+                width: 330px;
+                height: 190px;
+            }
         }
     }
 }
@@ -362,6 +378,9 @@
                 width: 330px;
                 margin-bottom: 5px;
             }
+        }
+        .package-skeleton-loading-screen{
+            align-items: center;
         }
     }
     .all-products{

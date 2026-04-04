@@ -75,7 +75,7 @@ document.getElementById("js-admin-signin-btn").addEventListener("click",async ()
 
 
 ////SIGN OUT
-signOut(auth);
+//signOut(auth);
 
 onAuthStateChanged(auth, async (user) => {
     if (user && user.email === 'ua-xys-admin-001@gmail.com')  {

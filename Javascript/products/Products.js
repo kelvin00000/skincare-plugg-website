@@ -4,6 +4,23 @@ import  displayProductInfoWindow  from "./productsinfo.js";
 import { showErrorPopup } from "../general.js";
 
 
+//// BACK TO TOP LINK FUNCTION
+const backToTopButton = document.querySelector(".js-back-to-top-btn");
+
+window.addEventListener("scroll", ()=> {
+    const scrollY = window.scrollY;
+    const midway = document.body.scrollHeight / 3;
+
+    if(backToTopButton){
+        if (scrollY > midway) {
+            backToTopButton.style.display = "flex";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
+})
+
+
 const productsPage = document.getElementById('js-all-products');
 function showProductPageLoader(){
     if(productsPage){

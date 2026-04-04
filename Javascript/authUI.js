@@ -111,7 +111,7 @@ export async function showAccountManagementUI(){
                         Products Purchased
                     </div>
                     <div class="stat">
-                        <span>${userActivity?userActivity.recentSearches?.length:0}</span>
+                        <span>${userActivity?`${userActivity.recentSearches? userActivity.recentSearches.length:0}`:0}</span>
                         Products Searched
                     </div>
                 </div>

@@ -787,12 +787,12 @@ document.addEventListener('click', async element => {
             if(!sectionId) return;
 
             if(sectionId && productId){
-                if(imagePublicId) deleteImageFromCloudinary(imagePublicId);
+                if(imagePublicId) await deleteImageFromCloudinary(imagePublicId);
                 await deleteDoc(doc(db, 'products', sectionId, 'items', productId));
                 await fetchAndDisplayProducts();
             }
             else if(sectionId){
-                if(imagePublicId) deleteImageFromCloudinary(imagePublicId);
+                if(imagePublicId) await deleteImageFromCloudinary(imagePublicId);
                 await deleteDoc(doc(db, 'products', sectionId));
                 await fetchAndDisplayProductSections();
             }
