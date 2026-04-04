@@ -271,22 +271,10 @@ document.addEventListener('click',async e=>{
 })
 
 
-//// CAROUSEL SLIDER
-// if(document.querySelector(".logo-carousel")){
-//     const logoCarousel = new Swiper('.logo-carousel', {
-//         slidesPerView: 'auto',
-//         spaceBetween: 20,
-//         loop: true,
-//         loopedSlides: 10, // Duplicate this many slides for smoother loop
-//         speed: 3000, // Slow, long transition
-//         autoplay: {
-//             delay: 0,
-//             disableOnInteraction: false,
-//             pauseOnMouseEnter: true,
-//         },
-//         allowTouchMove: false
-//     });
-// }
+// CAROUSEL SLIDER
+const track = document.getElementById('sliderTrack');
+const originalContent = track.innerHTML;
+track.innerHTML = originalContent + originalContent;
 
 
 

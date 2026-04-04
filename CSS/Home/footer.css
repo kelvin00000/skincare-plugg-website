@@ -52,25 +52,31 @@ main{
                 a{
                     display: flex;
                     align-items: center;
+                    justify-content: center;
                     gap: 3px;
-                    padding: 6px 15px;
-                    width: fit-content;
+                    width: 150px;
+                    height: 50px;
                     color: var(--background-fourth);
                     text-decoration: none;
-                    font-size: 14px;
+                    font-size: .8rem;
+                    font-weight: bold;
                     background: var(--background-third);
-                    border-radius: 30px;
-                    transition: all .2s ease-in-out;
+                    border-radius: 20px;
+                    transition: all .4s ease-in-out;
                     svg{
                         width: 21px;
+                        flex-shrink: 0;
                         fill: var(--background-fourth);
-                        transition: all .2s ease-in-out;
+                        transition: all .4s ease-in-out;
                     }
-                }
-                a:hover{
-                    padding-right: 20px;
-                    svg{
-                        transform: translateX(5px);
+                    &:hover{
+                        color: var(--background-third);
+                        background: rgba(255, 255, 255, 0.35);
+                        box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15), 
+                        -0px -.1px 3px rgba(0, 0, 0, 0.15); 
+                        svg{
+                            fill: var(--background-third);
+                        }
                     }
                 }
             }

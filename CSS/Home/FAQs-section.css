@@ -20,17 +20,17 @@ main{
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 9rem;
         width: 100%;
-        height: 100vh;
+        height: fit-content;
 
         h3{
-            font-family: var(--text-regular1);
+            font-family: var(--text-bold);
             font-size: 3rem;
             text-align: center;
             text-wrap: nowrap;
             span{
-                font-family: var(--text-stylish1);
+                font-family: var(--text-stylish);
                 color: var(--accent-gold);
             }
         }
@@ -67,6 +67,7 @@ main{
                         height: 45px;
                         font-size: .99rem;
                         list-style-position: outside;
+                        transition: height 1s ease-in-out;
                         z-index: 5;
 
                         svg{
@@ -120,8 +121,6 @@ main{
 @media(max-width: 900px){
     main{
         .faqs-section{
-            height: 90vh;
-
             h3{
                 font-size: 2rem;
             }
